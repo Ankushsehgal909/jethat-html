@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Pipeline - JetHat Cyber Security</title>
+    <meta name="description" content="Explore what JetHat is currently developing - upcoming projects, innovations, and cutting-edge solutions in progress.">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/main.css">
+    
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-gradient-light">
+    <!-- Navigation -->
+    <div id="navigation-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="min-vh-100 d-flex align-items-center position-relative overflow-hidden bg-gradient-dark text-white">
+        <div class="container px-4 position-relative z-content">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="reveal-up">
+                        <h1 class="display-3 fw-bold mb-4 font-playfair">
+                            What We're <span class="text-gradient">Building</span>
+                        </h1>
+                        <p class="fs-5 mb-4 font-quicksand opacity-75">
+                            Get an exclusive look into JetHat's development pipeline. From next-generation AI solutions to revolutionary cybersecurity frameworks, discover the innovations that will shape tomorrow's digital landscape.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <button class="btn btn-primary btn-lg px-4 py-3 btn-ripple hover-lift">
+                                <i class="bi bi-eye me-2"></i>
+                                View Pipeline
+                            </button>
+                            <button class="btn btn-outline-light btn-lg px-4 py-3 hover-scale">
+                                <i class="bi bi-bell me-2"></i>
+                                Get Updates
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative reveal-right">
+                        <!-- Development Progress Visualization -->
+                        <div class="position-relative" style="height: 400px;">
+                            <!-- Central Hub -->
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <div class="bg-gradient-primary rounded-circle p-4 pulse-glow">
+                                    <i class="bi bi-cpu text-white fs-1"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Orbiting Projects -->
+                            <div class="orbit position-absolute top-50 start-50 translate-middle">
+                                <div class="bg-gradient-secondary rounded-circle p-3">
+                                    <i class="bi bi-shield-lock text-white fs-4"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="orbit-reverse position-absolute top-50 start-50 translate-middle">
+                                <div class="bg-gradient-gold rounded-circle p-3">
+                                    <i class="bi bi-robot text-white fs-4"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="orbit-delayed position-absolute top-50 start-50 translate-middle">
+                                <div class="bg-gradient-primary rounded-circle p-3">
+                                    <i class="bi bi-cloud text-white fs-4"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Floating Elements -->
+                            <div class="particle-float position-absolute" style="top: 10%; right: 10%;">
+                                <i class="bi bi-hexagon text-primary fs-3"></i>
+                            </div>
+                            <div class="particle-float position-absolute" style="bottom: 10%; left: 10%; animation-delay: 1s;">
+                                <i class="bi bi-triangle text-secondary fs-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Animated Background -->
+        <div class="position-absolute top-0 start-0 w-100 h-100 z-background">
+            <div class="position-absolute" style="top: 20%; left: 10%; animation: particle-float 4s ease-in-out infinite;">
+                <i class="bi bi-code text-primary opacity-25 fs-5"></i>
+            </div>
+            <div class="position-absolute" style="top: 60%; right: 15%; animation: particle-float 3s ease-in-out infinite 1s;">
+                <i class="bi bi-gear text-secondary opacity-25 fs-4"></i>
+            </div>
+            <div class="position-absolute" style="bottom: 30%; left: 20%; animation: particle-float 5s ease-in-out infinite 2s;">
+                <i class="bi bi-lightning text-gold opacity-25 fs-3"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Status Overview -->
+    <section class="py-5 bg-light">
+        <div class="container px-4">
+            <div class="text-center mb-5 reveal-up">
+                <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Development Status</h2>
+                <p class="fs-5 text-light-secondary-theme font-quicksand">Real-time overview of our active development projects</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Active Development -->
+                <div class="col-lg-3 col-md-6 reveal-up stagger-1">
+                    <div class="card-animated bg-white rounded-xl-theme p-4 text-center shadow-md-theme">
+                        <div class="bg-gradient-primary rounded-circle p-3 d-inline-flex mb-3">
+                            <i class="bi bi-code-slash text-white fs-2"></i>
+                        </div>
+                        <h3 class="fw-bold accent-primary mb-2" data-count="12">0</h3>
+                        <h6 class="fw-semibold font-montserrat">Active Projects</h6>
+                        <p class="text-muted small">Currently in development</p>
+                    </div>
+                </div>
+
+                <!-- Testing Phase -->
+                <div class="col-lg-3 col-md-6 reveal-up stagger-2">
+                    <div class="card-animated bg-white rounded-xl-theme p-4 text-center shadow-md-theme">
+                        <div class="bg-gradient-secondary rounded-circle p-3 d-inline-flex mb-3">
+                            <i class="bi bi-bug text-white fs-2"></i>
+                        </div>
+                        <h3 class="fw-bold accent-secondary mb-2" data-count="8">0</h3>
+                        <h6 class="fw-semibold font-montserrat">In Testing</h6>
+                        <p class="text-muted small">Quality assurance phase</p>
+                    </div>
+                </div>
+
+                <!-- Ready for Launch -->
+                <div class="col-lg-3 col-md-6 reveal-up stagger-3">
+                    <div class="card-animated bg-white rounded-xl-theme p-4 text-center shadow-md-theme">
+                        <div class="bg-gradient-gold rounded-circle p-3 d-inline-flex mb-3">
+                            <i class="bi bi-rocket-takeoff text-white fs-2"></i>
+                        </div>
+                        <h3 class="fw-bold accent-gold mb-2" data-count="5">0</h3>
+                        <h6 class="fw-semibold font-montserrat">Ready to Launch</h6>
+                        <p class="text-muted small">Deployment ready</p>
+                    </div>
+                </div>
+
+                <!-- Research Phase -->
+                <div class="col-lg-3 col-md-6 reveal-up stagger-4">
+                    <div class="card-animated bg-white rounded-xl-theme p-4 text-center shadow-md-theme">
+                        <div class="bg-gradient-primary rounded-circle p-3 d-inline-flex mb-3">
+                            <i class="bi bi-lightbulb text-white fs-2"></i>
+                        </div>
+                        <h3 class="fw-bold accent-primary mb-2" data-count="15">0</h3>
+                        <h6 class="fw-semibold font-montserrat">In Research</h6>
+                        <p class="text-muted small">Concept & planning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Development Projects -->
+    <section class="py-5 bg-gradient-light">
+        <div class="container px-4">
+            <div class="text-center mb-5 reveal-up">
+                <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Featured Projects in Development</h2>
+                <p class="fs-5 text-light-secondary-theme font-quicksand">Our most exciting upcoming innovations</p>
+            </div>
+
+            <div class="row g-5">
+                <!-- Quantum Security Suite -->
+                <div class="col-lg-6 reveal-left">
+                    <div class="card-animated bg-white rounded-xl-theme overflow-hidden shadow-lg-theme">
+                        <div class="position-relative">
+                            <div class="bg-gradient-primary p-4">
+                                <div class="d-flex align-items-center justify-content-between text-white">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-shield-shaded fs-2 me-3"></i>
+                                        <div>
+                                            <h4 class="fw-bold mb-1">Quantum Security Suite</h4>
+                                            <p class="mb-0 opacity-75">Next-Gen Cybersecurity</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="badge bg-warning text-dark">75% Complete</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Progress Bar -->
+                            <div class="progress" style="height: 4px;">
+                                <div class="progress-bar bg-warning" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-muted mb-4">Revolutionary quantum-resistant security framework designed to protect against future quantum computing threats. Features advanced encryption algorithms and real-time threat adaptation.</p>
+                            
+                            <div class="row g-3 mb-4">
+                                <div class="col-6">
+                                    <h6 class="fw-bold accent-primary">Q2 2024</h6>
+                                    <small class="text-muted">Expected Launch</small>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="fw-bold accent-secondary">Enterprise</h6>
+                                    <small class="text-muted">Target Market</small>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h6 class="fw-semibold mb-3">Key Features:</h6>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Quantum-resistant encryption</li>
+                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>AI-powered threat detection</li>
+                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Real-time adaptation</li>
+                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Zero-trust architecture</li>
+                                </ul>
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <span class="badge bg-primary-10 text-primary">Quantum Computing</span>
+                                <span class="badge bg-secondary-10 text-secondary">AI Security</span>
+                                <span class="badge bg-gold-10 text-gold">Enterprise</span>
+                            </div>
+                            
+                            <button class="btn btn-primary w-100 hover-lift">Get Early Access</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neural Network Optimizer -->
+                <div class="col-lg-6 reveal-right">
+                    <div class="card-animated bg-white rounded-xl-theme overflow-hidden shadow-lg-theme">
+                        <div class="position-relative">
+                            <div class="bg-gradient-secondary p-4">
+                                <div class="d-flex align-items-center justify-content-between text-white">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-diagram-3 fs-2 me-3"></i>
+                                        <div>
+                                            <h4 class="fw-bold mb-1">Neural Network Optimizer</h4>
+                                            <p class="mb-0 opacity-75">AI Performance Enhancement</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="badge bg-info text-dark">60% Complete</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Progress Bar -->
+                            <div class="progress" style="height: 4px;">
+                                <div class="progress-bar bg-info" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-muted mb-4">Advanced AI system that automatically optimizes neural network architectures for maximum performance and efficiency. Reduces training time by up to 80% while improving accuracy.</p>
+                            
+                            <div class="row g-3 mb-4">
+                                <div class="col-6">
+                                    <h6 class="fw-bold accent-primary">Q3 2024</h6>
+                                    <small class="text-muted">Expected Launch</small>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="fw-bold accent-secondary">AI/ML Teams</h6>
+                                    <small class="text-muted">Target Users</small>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h6 class="fw-semibold mb-3">Key Features:</h6>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Auto-architecture optimization</li>
+                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Performance monitoring</li>
+                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Resource optimization</li>
+                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Multi-framework support</li>
+                                </ul>
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <span class="badge bg-primary-10 text-primary">Machine Learning</span>
+                                <span class="badge bg-secondary-10 text-secondary">Optimization</span>
+                                <span class="badge bg-gold-10 text-gold">Performance</span>
+                            </div>
+                            
+                            <button class="btn btn-primary w-100 hover-lift">Join Beta Program</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Roadmap -->
+    <section class="py-5 bg-light">
+        <div class="container px-4">
+            <div class="text-center mb-5 reveal-up">
+                <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Development Roadmap</h2>
+                <p class="fs-5 text-light-secondary-theme font-quicksand">Our planned releases and milestones for 2024-2025</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- Timeline -->
+                    <div class="position-relative">
+                        <!-- Timeline Line -->
+                        <div class="position-absolute start-50 translate-middle-x bg-primary" style="width: 2px; height: 100%; top: 0;"></div>
+                        
+                        <!-- Q2 2024 -->
+                        <div class="d-flex align-items-center mb-5 reveal-up stagger-1">
+                            <div class="flex-shrink-0 me-4 text-end" style="width: 45%;">
+                                <div class="card-animated bg-white rounded-lg-theme p-3 shadow-sm-theme">
+                                    <h6 class="fw-bold accent-primary mb-2">Q2 2024</h6>
+                                    <h5 class="fw-semibold mb-2">Quantum Security Suite</h5>
+                                    <p class="text-muted small mb-0">Launch of quantum-resistant security framework</p>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 bg-gradient-primary rounded-circle p-3 position-relative z-content">
+                                <i class="bi bi-shield-check text-white fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-4" style="width: 45%;"></div>
+                        </div>
+
+                        <!-- Q3 2024 -->
+                        <div class="d-flex align-items-center mb-5 reveal-up stagger-2">
+                            <div class="flex-grow-1 me-4" style="width: 45%;"></div>
+                            <div class="flex-shrink-0 bg-gradient-secondary rounded-circle p-3 position-relative z-content">
+                                <i class="bi bi-robot text-white fs-5"></i>
+                            </div>
+                            <div class="flex-shrink-0 ms-4" style="width: 45%;">
+                                <div class="card-animated bg-white rounded-lg-theme p-3 shadow-sm-theme">
+                                    <h6 class="fw-bold accent-secondary mb-2">Q3 2024</h6>
+                                    <h5 class="fw-semibold mb-2">Neural Network Optimizer</h5>
+                                    <p class="text-muted small mb-0">AI performance enhancement platform</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Q4 2024 -->
+                        <div class="d-flex align-items-center mb-5 reveal-up stagger-3">
+                            <div class="flex-shrink-0 me-4 text-end" style="width: 45%;">
+                                <div class="card-animated bg-white rounded-lg-theme p-3 shadow-sm-theme">
+                                    <h6 class="fw-bold accent-gold mb-2">Q4 2024</h6>
+                                    <h5 class="fw-semibold mb-2">Metaverse Security Suite</h5>
+                                    <p class="text-muted small mb-0">Virtual world security solutions</p>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0 bg-gradient-gold rounded-circle p-3 position-relative z-content">
+                                <i class="bi bi-globe text-white fs-5"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-4" style="width: 45%;"></div>
+                        </div>
+
+                        <!-- Q1 2025 -->
+                        <div class="d-flex align-items-center mb-5 reveal-up stagger-4">
+                            <div class="flex-grow-1 me-4" style="width: 45%;"></div>
+                            <div class="flex-shrink-0 bg-gradient-primary rounded-circle p-3 position-relative z-content">
+                                <i class="bi bi-lightning text-white fs-5"></i>
+                            </div>
+                            <div class="flex-shrink-0 ms-4" style="width: 45%;">
+                                <div class="card-animated bg-white rounded-lg-theme p-3 shadow-sm-theme">
+                                    <h6 class="fw-bold accent-primary mb-2">Q1 2025</h6>
+                                    <h5 class="fw-semibold mb-2">Quantum ML Platform</h5>
+                                    <p class="text-muted small mb-0">Quantum-enhanced machine learning</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Lab -->
+    <section class="py-5 bg-gradient-primary text-white">
+        <div class="container px-4">
+            <div class="text-center mb-5 reveal-up">
+                <h2 class="display-5 fw-bold mb-3 font-playfair">Innovation Lab</h2>
+                <p class="fs-5 mb-4 font-quicksand">Experimental projects and cutting-edge research</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Research Project 1 -->
+                <div class="col-lg-4 col-md-6 reveal-up stagger-1">
+                    <div class="card-animated bg-white bg-opacity-10 rounded-xl-theme p-4 text-center backdrop-blur">
+                        <i class="bi bi-atom fs-1 mb-3 text-gold"></i>
+                        <h5 class="fw-bold mb-3">Quantum AI Fusion</h5>
+                        <p class="mb-4 opacity-75">Exploring the intersection of quantum computing and artificial intelligence for breakthrough performance.</p>
+                        <div class="badge bg-warning text-dark">Research Phase</div>
+                    </div>
+                </div>
+
+                <!-- Research Project 2 -->
+                <div class="col-lg-4 col-md-6 reveal-up stagger-2">
+                    <div class="card-animated bg-white bg-opacity-10 rounded-xl-theme p-4 text-center backdrop-blur">
+                        <i class="bi bi-brain fs-1 mb-3 text-gold"></i>
+                        <h5 class="fw-bold mb-3">Consciousness Simulation</h5>
+                        <p class="mb-4 opacity-75">Advanced neural networks that simulate human-like consciousness and decision-making processes.</p>
+                        <div class="badge bg-info text-dark">Concept Phase</div>
+                    </div>
+                </div>
+
+                <!-- Research Project 3 -->
+                <div class="col-lg-4 col-md-6 reveal-up stagger-3">
+                    <div class="card-animated bg-white bg-opacity-10 rounded-xl-theme p-4 text-center backdrop-blur">
+                        <i class="bi bi-infinity fs-1 mb-3 text-gold"></i>
+                        <h5 class="fw-bold mb-3">Infinite Scale Computing</h5>
+                        <p class="mb-4 opacity-75">Revolutionary architecture for unlimited computational scaling across distributed networks.</p>
+                        <div class="badge bg-primary text-white">Early Development</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-light">
+        <div class="container px-4 text-center">
+            <div class="reveal-up">
+                <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Stay Updated on Our Progress</h2>
+                <p class="fs-5 text-light-secondary-theme mb-4 font-quicksand">Be the first to know about our latest developments and get early access to new innovations.</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <button class="btn btn-primary btn-lg px-4 py-3 hover-lift">
+                        <i class="bi bi-envelope me-2"></i>
+                        Subscribe to Updates
+                    </button>
+                    <button class="btn btn-outline-primary btn-lg px-4 py-3 hover-scale">
+                        <i class="bi bi-github me-2"></i>
+                        Follow on GitHub
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Right Panel -->
+    <div id="right-panel-placeholder"></div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Load Components -->
+    <script>
+        // Load navigation
+        fetch('../components/navigation/navigation.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navigation-placeholder').innerHTML = data;
+            });
+
+        // Load footer
+        fetch('../components/footer/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+
+        // Load right panel
+        fetch('../components/right-panel/right-panel.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('right-panel-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <!-- Animation Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize GSAP ScrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Reveal animations
+            gsap.utils.toArray('.reveal-up').forEach(element => {
+                gsap.fromTo(element, 
+                    { opacity: 0, y: 50 },
+                    { 
+                        opacity: 1, 
+                        y: 0, 
+                        duration: 0.8, 
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 80%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+            gsap.utils.toArray('.reveal-left').forEach(element => {
+                gsap.fromTo(element, 
+                    { opacity: 0, x: -50 },
+                    { 
+                        opacity: 1, 
+                        x: 0, 
+                        duration: 0.8, 
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 80%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+            gsap.utils.toArray('.reveal-right').forEach(element => {
+                gsap.fromTo(element, 
+                    { opacity: 0, x: 50 },
+                    { 
+                        opacity: 1, 
+                        x: 0, 
+                        duration: 0.8, 
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 80%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+            // Stagger animations
+            gsap.utils.toArray('.stagger-1, .stagger-2, .stagger-3, .stagger-4').forEach((element, index) => {
+                gsap.fromTo(element, 
+                    { opacity: 0, y: 30 },
+                    { 
+                        opacity: 1, 
+                        y: 0, 
+                        duration: 0.6, 
+                        delay: index * 0.1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+            // Counter animations
+            function animateCounter(element, target) {
+                let current = 0;
+                const increment = target / 60;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current);
+                }, 16);
+            }
+
+            // Initialize counters when they come into view
+            const counters = document.querySelectorAll('[data-count]');
+            counters.forEach(counter => {
+                ScrollTrigger.create({
+                    trigger: counter,
+                    start: "top 80%",
+                    onEnter: () => {
+                        const target = parseInt(counter.getAttribute('data-count'));
+                        animateCounter(counter, target);
+                    }
+                });
+            });
+
+            // Progress bar animations
+            gsap.utils.toArray('.progress-bar').forEach(bar => {
+                const width = bar.style.width;
+                gsap.fromTo(bar, 
+                    { width: '0%' },
+                    { 
+                        width: width,
+                        duration: 1.5,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: bar,
+                            start: "top 80%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+        });
+    </script>
+</body>
+</html>

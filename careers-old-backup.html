@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Cyber Careers - Join JetHat's Defense Force | JetHat Cybersecurity</title>
+    <meta name="description" content="Shape the future of cybersecurity with JetHat. Join our elite team of security professionals, AI researchers, and technology innovators. Competitive salaries, remote work, and cutting-edge projects await.">
+    <meta name="keywords" content="cybersecurity careers, cyber security jobs, AI ML jobs, remote cybersecurity jobs, penetration testing careers, incident response jobs">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Professional Career Page Styles -->
+    <style>
+        :root {
+            --primary-red: #dc143c;
+            --primary-gold: #ffd700;
+            --dark-bg: #0a0a0a;
+            --card-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --border-color: rgba(220, 20, 60, 0.1);
+            --shadow-light: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --shadow-heavy: 0 30px 80px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: #fafafa;
+        }
+
+        /* Typography */
+        .display-1 { font-size: 4.5rem; font-weight: 800; line-height: 1.1; }
+        .display-2 { font-size: 3.5rem; font-weight: 700; line-height: 1.2; }
+        .display-3 { font-size: 2.8rem; font-weight: 600; line-height: 1.3; }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .text-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Buttons */
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-gold));
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-gradient:hover::before {
+            left: 100%;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(220, 20, 60, 0.4);
+        }
+
+        .btn-outline-gradient {
+            border: 2px solid var(--primary-red);
+            color: var(--primary-red);
+            background: transparent;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+        }
+
+        .btn-outline-gradient:hover {
+            background: var(--primary-red);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Cards */
+        .cyber-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-gold));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .cyber-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .cyber-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--primary-red);
+        }
+
+        /* Hero Section */
+        .contact-hero {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffffff 50%, #fffbeb 100%);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Circuit Pattern Overlay */
+        .circuit-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, rgba(220, 20, 60, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(220, 20, 60, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(220, 20, 60, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 20px 20px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* Grid Pattern */
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+                linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* Floating Security Icons */
+        .floating-security-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .security-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.15;
+            animation: orbit 20s linear infinite, floatIcon 6s ease-in-out infinite;
+        }
+        
+        .security-icon:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s, 0s; }
+        .security-icon:nth-child(2) { top: 30%; right: 10%; animation-delay: 2s, 1s; }
+        .security-icon:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 4s, 2s; }
+        .security-icon:nth-child(4) { top: 50%; right: 5%; animation-delay: 1s, 3s; }
+        .security-icon:nth-child(5) { bottom: 30%; right: 20%; animation-delay: 3s, 4s; }
+        .security-icon:nth-child(6) { top: 15%; left: 30%; animation-delay: 5s, 5s; }
+        
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+        }
+        
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Scanning Line Animation */
+        .scanning-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #dc143c, #ffd700, transparent);
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.8);
+            animation: scan 3s linear infinite;
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        @keyframes scan {
+            0% { top: 0%; opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        
+        /* Particle Effects */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #dc143c;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 8s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 30%; top: 40%; animation-delay: 1s; }
+        .particle:nth-child(3) { left: 50%; top: 60%; animation-delay: 2s; }
+        .particle:nth-child(4) { left: 70%; top: 30%; animation-delay: 3s; }
+        .particle:nth-child(5) { left: 90%; top: 50%; animation-delay: 4s; }
+        .particle:nth-child(6) { left: 20%; top: 70%; animation-delay: 5s; }
+        .particle:nth-child(7) { left: 40%; top: 10%; animation-delay: 6s; }
+        .particle:nth-child(8) { left: 60%; top: 80%; animation-delay: 7s; }
+        
+        @keyframes particleFloat {
+            0%, 100% { 
+                transform: translateY(0) translateX(0);
+                opacity: 0.3;
+            }
+            25% { 
+                transform: translateY(-30px) translateX(20px);
+                opacity: 0.6;
+            }
+            50% { 
+                transform: translateY(-60px) translateX(-20px);
+                opacity: 0.3;
+            }
+            75% { 
+                transform: translateY(-30px) translateX(20px);
+                opacity: 0.6;
+            }
+        }
+        
+        /* Floating Shapes */
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .shape {
+            position: absolute;
+            background: linear-gradient(45deg, #dc143c, #ffd700);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .shape:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 120px; height: 120px; top: 60%; right: 15%; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 60px; height: 60px; bottom: 30%; left: 20%; animation-delay: 4s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-30px) rotate(90deg) scale(1.1); }
+            50% { transform: translateY(-20px) rotate(180deg) scale(0.9); }
+            75% { transform: translateY(-40px) rotate(270deg) scale(1.05); }
+        }
+
+        /* Contact Card Animations */
+        .contact-card-main:hover .contact-main-image {
+            transform: scale(1.1);
+        }
+
+        .contact-card-main:hover .contact-overlay {
+            opacity: 1;
+        }
+
+        .contact-card-main:hover .contact-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .contact-card-secondary:hover .contact-secondary-image {
+            transform: scale(1.1);
+        }
+
+        .contact-card-secondary:hover .contact-overlay {
+            opacity: 1;
+        }
+
+        .contact-card-mini:hover .contact-mini-image {
+            transform: scale(1.1);
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Tech Status Indicator */
+        .tech-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 12px;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #22c55e;
+        }
+        
+        .tech-status::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: statusPulse 2s infinite;
+        }
+        
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        /* Reveal Animations */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal-zoom {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal-up.visible,
+        .reveal-left.visible,
+        .reveal-right.visible,
+        .reveal-zoom.visible {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* Stagger delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Stats Section */
+        .stats-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(220, 20, 60, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Job Cards */
+        .job-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-gold));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .job-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .job-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-gold));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .job-card:hover .job-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .job-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(220, 20, 60, 0.1);
+            color: var(--primary-red);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .salary-badge {
+            background: rgba(34, 197, 94, 0.1);
+            color: #16a34a;
+        }
+
+        /* Sidebar Layout */
+        .career-sidebar {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .search-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        .form-control, .form-select {
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: fadeInLeft 0.8s ease forwards;
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            animation: fadeInRight 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Stagger delays */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+
+        /* Dark Theme */
+        [data-bs-theme="dark"] {
+            --card-bg: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --border-color: rgba(220, 20, 60, 0.2);
+        }
+
+        [data-bs-theme="dark"] body {
+            background: #0a0a0a;
+            color: var(--text-primary);
+        }
+
+        [data-bs-theme="dark"] .cyber-card,
+        [data-bs-theme="dark"] .job-card,
+        [data-bs-theme="dark"] .career-sidebar {
+            background: var(--card-bg);
+            border-color: var(--border-color);
+        }
+
+        [data-bs-theme="dark"] .stats-card {
+            background: rgba(26, 26, 26, 0.95);
+        }
+
+        [data-bs-theme="dark"] .search-panel {
+            background: rgba(26, 26, 26, 0.95);
+        }
+
+        [data-bs-theme="dark"] .form-control,
+        [data-bs-theme="dark"] .form-select {
+            background: #2a2a2a;
+            border-color: #404040;
+            color: white;
+        }
+
+        [data-bs-theme="dark"] .form-control:focus,
+        [data-bs-theme="dark"] .form-select:focus {
+            background: #2a2a2a;
+            border-color: var(--primary-red);
+        }
+
+        /* Dark theme for contact hero */
+        [data-bs-theme="dark"] .contact-hero,
+        .dark-theme .contact-hero {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2a2a2a 100%);
+        }
+
+        /* Dark theme for floating elements */
+        [data-bs-theme="dark"] .floating-security-icons,
+        [data-bs-theme="dark"] .floating-shapes,
+        [data-bs-theme="dark"] .particles,
+        .dark-theme .floating-security-icons,
+        .dark-theme .floating-shapes,
+        .dark-theme .particles {
+            opacity: 0.6;
+        }
+
+        /* Dark theme for circuit patterns */
+        [data-bs-theme="dark"] .circuit-pattern,
+        [data-bs-theme="dark"] .grid-pattern,
+        [data-bs-theme="dark"] .cyber-grid,
+        .dark-theme .circuit-pattern,
+        .dark-theme .grid-pattern,
+        .dark-theme .cyber-grid {
+            opacity: 0.8;
+        }
+
+        /* Dark theme for tech status */
+        [data-bs-theme="dark"] .tech-status,
+        .dark-theme .tech-status {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .display-1 { font-size: 3rem; }
+            .display-2 { font-size: 2.5rem; }
+            .display-3 { font-size: 2rem; }
+            
+            .hero-section {
+                min-height: 80vh;
+                text-align: center;
+            }
+            
+            .career-sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Custom Scrollbar */
+        .jobs-container {
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+            padding-right: 1rem;
+        }
+
+        .jobs-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .jobs-container::-webkit-scrollbar-track {
+            background: rgba(220, 20, 60, 0.1);
+            border-radius: 10px;
+        }
+
+        .jobs-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-gold));
+            border-radius: 10px;
+        }
+
+        .jobs-container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #b91c3c, #eab308);
+        }
+
+        /* Fallback Theme Toggle Button */
+        #theme-toggle-fallback {
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(220, 20, 60, 0.3) !important;
+        }
+
+        #theme-toggle-fallback:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.3);
+        }
+
+        #theme-toggle-fallback i {
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Light theme fallback button */
+        [data-bs-theme="light"] #theme-toggle-fallback {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333333;
+            border-color: rgba(220, 20, 60, 0.3) !important;
+        }
+
+        [data-bs-theme="light"] #theme-toggle-fallback:hover {
+            background: rgba(220, 20, 60, 0.1);
+            color: #dc143c;
+        }
+
+        /* Dark theme fallback button */
+        [data-bs-theme="dark"] #theme-toggle-fallback {
+            background: rgba(42, 42, 42, 0.9);
+            color: #ffffff;
+            border-color: rgba(220, 20, 60, 0.4) !important;
+        }
+
+        [data-bs-theme="dark"] #theme-toggle-fallback:hover {
+            background: rgba(220, 20, 60, 0.2);
+            color: #ffd700;
+        }
+    </style>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Theme Toggle Script (Load Early) -->
+    <script src="scripts/theme-toggle.js"></script>
+    
+    <!-- Navigation Scripts -->
+    <script src="scripts/navigation-fix.js"></script>
+    <script src="scripts/navbar-scroll.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="navigation-component"></div>
+
+    <!-- Right Panel -->
+    <div id="right-panel-component"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="contact-hero position-relative overflow-hidden">
+            <!-- Circuit Pattern Overlay -->
+            <div class="circuit-pattern"></div>
+            <div class="grid-pattern"></div>
+            <div class="cyber-grid"></div>
+            
+            <!-- Floating Security Icons -->
+            <div class="floating-security-icons">
+                <div class="security-icon">💼</div>
+                <div class="security-icon">🚀</div>
+                <div class="security-icon">👥</div>
+                <div class="security-icon">🎯</div>
+                <div class="security-icon">⚡</div>
+                <div class="security-icon">🏆</div>
+            </div>
+            
+            <!-- Particle Effects -->
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            
+            <!-- Floating Shapes -->
+            <div class="floating-shapes">
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+            </div>
+            
+            <div class="container-fluid px-4 position-relative" style="z-index: 2;">
+                <div class="row align-items-center py-5">
+                    <!-- Page Badge -->
+                    <div class="mb-4">
+                        <span class="badge bg-danger bg-opacity-75 fs-6 px-3 py-2">
+                            <i class="bi bi-briefcase-fill me-2"></i>Elite Careers
+                        </span>
+                    </div>
+                    
+                    <!-- Left Side Content -->
+                    <div class="col-lg-6 animate-on-scroll">
+                        <h1 class="display-3 fw-bold mb-4 reveal-up" style="color: #333333; line-height: 1.2;">
+                            Shape the Future of
+                            <span class="d-block text-gradient">Cybersecurity</span>
+                        </h1>
+                        
+                        <p class="lead mb-4 reveal-up stagger-1" style="color: #666666;">
+                            Join JetHat's elite cybersecurity force. Defend against next-generation threats, 
+                            work with cutting-edge AI technology, and protect the digital infrastructure 
+                            that powers the world.
+                        </p>
+                        
+                        <div class="d-flex flex-wrap gap-3 mb-4 mt-4 reveal-up stagger-3">
+                            <div class="d-flex align-items-center tech-status" style="color: #333333;">
+                                <i class="bi bi-check-circle-fill me-2"></i>
+                                <span>15+ Elite Positions</span>
+                            </div>
+                            <div class="d-flex align-items-center tech-status" style="color: #333333;">
+                                <i class="bi bi-check-circle-fill me-2"></i>
+                                <span>Remote/Hybrid Options</span>
+                            </div>
+                            <div class="d-flex align-items-center tech-status" style="color: #333333;">
+                                <i class="bi bi-check-circle-fill me-2"></i>
+                                <span>Growth Opportunities</span>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex flex-column flex-sm-row gap-3 reveal-up stagger-4">
+                            <button class="btn btn-gradient btn-lg px-4 py-3">
+                                <i class="bi bi-rocket-takeoff me-2"></i>
+                                Explore Elite Positions
+                            </button>
+                            <button class="btn btn-outline-danger btn-lg px-4 py-3">
+                                <i class="bi bi-people me-2"></i>
+                                Meet the Team
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Animated Image Cards -->
+                    <div class="col-lg-6 order-1 order-lg-1 animate-on-scroll position-relative">
+                        <div class="position-relative">
+                            
+                            <!-- Main Large Card -->
+                            <div class="contact-card-main position-relative mb-4 reveal-zoom">
+                                <div class="contact-image-container glow-border" style="width: 500px; height: 350px; background: white; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; position: relative;">
+                                    <div class="scanning-line"></div>
+                                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902" alt="Career Opportunities" class="contact-main-image" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.6s ease;">
+                                    <div class="contact-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(236,72,153,0.2)); opacity: 0; transition: all 0.4s ease;"></div>
+                                    <div class="contact-content" style="position: absolute; bottom: 20px; left: 20px; color: white; z-index: 2; transform: translateY(20px); opacity: 0; transition: all 0.4s ease;">
+                                        <h4 class="fw-bold mb-2">Join Our Team</h4>
+                                        <p class="mb-0">Elite Cyber Defense Careers</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Secondary Card -->
+                            <div class="contact-card-secondary position-absolute reveal-right" style="top: 50px; right: 10px; z-index: 2;">
+                                <div class="contact-image-container" style="width: 300px; height: 250px; background: white; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); overflow: hidden; position: relative;">
+                                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72" alt="Team Growth" class="contact-secondary-image" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.6s ease;">
+                                    <div class="contact-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(249,115,22,0.2)); opacity: 0; transition: all 0.4s ease;"></div>
+                                    <div class="contact-badge" style="position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.9); padding: 8px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #1f2937;">
+                                        Team Growth
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Floating Mini Card -->
+                            <div class="contact-card-mini position-absolute reveal-zoom" style="bottom: 30px; left: -30px; z-index: 3;">
+                                <div class="contact-image-container" style="width: 120px; height: 120px; background: white; border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.2); overflow: hidden; position: relative;">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Career Success" class="contact-mini-image" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.6s ease;">
+                                    <div class="contact-pulse" style="position: absolute; top: -2px; left: -2px; width: calc(100% + 4px); height: calc(100% + 4px); border: 2px solid #7c3aed; border-radius: 50%; animation: pulse 2s infinite;"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why JetHat Section -->
+        <section class="py-5" ">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-3 fw-bold mb-4 fade-in-up">
+                        Why Choose <span class="text-gradient">JetHat</span>?
+                    </h2>
+                    <p class="lead text-muted fade-in-up delay-100" style="max-width: 600px; margin: 0 auto;">
+                        We're not just another cybersecurity company. We're pioneers building the future of digital defense.
+                    </p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4 fade-in-up delay-200">
+                        <div class="cyber-card text-center h-100">
+                            <div class="job-icon mx-auto">
+                                <i class="bi bi-lightning-charge text-white fs-3"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Cutting-Edge Technology</h4>
+                            <p class="text-muted mb-4">Work with the latest AI/ML security tools, quantum-resistant algorithms, and next-gen threat detection systems.</p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>AI-Powered Security Platforms</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Quantum Computing Research</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Advanced Threat Intelligence</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 fade-in-up delay-300">
+                        <div class="cyber-card text-center h-100">
+                            <div class="job-icon mx-auto">
+                                <i class="bi bi-people text-white fs-3"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">World-Class Team</h4>
+                            <p class="text-muted mb-4">Collaborate with industry veterans, ethical hackers, and security researchers from top organizations worldwide.</p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Ex-FAANG Engineers</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Certified Security Experts</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Research Scientists</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 fade-in-up delay-400">
+                        <div class="cyber-card text-center h-100">
+                            <div class="job-icon mx-auto">
+                                <i class="bi bi-graph-up-arrow text-white fs-3"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Accelerated Growth</h4>
+                            <p class="text-muted mb-4">Fast-track your career with mentorship programs, certification support, and leadership opportunities.</p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Unlimited Learning Budget</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Conference Sponsorships</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Leadership Fast-Track</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elite Positions Section -->
+        <section class="py-5">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Left Sidebar -->
+                    <div class="col-lg-4">
+                        <div class="career-sidebar">
+                            <div class="mb-4">
+                                <h3 class="fw-bold mb-3">
+                                    <span class="text-gradient">Elite Positions</span> Available
+                                </h3>
+                                <p class="text-muted mb-4">
+                                    Join specialized units in our cyber defense force.
+                                </p>
+                            </div>
+                            
+                            <!-- Benefits -->
+                            <div class="mb-4">
+                                <h5 class="fw-bold mb-3">
+                                    <i class="bi bi-star-fill text-warning me-2"></i>Elite Benefits
+                                </h5>
+                                
+                                <div class="mb-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-currency-rupee text-success me-2"></i>
+                                        <span class="fw-semibold">Competitive Packages</span>
+                                    </div>
+                                    <p class="text-muted small mb-0 ms-4">₹5L - ₹25L+ based on experience and expertise</p>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-house-heart text-primary me-2"></i>
+                                        <span class="fw-semibold">Flexible Work</span>
+                                    </div>
+                                    <p class="text-muted small mb-0 ms-4">Remote, hybrid, or on-site options available</p>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-mortarboard text-info me-2"></i>
+                                        <span class="fw-semibold">Continuous Learning</span>
+                                    </div>
+                                    <p class="text-muted small mb-0 ms-4">Certifications, training, and conference sponsorships</p>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-heart-pulse text-danger me-2"></i>
+                                        <span class="fw-semibold">Health & Wellness</span>
+                                    </div>
+                                    <p class="text-muted small mb-0 ms-4">Comprehensive health insurance and wellness programs</p>
+                                </div>
+                            </div>
+                            
+                           
+                            
+                            <!-- CTA Buttons -->
+                            <div class="mt-4">
+                                <button class="btn btn-gradient w-100 mb-3">
+                                    <i class="bi bi-download me-2"></i>Download Career Guide
+                                </button>
+                                <button class="btn btn-outline-gradient w-100">
+                                    <i class="bi bi-envelope me-2"></i>Contact Talent Team
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side - Jobs -->
+                    <div class="col-lg-8">
+                        <!-- Search Panel -->
+                        <div class="search-panel">
+                            <div class="row g-3 align-items-end">
+                                <div class="col-lg-4">
+                                    <label class="form-label fw-semibold small">Search Positions</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text border-0 bg-white">
+                                            <i class="bi bi-search text-gradient"></i>
+                                        </span>
+                                        <input type="text" class="form-control border-start-0" placeholder="Role, skills, keywords...">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="form-label fw-semibold small">Department</label>
+                                    <select class="form-select">
+                                        <option>All Departments</option>
+                                        <option>🛡️ Cybersecurity</option>
+                                        <option>🤖 AI/ML Research</option>
+                                        <option>💻 Development</option>
+                                        <option>☁️ Cloud Security</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="form-label fw-semibold small">Work Model</label>
+                                    <select class="form-select">
+                                        <option>All Locations</option>
+                                        <option>🏢 On-site</option>
+                                        <option>🌐 Remote</option>
+                                        <option>🔄 Hybrid</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2">
+                                    <button class="btn btn-outline-danger w-100">
+                                        <i class="bi bi-arrow-clockwise"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Job Cards -->
+                        <div class="jobs-container">
+                            <div class="row g-4">
+                                <!-- Senior Cybersecurity Analyst -->
+                                <div class="col-lg-6">
+                                    <div class="job-card">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div class="job-icon">
+                                                <i class="bi bi-shield-lock text-white fs-4"></i>
+                                            </div>
+                                            <span class="badge bg-danger">🔥 Hot</span>
+                                        </div>
+                                        
+                                        <h5 class="fw-bold mb-2">Senior Cybersecurity Analyst</h5>
+                                        <p class="text-muted mb-3">Lead threat hunting operations and analyze advanced persistent threats. Protect enterprise clients from sophisticated cyber attacks.</p>
+                                        
+                                        <div class="mb-3">
+                                            <span class="job-badge">Threat Intelligence</span>
+                                            <span class="job-badge">SIEM</span>
+                                            <span class="job-badge">Incident Response</span>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="job-badge">📍 Noida, UP</span>
+                                            <span class="job-badge">⏰ Full-time</span>
+                                            <span class="job-badge salary-badge">💰 ₹8-15 LPA</span>
+                                        </div>
+                                        
+                                        <div class="mt-auto">
+                                            <div class="d-flex gap-2">
+                                                <button class="btn btn-outline-primary btn-sm flex-fill">
+                                                    <i class="bi bi-eye me-1"></i>Details
+                                                </button>
+                                                <button class="btn btn-gradient btn-sm flex-fill">
+                                                    <i class="bi bi-send me-1"></i>Apply
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- AI/ML Security Researcher -->
+                                <div class="col-lg-6">
+                                    <div class="job-card">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div class="job-icon">
+                                                <i class="bi bi-robot text-white fs-4"></i>
+                                            </div>
+                                            <span class="badge bg-warning text-dark">⭐ Premium</span>
+                                        </div>
+                                        
+                                        <h5 class="fw-bold mb-2">AI/ML Security Researcher</h5>
+                                        <p class="text-muted mb-3">Develop cutting-edge AI security solutions and quantum-resistant algorithms. Pioneer the future of intelligent cybersecurity.</p>
+                                        
+                                        <div class="mb-3">
+                                            <span class="job-badge">Python</span>
+                                            <span class="job-badge">TensorFlow</span>
+                                            <span class="job-badge">Quantum ML</span>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="job-badge">🌐 Remote</span>
+                                            <span class="job-badge">⏰ Full-time</span>
+                                            <span class="job-badge salary-badge">💰 ₹12-20 LPA</span>
+                                        </div>
+                                        
+                                        <div class="mt-auto">
+                                            <div class="d-flex gap-2">
+                                                <button class="btn btn-outline-primary btn-sm flex-fill">
+                                                    <i class="bi bi-eye me-1"></i>Details
+                                                </button>
+                                                <button class="btn btn-gradient btn-sm flex-fill">
+                                                    <i class="bi bi-send me-1"></i>Apply
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- DevSecOps Engineer -->
+                                <div class="col-lg-6">
+                                    <div class="job-card">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div class="job-icon">
+                                                <i class="bi bi-gear text-white fs-4"></i>
+                                            </div>
+                                            <span class="badge bg-info">🚀 Growing</span>
+                                        </div>
+                                        
+                                        <h5 class="fw-bold mb-2">DevSecOps Engineer</h5>
+                                        <p class="text-muted mb-3">Integrate security into development pipelines and automate security testing. Build secure, scalable deployment systems.</p>
+                                        
+                                        <div class="mb-3">
+                                            <span class="job-badge">Docker</span>
+                                            <span class="job-badge">Kubernetes</span>
+                                            <span class="job-badge">Jenkins</span>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="job-badge">📍 Noida, UP</span>
+                                            <span class="job-badge">⏰ Full-time</span>
+                                            <span class="job-badge salary-badge">💰 ₹10-18 LPA</span>
+                                        </div>
+                                        
+                                        <div class="mt-auto">
+                                            <div class="d-flex gap-2">
+                                                <button class="btn btn-outline-primary btn-sm flex-fill">
+                                                    <i class="bi bi-eye me-1"></i>Details
+                                                </button>
+                                                <button class="btn btn-gradient btn-sm flex-fill">
+                                                    <i class="bi bi-send me-1"></i>Apply
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Cloud Security Architect -->
+                                <div class="col-lg-6">
+                                    <div class="job-card">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div class="job-icon">
+                                                <i class="bi bi-cloud-check text-white fs-4"></i>
+                                            </div>
+                                            <span class="badge bg-success">💎 Senior</span>
+                                        </div>
+                                        
+                                        <h5 class="fw-bold mb-2">Cloud Security Architect</h5>
+                                        <p class="text-muted mb-3">Design secure cloud architectures and lead security initiatives. Ensure compliance across multi-cloud environments.</p>
+                                        
+                                        <div class="mb-3">
+                                            <span class="job-badge">AWS</span>
+                                            <span class="job-badge">Azure</span>
+                                            <span class="job-badge">Architecture</span>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="job-badge">🔄 Hybrid</span>
+                                            <span class="job-badge">⏰ Full-time</span>
+                                            <span class="job-badge salary-badge">💰 ₹15-25 LPA</span>
+                                        </div>
+                                        
+                                        <div class="mt-auto">
+                                            <div class="d-flex gap-2">
+                                                <button class="btn btn-outline-primary btn-sm flex-fill">
+                                                    <i class="bi bi-eye me-1"></i>Details
+                                                </button>
+                                                <button class="btn btn-gradient btn-sm flex-fill">
+                                                    <i class="bi bi-send me-1"></i>Apply
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Incident Response Specialist -->
+                                <div class="col-lg-6">
+                                    <div class="job-card">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div class="job-icon">
+                                                <i class="bi bi-lightning text-white fs-4"></i>
+                                            </div>
+                                            <span class="badge bg-danger">⚡ Urgent</span>
+                                        </div>
+                                        
+                                        <h5 class="fw-bold mb-2">Incident Response Specialist</h5>
+                                        <p class="text-muted mb-3">Lead critical incident response operations and conduct digital forensics. Be the first line of defense during cyber attacks.</p>
+                                        
+                                        <div class="mb-3">
+                                            <span class="job-badge">Digital Forensics</span>
+                                            <span class="job-badge">GCIH</span>
+                                            <span class="job-badge">Crisis Management</span>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="job-badge">📍 24/7 On-call</span>
+                                            <span class="job-badge">⏰ Full-time</span>
+                                            <span class="job-badge salary-badge">💰 ₹9-16 LPA</span>
+                                        </div>
+                                        
+                                        <div class="mt-auto">
+                                            <div class="d-flex gap-2">
+                                                <button class="btn btn-outline-primary btn-sm flex-fill">
+                                                    <i class="bi bi-eye me-1"></i>Details
+                                                </button>
+                                                <button class="btn btn-gradient btn-sm flex-fill">
+                                                    <i class="bi bi-send me-1"></i>Apply
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Full Stack Developer -->
+                                <div class="col-lg-6">
+                                    <div class="job-card">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div class="job-icon">
+                                                <i class="bi bi-code-slash text-white fs-4"></i>
+                                            </div>
+                                            <span class="badge bg-primary">🔥 Popular</span>
+                                        </div>
+                                        
+                                        <h5 class="fw-bold mb-2">Full Stack Developer</h5>
+                                        <p class="text-muted mb-3">Build secure, scalable web applications using modern technologies. Create user-friendly cybersecurity platforms.</p>
+                                        
+                                        <div class="mb-3">
+                                            <span class="job-badge">React</span>
+                                            <span class="job-badge">Node.js</span>
+                                            <span class="job-badge">MongoDB</span>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <span class="job-badge">📍 Noida, UP</span>
+                                            <span class="job-badge">⏰ Full-time</span>
+                                            <span class="job-badge salary-badge">💰 ₹5-10 LPA</span>
+                                        </div>
+                                        
+                                        <div class="mt-auto">
+                                            <div class="d-flex gap-2">
+                                                <button class="btn btn-outline-primary btn-sm flex-fill">
+                                                    <i class="bi bi-eye me-1"></i>Details
+                                                </button>
+                                                <button class="btn btn-gradient btn-sm flex-fill">
+                                                    <i class="bi bi-send me-1"></i>Apply
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Load More -->
+                            <div class="text-center mt-5">
+                                <button class="btn btn-outline-gradient btn-lg">
+                                    <i class="bi bi-plus-circle me-2"></i>Load More Positions
+                                </button>
+                                <p class="text-muted small mt-2">Showing 6 of 15+ available positions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Process -->
+        <section class="py-5" >
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-3 fw-bold mb-4 fade-in-up">
+                        Your Journey to <span class="text-gradient">Elite Status</span>
+                    </h2>
+                    <p class="lead text-muted fade-in-up delay-100" style="max-width: 600px; margin: 0 auto;">
+                        Our streamlined process ensures we find the perfect match between your skills and our mission-critical roles.
+                    </p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 fade-in-up delay-200">
+                        <div class="cyber-card text-center h-100">
+                            <div class="job-icon mx-auto">
+                                <span class="text-white fw-bold fs-4">1</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Apply Online</h5>
+                            <p class="text-muted">Submit your application and showcase your cybersecurity expertise through our intelligent matching system.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6 fade-in-up delay-300">
+                        <div class="cyber-card text-center h-100">
+                            <div class="job-icon mx-auto">
+                                <span class="text-white fw-bold fs-4">2</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Security Assessment</h5>
+                            <p class="text-muted">Complete technical challenges and security scenario evaluations designed by our expert team.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6 fade-in-up delay-400">
+                        <div class="cyber-card text-center h-100">
+                            <div class="job-icon mx-auto">
+                                <span class="text-white fw-bold fs-4">3</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Elite Interview</h5>
+                            <p class="text-muted">Meet with our cyber defense leaders and potential teammates in a collaborative interview process.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6 fade-in-up delay-500">
+                        <div class="cyber-card text-center h-100">
+                            <div class="job-icon mx-auto">
+                                <span class="text-white fw-bold fs-4">4</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Mission Start</h5>
+                            <p class="text-muted">Begin your cybersecurity career with comprehensive onboarding and immediate access to cutting-edge projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-5" style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2a2a2a 100%);">
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="display-3 fw-bold text-white mb-4 fade-in-up">
+                            Ready to Defend the <span class="text-gradient">Digital Frontier</span>?
+                        </h2>
+                        <p class="lead text-white-50 mb-5 fade-in-up delay-100">
+                            Don't see the perfect role? Send us your resume and we'll keep you in mind for future elite opportunities.
+                        </p>
+                        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center fade-in-up delay-200">
+                            <button class="btn btn-gradient btn-lg px-5">
+                                <i class="bi bi-upload me-2"></i>Send Resume
+                            </button>
+                            <button class="btn btn-outline-light btn-lg px-5">
+                                <i class="bi bi-people me-2"></i>Contact Talent Team
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-component"></div>
+
+    <!-- Theme Toggle Button (Fallback) -->
+    <button id="theme-toggle-fallback" class="btn btn-outline-secondary position-fixed bottom-0 end-0 m-4 rounded-circle p-3 shadow-lg theme-toggle-btn" style="z-index: 1050; width: 60px; height: 60px;" title="Toggle Theme">
+        <i id="sun-icon-fallback" class="bi bi-sun-fill"></i>
+        <i id="moon-icon-fallback" class="bi bi-moon-fill d-none"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script>
+        // Load components
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navigation
+            fetch('components/navigation/navigation.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navigation-component').innerHTML = data;
+                    
+                    // Initialize theme toggle after navigation is loaded
+                    setTimeout(() => {
+                        if (window.ThemeManager) {
+                            window.themeManager = new window.ThemeManager();
+                        }
+                        // Also initialize our custom theme toggle
+                        initializeThemeToggle();
+                    }, 500);
+                });
+
+            // Load right panel
+            fetch('components/right-panel/right-panel.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('right-panel-component').innerHTML = data;
+                })
+                .catch(() => {
+                    // Right panel is optional
+                });
+
+            // Load footer
+            fetch('components/footer/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-component').innerHTML = data;
+                })
+                .catch(() => {
+                    // Footer is optional
+                });
+
+            // Initialize animations
+            initializeAnimations();
+            
+            // Initialize job search functionality
+            initializeJobSearch();
+        });
+
+        // Animation initialization
+        function initializeAnimations() {
+            // GSAP ScrollTrigger animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Fade in animations
+            gsap.utils.toArray('.fade-in-up').forEach((element, i) => {
+                gsap.fromTo(element, {
+                    opacity: 0,
+                    y: 50
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+
+            gsap.utils.toArray('.fade-in-left').forEach((element, i) => {
+                gsap.fromTo(element, {
+                    opacity: 0,
+                    x: -50
+                }, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+
+            gsap.utils.toArray('.fade-in-right').forEach((element, i) => {
+                gsap.fromTo(element, {
+                    opacity: 0,
+                    x: 50
+                }, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+
+            // Contact page style reveal animations
+            initializeRevealAnimations();
+        }
+
+        // Contact page style reveal animations
+        function initializeRevealAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all reveal elements
+            document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-zoom').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Trigger animations on page load for elements in viewport
+            setTimeout(() => {
+                document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-zoom').forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 100);
+        }
+
+        // Job search functionality
+        function initializeJobSearch() {
+            const searchInput = document.querySelector('input[placeholder*="Role"]');
+            const departmentSelect = document.querySelector('select');
+            const jobCards = document.querySelectorAll('.job-card');
+
+            function filterJobs() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedDepartment = departmentSelect.value;
+
+                jobCards.forEach(card => {
+                    const title = card.querySelector('h5').textContent.toLowerCase();
+                    const badges = Array.from(card.querySelectorAll('.job-badge')).map(badge => badge.textContent.toLowerCase());
+                    const matchesSearch = title.includes(searchTerm) || badges.some(badge => badge.includes(searchTerm));
+                    const matchesDepartment = !selectedDepartment || selectedDepartment === 'All Departments' || 
+                                            title.includes(selectedDepartment.toLowerCase().replace('🛡️ ', '').replace('🤖 ', '').replace('💻 ', '').replace('☁️ ', ''));
+
+                    if (matchesSearch && matchesDepartment) {
+                        card.closest('.col-lg-6').style.display = 'block';
+                    } else {
+                        card.closest('.col-lg-6').style.display = 'none';
+                    }
+                });
+            }
+
+            if (searchInput) searchInput.addEventListener('input', filterJobs);
+            if (departmentSelect) departmentSelect.addEventListener('change', filterJobs);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Theme toggle initialization
+        function initializeThemeToggle() {
+            // Initialize theme manager if available
+            if (window.ThemeManager && !window.themeManager) {
+                window.themeManager = new window.ThemeManager();
+            }
+            
+            // Setup fallback theme toggle button
+            const fallbackToggle = document.getElementById('theme-toggle-fallback');
+            const sunIconFallback = document.getElementById('sun-icon-fallback');
+            const moonIconFallback = document.getElementById('moon-icon-fallback');
+            
+            if (fallbackToggle && sunIconFallback && moonIconFallback) {
+                // Get current theme
+                let currentTheme = localStorage.getItem('jethat-theme') || 
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                
+                // Update fallback button icons
+                function updateFallbackButton(theme) {
+                    if (theme === 'dark') {
+                        sunIconFallback.classList.remove('d-none');
+                        moonIconFallback.classList.add('d-none');
+                        fallbackToggle.classList.remove('btn-outline-secondary');
+                        fallbackToggle.classList.add('btn-outline-light');
+                        fallbackToggle.setAttribute('title', 'Switch to Light Mode');
+                    } else {
+                        sunIconFallback.classList.add('d-none');
+                        moonIconFallback.classList.remove('d-none');
+                        fallbackToggle.classList.remove('btn-outline-light');
+                        fallbackToggle.classList.add('btn-outline-secondary');
+                        fallbackToggle.setAttribute('title', 'Switch to Dark Mode');
+                    }
+                }
+                
+                // Set initial state
+                updateFallbackButton(currentTheme);
+                
+                // Handle fallback toggle click
+                fallbackToggle.addEventListener('click', function() {
+                    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                    currentTheme = newTheme;
+                    
+                    // Use theme manager if available
+                    if (window.themeManager) {
+                        window.themeManager.applyTheme(newTheme);
+                    } else {
+                        // Fallback theme switching
+                        document.documentElement.setAttribute('data-bs-theme', newTheme);
+                        localStorage.setItem('jethat-theme', newTheme);
+                        
+                        if (newTheme === 'dark') {
+                            document.body.style.background = 'linear-gradient(135deg, #000000, #1a1a1a)';
+                            document.body.style.color = '#ffffff';
+                        } else {
+                            document.body.style.background = 'linear-gradient(135deg, #fff7ed, #ffffff, #fffbeb)';
+                            document.body.style.color = '#333333';
+                        }
+                    }
+                    
+                    updateFallbackButton(newTheme);
+                    
+                    // Update navigation toggle if it exists
+                    const navToggle = document.getElementById('theme-toggle');
+                    const navSunIcon = document.getElementById('sun-icon');
+                    const navMoonIcon = document.getElementById('moon-icon');
+                    
+                    if (navToggle && navSunIcon && navMoonIcon) {
+                        if (newTheme === 'dark') {
+                            navSunIcon.classList.remove('d-none');
+                            navMoonIcon.classList.add('d-none');
+                        } else {
+                            navSunIcon.classList.add('d-none');
+                            navMoonIcon.classList.remove('d-none');
+                        }
+                    }
+                });
+                
+                // Listen for theme changes from other sources
+                document.addEventListener('themeChanged', function(e) {
+                    updateFallbackButton(e.detail.theme);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

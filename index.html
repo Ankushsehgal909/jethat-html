@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JetHat Cyber Security - Securing Tomorrow's Digital Innovation</title>
+    <meta name="description" content="JetHat Cyber Security Pvt. Ltd. - Leading cybersecurity, AI/ML, and cloud solutions company. Empowering businesses with secure, scalable digital transformation since 2018.">
+    <meta name="keywords" content="cybersecurity, AI, ML, cloud services, web development, mobile apps, JetHat, Noida, India">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb); color: #333333;">
+    <!-- Navigation -->
+    <div id="navigation-component"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+        <div class="offcanvas-header border-bottom border-secondary">
+            <img src="assets/images/logo.png" alt="JetHat Logo" class="h-auto" style="height: 4rem;">
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <nav class="nav flex-column">
+                <a class="nav-link text-light py-3 border-bottom border-secondary px-4" href="index.html">Home</a>
+
+                <!-- About Dropdown - Accordion Style -->
+                <div class="accordion-dropdown">
+                    <a class="nav-link text-light py-3 border-bottom border-secondary d-flex align-items-center justify-content-between px-4 accordion-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#aboutCollapse" role="button" aria-expanded="false">
+                        About
+                        <i class="bi bi-plus accordion-icon"></i>
+                    </a>
+                    <div class="collapse" id="aboutCollapse">
+                        <div class="accordion-content px-4">
+                            <a class="dropdown-item py-2 ps-4" href="about/index.html">Our Story</a>
+                            <a class="dropdown-item py-2 ps-4" href="about/success-stories.html">Success Stories</a>
+                            <a class="dropdown-item py-2 ps-4" href="about/team.html">Team</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Dropdown - Accordion Style -->
+                <div class="accordion-dropdown">
+                    <a class="nav-link text-light py-3 border-bottom border-secondary d-flex align-items-center justify-content-between px-4 accordion-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#companyCollapse" role="button" aria-expanded="false">
+                        Company
+                        <i class="bi bi-plus accordion-icon"></i>
+                    </a>
+                    <div class="collapse" id="companyCollapse">
+                        <div class="accordion-content px-4">
+                            <a class="dropdown-item py-2 ps-4" href="about/index.html">About Us</a>
+                            <a class="dropdown-item py-2 ps-4" href="about/team.html">Our Team</a>
+                            <a class="dropdown-item py-2 ps-4" href="about/success-stories.html">Success Stories</a>
+                            <a class="dropdown-item py-2 ps-4" href="careers.html">Careers</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Dropdown - Accordion Style -->
+                <div class="accordion-dropdown">
+                    <a class="nav-link text-light py-3 border-bottom border-secondary d-flex align-items-center justify-content-between px-4 accordion-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#productsCollapse" role="button" aria-expanded="false">
+                        Products
+                        <i class="bi bi-plus accordion-icon"></i>
+                    </a>
+                    <div class="collapse" id="productsCollapse">
+                        <div class="accordion-content px-4">
+                            <a class="dropdown-item py-2 ps-4" href="products/magai.html">MagAI</a>
+                            <a class="dropdown-item py-2 ps-4" href="products/virtual-naani.html">Virtual Naani</a>
+                            <a class="dropdown-item py-2 ps-4" href="products/ai-lms.html">AI Multilingual LMS</a>
+                            <a class="dropdown-item py-2 ps-4" href="products/e-library.html">E-Library</a>
+                            <a class="dropdown-item py-2 ps-4" href="products/anukaran-ai.html">Anukaran AI</a>
+                            <a class="dropdown-item py-2 ps-4" href="products/sambhasini-ai.html">Sambhasini AI</a>
+                            <a class="dropdown-item py-2 ps-4" href="products/multi-dictionary.html">Multilingual Dictionary</a>
+                            <a class="dropdown-item py-2 ps-4" href="products/jetpay.html">JetPay</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Dropdown - Accordion Style -->
+                <div class="accordion-dropdown">
+                    <a class="nav-link text-light py-3 border-bottom border-secondary d-flex align-items-center justify-content-between px-4 accordion-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#servicesCollapse" role="button" aria-expanded="false">
+                        Services
+                        <i class="bi bi-plus accordion-icon"></i>
+                    </a>
+                    <div class="collapse" id="servicesCollapse">
+                        <div class="accordion-content px-4">
+                            <a class="dropdown-item py-2 ps-4" href="services/cybersecurity.html">Cybersecurity</a>
+                            <a class="dropdown-item py-2 ps-4" href="services/ai-ml.html">AI/ML Development</a>
+                            <a class="dropdown-item py-2 ps-4" href="services/web-development.html">Web Development</a>
+                            <a class="dropdown-item py-2 ps-4" href="services/mobile-development.html">Mobile Development</a>
+                            <a class="dropdown-item py-2 ps-4" href="services/cloud-services.html">Cloud Services</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technologies Dropdown - Accordion Style -->
+                <div class="accordion-dropdown">
+                    <a class="nav-link text-light py-3 border-bottom border-secondary d-flex align-items-center justify-content-between px-4 accordion-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#technologiesCollapse" role="button" aria-expanded="false">
+                        Technologies
+                        <i class="bi bi-plus accordion-icon"></i>
+                    </a>
+                    <div class="collapse" id="technologiesCollapse">
+                        <div class="accordion-content px-4">
+                            <a class="dropdown-item py-2 ps-4" href="technologies/core.html">Core Technologies</a>
+                            <a class="dropdown-item py-2 ps-4" href="technologies/case-study.html">Case Study</a>
+                            <a class="dropdown-item py-2 ps-4" href="technologies/innovation.html">Innovation Lab</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="nav-link text-light py-3 border-bottom border-secondary px-4" href="contact.html">Contact</a>
+
+                <div class="p-4">
+                    <button class="btn btn-warning w-100 fw-bold">Talk To Us</button>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Mobile Accordion Dropdown Styles -->
+    <style>
+        /* Accordion Dropdown Container */
+        .accordion-dropdown {
+            overflow: hidden;
+        }
+
+        /* Accordion Toggle */
+        .accordion-toggle {
+            cursor: pointer;
+            text-decoration: none !important;
+        }
+
+        .accordion-toggle:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Icon Styles */
+        .accordion-icon {
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.4s ease, color 0.3s ease;
+            color: var(--accent-gold, #FFD700);
+        }
+
+        /* Icon rotation when expanded */
+        .accordion-toggle[aria-expanded="true"] .accordion-icon {
+            transform: rotate(45deg);
+            color: var(--accent-secondary, #FF8C00);
+        }
+
+        /* Accordion Content - Slides down by expanding parent height */
+        .accordion-dropdown .collapse {
+            transition: height 0.4s ease-out;
+        }
+
+        .accordion-dropdown .collapse:not(.show) {
+            display: none;
+        }
+
+        /* Content styling */
+        .accordion-content {
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .accordion-content .dropdown-item {
+            color: rgba(28, 17, 17, 0.8) !important;
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+        }
+
+        .accordion-content .dropdown-item:hover {
+            color: var(--accent-gold, #ff0000) !important;
+            background: transparent;
+            padding-left: 2rem;
+        }
+
+        /* Staggered item animations */
+        .accordion-content .dropdown-item {
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: accordionItemSlide 0.3s ease forwards;
+        }
+
+        .accordion-collapse.show .dropdown-item:nth-child(1) { animation-delay: 0.05s; }
+        .accordion-collapse.show .dropdown-item:nth-child(2) { animation-delay: 0.1s; }
+        .accordion-collapse.show .dropdown-item:nth-child(3) { animation-delay: 0.15s; }
+        .accordion-collapse.show .dropdown-item:nth-child(4) { animation-delay: 0.2s; }
+        .accordion-collapse.show .dropdown-item:nth-child(5) { animation-delay: 0.25s; }
+        .accordion-collapse.show .dropdown-item:nth-child(6) { animation-delay: 0.3s; }
+        .accordion-collapse.show .dropdown-item:nth-child(7) { animation-delay: 0.35s; }
+        .accordion-collapse.show .dropdown-item:nth-child(8) { animation-delay: 0.4s; }
+
+        @keyframes accordionItemSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+
+    <!-- Mobile Accordion JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const accordionToggles = mobileMenu.querySelectorAll('.accordion-toggle');
+            const accordionDropdowns = mobileMenu.querySelectorAll('.accordion-dropdown .collapse');
+            
+            // Accordion behavior - close other accordions when opening a new one
+            accordionToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('data-bs-target');
+                    const isOpening = !this.getAttribute('aria-expanded') || this.getAttribute('aria-expanded') === 'false';
+                    
+                    if (isOpening) {
+                        // Close all other accordions
+                        accordionDropdowns.forEach(collapse => {
+                            if ('#' + collapse.id !== targetId && collapse.classList.contains('show')) {
+                                // Find the toggle for this collapse and close it
+                                const otherToggle = mobileMenu.querySelector('[data-bs-target="#' + collapse.id + '"]');
+                                if (otherToggle) {
+                                    bootstrap.Collapse.getInstance(collapse)?.hide();
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Reset when mobile menu is closed
+            mobileMenu.addEventListener('hidden.bs.offcanvas', function() {
+                accordionDropdowns.forEach(collapse => {
+                    if (collapse.classList.contains('show')) {
+                        bootstrap.Collapse.getInstance(collapse)?.hide();
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Right Panel -->
+    <div id="right-panel-component"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <div id="hero-section" class=""></div>
+
+        <!-- Section Navigation -->
+        <!-- <div id="section-nav-component"></div> -->
+
+        <!-- Clients Marquee Section -->
+        <div id="clients-marquee"></div>
+        
+         <!-- Cybersecurity Section -->
+        <div id="cyber-security-component"></div>
+ <!-- Services Section -->
+
+        <div id="services"></div>
+        <!-- Products Section -->
+        <div id="products-component"></div>
+
+       
+
+
+       
+
+       
+        <!-- Who We Are Section -->
+        <div id="who-we-are-component"></div>
+
+        <!-- Advanced Protection Section -->
+        <div id="advanced-protection"></div>
+        <!-- Career Section -->
+        <div id="career-component"></div>
+
+        <!-- Testimonials Section -->
+        <div id="testimonials"></div>
+         
+     
+       
+   <!-- Registration Section -->
+        <div id="register-section"></div>
+           <!-- Stats Section -->
+        <!-- <div id="stats"></div> -->
+        <!-- Call to Action Section -->
+        <div id="cta-component"></div>
+      
+    <!-- Footer -->
+        <div id="footer-component"></div>
+    </main>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
+        <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
+        <i id="moon-icon" class="bi bi-moon-fill"></i>
+    </button>
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress" class="position-fixed top-0 start-0 w-100 bg-secondary bg-opacity-25" style="height: 4px; z-index: 1050;">
+        <div id="scroll-bar" class="h-100 bg-gradient transition-all" style="width: 0%; background: linear-gradient(90deg, var(--accent-primary), var(--accent-gold));"></div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="scripts/navbar-scroll.js"></script>
+    <script src="scripts/typing-animation.js"></script>
+    <script src="scripts/theme-toggle.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+    <script src="scripts/career-carousel.js"></script>
+    <script src="scripts/testimonial-carousel.js"></script>
+    <script src="scripts/cta-animations.js"></script>
+    <script src="scripts/services-animations.js"></script>
+    <script src="scripts/who-we-are.js"></script>
+    <script src="scripts/products.js"></script>
+    <script src="scripts/cyber-security-animations.js"></script>
+
+    <!-- Component Loader Script -->
+    <script type="module">
+        // Component loader functionality will be added here
+        async function loadComponent(id, path) {
+            try {
+                const res = await fetch(path);
+                if (!res.ok) throw new Error(`${path} (${res.status})`);
+                const html = await res.text();
+
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = html;
+                else console.warn(`Missing container #${id}`);
+            } catch (err) {
+                console.error(`Component load failed: ${path}`, err);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const components = [
+                ['navigation-component', 'components/navigation/navigation.html'],
+                ['hero-section', 'components/hero-section/hero-section.html'],
+                ['section-nav-component', 'components/section-nav/section-nav.html'],
+                ['clients-marquee', 'components/marque-section/marque-section.html'],
+                ['products-component', 'components/products/products-section.html'],
+                ['services', 'components/services/services.html'],
+                ['stats', 'components/stats/stats-component.html'],
+                ['cyber-security-component', 'components/cyber-security/cyber-security-section.html'],
+                ['career-component', 'components/career/career-section.html'],
+                ['who-we-are-component', 'components/who-we-are/who-we-are.html'],
+                ['advanced-protection', 'components/advanced-protection/advanced-protection.html'],
+                ['testimonials', 'components/testimonial/testimonial-section.html'],
+                ['register-section', 'components/register-section/register-section.html'],
+                ['cta-component', 'components/call-to-action/call-to-action.html'],
+                ['footer-component', 'components/footer/footer.html'],
+                ['right-panel-component', 'components/right-panel/right-panel.html']
+            ];
+
+            await Promise.all(components.map(([id, path]) => loadComponent(id, path)));
+            
+            // Initialize career carousel after components are loaded
+            setTimeout(() => {
+                if (typeof initializeCareerCarousel === 'function') {
+                    initializeCareerCarousel();
+                }
+                if (typeof initializeCareerAnimations === 'function') {
+                    initializeCareerAnimations();
+                }
+                if (typeof initializeTestimonialCarousel === 'function') {
+                    initializeTestimonialCarousel();
+                }
+                if (typeof initializeTestimonialAnimations === 'function') {
+                    initializeTestimonialAnimations();
+                }
+                if (typeof initializeCTAAnimations === 'function') {
+                    initializeCTAAnimations();
+                }
+                if (typeof initializeServicesAnimations === 'function') {
+                    initializeServicesAnimations();
+                }
+            }, 100);
+            
+            // Re-initialize video background after components are loaded
+            if (typeof JetHatBootstrap !== 'undefined') {
+                const app = new JetHatBootstrap();
+                app.reinitializeVideoBackground();
+            } else {
+                // If JetHatBootstrap is not defined yet, wait and retry
+                setTimeout(() => {
+                    if (typeof JetHatBootstrap !== 'undefined') {
+                        const app = new JetHatBootstrap();
+                        app.reinitializeVideoBackground();
+                        app.initializeTypingAnimation();
+                    }
+                }, 200);
+            }
+            
+            // Initialize typing animation separately after components load
+            setTimeout(() => {
+                if (typeof initializeTypingAnimation === 'function') {
+                    initializeTypingAnimation();
+                }
+            }, 300);
+            
+            console.log('Bootstrap 5 App initialized successfully');
+        });
+    </script>
+</body>
+</html>

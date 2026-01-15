@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Join Our Team | JetHat Cyber Security</title>
+    <meta name="description" content="Join JetHat Cyber Security team. Explore exciting career opportunities in cybersecurity, AI/ML, and digital transformation.">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #dc143c, #ffd700);
+            --bg-light: #ffffff;
+            --bg-dark: #1a1a1a;
+            --text-light: #333333;
+            --text-dark: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #fff7ed 0%, #ffffff 50%, #fffbeb 100%);
+            color: var(--text-light);
+        }
+
+        .text-gradient {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-gradient {
+            background: var(--primary-gradient);
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(220, 20, 60, 0.3);
+            color: white;
+        }
+
+
+        .career-hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 80px;
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(220, 20, 60, 0.1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        .job-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(220, 20, 60, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-color: #dc143c;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(220, 20, 60, 0.1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .value-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.1), rgba(255, 215, 0, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #dc143c;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(220, 20, 60, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .process-step {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(220, 20, 60, 0.1);
+            position: relative;
+            height: 100%;
+        }
+
+        .process-number {
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(220, 20, 60, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(220, 20, 60, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Dark Theme Support */
+        [data-bs-theme="dark"] body {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2a2a2a 100%);
+            color: var(--text-dark);
+        }
+
+        [data-bs-theme="dark"] .benefit-card,
+        [data-bs-theme="dark"] .job-card,
+        [data-bs-theme="dark"] .value-card,
+        [data-bs-theme="dark"] .stat-box,
+        [data-bs-theme="dark"] .process-step {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-color: rgba(220, 20, 60, 0.2);
+            color: var(--text-dark);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 768px) {
+            .career-hero {
+                min-height: auto;
+                padding: 60px 0 40px;
+            }
+            
+            h1 {
+                font-size: 2.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="navigation-component"></div>
+
+    <!-- Right Panel -->
+    <div id="right-panel-component"></div>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="career-hero position-relative overflow-hidden">
+            <div class="container position-relative" style="z-index: 2;">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <div class="mb-3">
+                            <span class="badge bg-danger bg-opacity-10 text-danger px-3 py-2 rounded-pill">
+                                <i class="bi bi-briefcase me-2"></i>Join Our Team
+                            </span>
+                        </div>
+                        
+                        <h1 class="display-2 fw-bold mb-4" style="line-height: 1.1;">
+                            Build Your Career in
+                            <span class="d-block text-gradient">Cybersecurity & Tech</span>
+                        </h1>
+                        
+                        <p class="lead mb-4 text-muted" style="font-size: 1.25rem;">
+                            Join a team of passionate innovators working on cutting-edge cybersecurity and AI solutions. 
+                            We're looking for talented individuals who want to make a real impact.
+                        </p>
+                        
+                        <div class="d-flex flex-wrap gap-3 mb-4">
+                            <a href="#open-positions" class="btn btn-gradient btn-lg px-5 py-3">
+                                <i class="bi bi-search me-2"></i>
+                                View Open Positions
+                            </a>
+                            <a href="#why-join" class="btn btn-outline-danger btn-lg px-5 py-3">
+                                <i class="bi bi-heart me-2"></i>
+                                Why Join Us
+                            </a>
+                        </div>
+                        
+                        <div class="d-flex flex-wrap gap-4 mt-4">
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-people-fill text-danger fs-4 me-2"></i>
+                                    <div>
+                                        <h5 class="fw-bold mb-0">50+</h5>
+                                        <small class="text-muted">Team Members</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-globe text-danger fs-4 me-2"></i>
+                                    <div>
+                                        <h5 class="fw-bold mb-0">10+</h5>
+                                        <small class="text-muted">Countries</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-trophy-fill text-danger fs-4 me-2"></i>
+                                    <div>
+                                        <h5 class="fw-bold mb-0">15+</h5>
+                                        <small class="text-muted">Years Experience</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div class="stat-box">
+                                    <div class="stat-number">95%</div>
+                                    <p class="text-muted mb-0">Employee Satisfaction</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-box">
+                                    <div class="stat-number">4.8</div>
+                                    <p class="text-muted mb-0">Glassdoor Rating</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-box">
+                                    <div class="stat-number">30+</div>
+                                    <p class="text-muted mb-0">Learning Programs</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-box">
+                                    <div class="stat-number">100%</div>
+                                    <p class="text-muted mb-0">Remote Friendly</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Background Elements -->
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 0; opacity: 0.05;">
+                <div class="cyber-grid h-100"></div>
+            </div>
+        </section>
+
+        <!-- Why Join Us Section -->
+        <section id="why-join" class="py-5 py-lg-6">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 fw-bold mb-3">
+                        Why <span class="text-gradient">Work With Us</span>
+                    </h2>
+                    <p class="lead text-muted">We offer more than just a job - we offer a career and a community</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="benefit-card text-center">
+                            <div class="benefit-icon">
+                                <i class="bi bi-cash-stack"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Competitive Salary</h5>
+                            <p class="text-muted mb-0">Industry-leading compensation packages with performance bonuses and equity options</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="benefit-card text-center">
+                            <div class="benefit-icon">
+                                <i class="bi bi-heart-pulse"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Health & Wellness</h5>
+                            <p class="text-muted mb-0">Comprehensive health insurance, mental health support, and wellness programs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="benefit-card text-center">
+                            <div class="benefit-icon">
+                                <i class="bi bi-house-heart"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Work-Life Balance</h5>
+                            <p class="text-muted mb-0">Flexible hours, remote work options, and generous paid time off</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="benefit-card text-center">
+                            <div class="benefit-icon">
+                                <i class="bi bi-book"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Learning & Development</h5>
+                            <p class="text-muted mb-0">Continuous learning opportunities, certifications, and conference attendance</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="benefit-card text-center">
+                            <div class="benefit-icon">
+                                <i class="bi bi-rocket-takeoff"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Career Growth</h5>
+                            <p class="text-muted mb-0">Clear career paths, mentorship programs, and promotion opportunities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="benefit-card text-center">
+                            <div class="benefit-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Amazing Team</h5>
+                            <p class="text-muted mb-0">Work with talented, passionate people in a collaborative environment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values Section -->
+        <section class="py-5 py-lg-6" style="background: linear-gradient(135deg, rgba(220, 20, 60, 0.03), rgba(255, 215, 0, 0.03));">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 fw-bold mb-3">
+                        Our <span class="text-gradient">Core Values</span>
+                    </h2>
+                    <p class="lead text-muted">The principles that guide everything we do</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="value-card text-center">
+                            <div class="value-number">01</div>
+                            <h5 class="fw-bold mb-3">Innovation First</h5>
+                            <p class="text-muted mb-0">We embrace new technologies and creative solutions to solve complex problems</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="value-card text-center">
+                            <div class="value-number">02</div>
+                            <h5 class="fw-bold mb-3">Customer Focus</h5>
+                            <p class="text-muted mb-0">Our clients' success is our success. We go above and beyond to deliver value</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="value-card text-center">
+                            <div class="value-number">03</div>
+                            <h5 class="fw-bold mb-3">Integrity</h5>
+                            <p class="text-muted mb-0">We operate with transparency, honesty, and ethical practices in everything we do</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="value-card text-center">
+                            <div class="value-number">04</div>
+                            <h5 class="fw-bold mb-3">Collaboration</h5>
+                            <p class="text-muted mb-0">We believe in teamwork, open communication, and supporting each other</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open Positions Section -->
+        <section id="open-positions" class="py-5 py-lg-6">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 fw-bold mb-3">
+                        <span class="text-gradient">Open Positions</span>
+                    </h2>
+                    <p class="lead text-muted">Find your perfect role and join our growing team</p>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- Job Card 1 -->
+                    <div class="col-lg-6">
+                        <div class="job-card">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h4 class="fw-bold mb-2">Senior Cybersecurity Engineer</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge bg-primary">Full-time</span>
+                                        <span class="badge bg-success">Remote</span>
+                                        <span class="badge bg-info">Senior Level</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-muted mb-3">
+                                Lead security initiatives, conduct penetration testing, and develop security strategies for enterprise clients.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="small text-muted">
+                                    <i class="bi bi-geo-alt me-1"></i>Noida / Remote
+                                    <span class="mx-2">•</span>
+                                    <i class="bi bi-cash me-1"></i>₹15-25 LPA
+                                </div>
+                                <a href="#apply" class="btn btn-outline-danger">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Job Card 2 -->
+                    <div class="col-lg-6">
+                        <div class="job-card">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h4 class="fw-bold mb-2">AI/ML Engineer</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge bg-primary">Full-time</span>
+                                        <span class="badge bg-success">Remote</span>
+                                        <span class="badge bg-warning">Mid Level</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-muted mb-3">
+                                Build and deploy machine learning models for cybersecurity threat detection and AI-powered solutions.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="small text-muted">
+                                    <i class="bi bi-geo-alt me-1"></i>Noida / Remote
+                                    <span class="mx-2">•</span>
+                                    <i class="bi bi-cash me-1"></i>₹12-20 LPA
+                                </div>
+                                <a href="#apply" class="btn btn-outline-danger">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Job Card 3 -->
+                    <div class="col-lg-6">
+                        <div class="job-card">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h4 class="fw-bold mb-2">Full Stack Developer</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge bg-primary">Full-time</span>
+                                        <span class="badge bg-success">Hybrid</span>
+                                        <span class="badge bg-warning">Mid Level</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-muted mb-3">
+                                Develop scalable web applications using modern frameworks and technologies for our product suite.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="small text-muted">
+                                    <i class="bi bi-geo-alt me-1"></i>Noida / Hybrid
+                                    <span class="mx-2">•</span>
+                                    <i class="bi bi-cash me-1"></i>₹10-18 LPA
+                                </div>
+                                <a href="#apply" class="btn btn-outline-danger">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Job Card 4 -->
+                    <div class="col-lg-6">
+                        <div class="job-card">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h4 class="fw-bold mb-2">DevOps Engineer</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge bg-primary">Full-time</span>
+                                        <span class="badge bg-success">Remote</span>
+                                        <span class="badge bg-warning">Mid Level</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-muted mb-3">
+                                Manage cloud infrastructure, CI/CD pipelines, and ensure high availability of our services.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="small text-muted">
+                                    <i class="bi bi-geo-alt me-1"></i>Noida / Remote
+                                    <span class="mx-2">•</span>
+                                    <i class="bi bi-cash me-1"></i>₹12-20 LPA
+                                </div>
+                                <a href="#apply" class="btn btn-outline-danger">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Job Card 5 -->
+                    <div class="col-lg-6">
+                        <div class="job-card">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h4 class="fw-bold mb-2">UI/UX Designer</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge bg-primary">Full-time</span>
+                                        <span class="badge bg-success">Hybrid</span>
+                                        <span class="badge bg-warning">Mid Level</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-muted mb-3">
+                                Create beautiful, intuitive user experiences for our cybersecurity and AI products.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="small text-muted">
+                                    <i class="bi bi-geo-alt me-1"></i>Noida / Hybrid
+                                    <span class="mx-2">•</span>
+                                    <i class="bi bi-cash me-1"></i>₹8-15 LPA
+                                </div>
+                                <a href="#apply" class="btn btn-outline-danger">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Job Card 6 -->
+                    <div class="col-lg-6">
+                        <div class="job-card">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h4 class="fw-bold mb-2">Business Development Manager</h4>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge bg-primary">Full-time</span>
+                                        <span class="badge bg-danger">On-site</span>
+                                        <span class="badge bg-info">Senior Level</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-muted mb-3">
+                                Drive business growth, build client relationships, and identify new market opportunities.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="small text-muted">
+                                    <i class="bi bi-geo-alt me-1"></i>Noida
+                                    <span class="mx-2">•</span>
+                                    <i class="bi bi-cash me-1"></i>₹10-18 LPA
+                                </div>
+                                <a href="#apply" class="btn btn-outline-danger">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <p class="text-muted mb-3">Don't see a position that fits?</p>
+                    <a href="#apply" class="btn btn-outline-danger btn-lg px-5">
+                        <i class="bi bi-envelope me-2"></i>
+                        Send Us Your Resume
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hiring Process Section -->
+        <section class="py-5 py-lg-6" style="background: linear-gradient(135deg, rgba(220, 20, 60, 0.03), rgba(255, 215, 0, 0.03));">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-4 fw-bold mb-3">
+                        Our <span class="text-gradient">Hiring Process</span>
+                    </h2>
+                    <p class="lead text-muted">A transparent and efficient process designed to find the best fit</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="process-number">1</div>
+                            <div class="mt-4">
+                                <i class="bi bi-file-earmark-text text-danger fs-1 mb-3 d-block"></i>
+                                <h5 class="fw-bold mb-3">Application</h5>
+                                <p class="text-muted mb-0">Submit your resume and cover letter through our portal</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="process-number">2</div>
+                            <div class="mt-4">
+                                <i class="bi bi-telephone text-danger fs-1 mb-3 d-block"></i>
+                                <h5 class="fw-bold mb-3">Phone Screen</h5>
+                                <p class="text-muted mb-0">Initial conversation with our HR team (30 minutes)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="process-number">3</div>
+                            <div class="mt-4">
+                                <i class="bi bi-code-square text-danger fs-1 mb-3 d-block"></i>
+                                <h5 class="fw-bold mb-3">Technical Round</h5>
+                                <p class="text-muted mb-0">Technical assessment and problem-solving interview</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-3">
+                        <div class="process-step">
+                            <div class="process-number">4</div>
+                            <div class="mt-4">
+                                <i class="bi bi-check-circle text-danger fs-1 mb-3 d-block"></i>
+                                <h5 class="fw-bold mb-3">Final Interview</h5>
+                                <p class="text-muted mb-0">Meet the team and discuss culture fit and offer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form Section -->
+        <section id="apply" class="py-5 py-lg-6">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="display-4 fw-bold mb-3">
+                            Apply <span class="text-gradient">Now</span>
+                        </h2>
+                        <p class="lead text-muted">
+                            Take the first step towards an exciting career with us
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="benefit-card p-4 p-lg-5">
+                            <form id="applicationForm">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label for="fullName" class="form-label fw-semibold">Full Name *</label>
+                                        <input type="text" class="form-control form-control-lg" id="fullName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label fw-semibold">Email Address *</label>
+                                        <input type="email" class="form-control form-control-lg" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label fw-semibold">Phone Number *</label>
+                                        <input type="tel" class="form-control form-control-lg" id="phone" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="position" class="form-label fw-semibold">Position Applied For *</label>
+                                        <select class="form-select form-control-lg" id="position" required>
+                                            <option value="">Choose a position...</option>
+                                            <option value="cybersecurity">Senior Cybersecurity Engineer</option>
+                                            <option value="ai-ml">AI/ML Engineer</option>
+                                            <option value="fullstack">Full Stack Developer</option>
+                                            <option value="devops">DevOps Engineer</option>
+                                            <option value="uiux">UI/UX Designer</option>
+                                            <option value="bdm">Business Development Manager</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="experience" class="form-label fw-semibold">Years of Experience *</label>
+                                        <select class="form-select form-control-lg" id="experience" required>
+                                            <option value="">Select experience...</option>
+                                            <option value="0-2">0-2 years</option>
+                                            <option value="2-5">2-5 years</option>
+                                            <option value="5-10">5-10 years</option>
+                                            <option value="10+">10+ years</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="location" class="form-label fw-semibold">Preferred Location *</label>
+                                        <select class="form-select form-control-lg" id="location" required>
+                                            <option value="">Select location...</option>
+                                            <option value="remote">Remote</option>
+                                            <option value="noida">Noida Office</option>
+                                            <option value="hybrid">Hybrid</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="resume" class="form-label fw-semibold">Upload Resume (PDF) *</label>
+                                        <input type="file" class="form-control form-control-lg" id="resume" accept=".pdf" required>
+                                        <small class="text-muted">Maximum file size: 5MB</small>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="coverLetter" class="form-label fw-semibold">Cover Letter</label>
+                                        <textarea class="form-control form-control-lg" id="coverLetter" rows="5" 
+                                                placeholder="Tell us why you're interested in this position and what makes you a great fit..."></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="linkedin" class="form-label fw-semibold">LinkedIn Profile URL</label>
+                                        <input type="url" class="form-control form-control-lg" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" id="consent" required>
+                                            <label class="form-check-label small" for="consent">
+                                                I agree to the <a href="legal/privacy-policy.html" class="text-danger text-decoration-none">Privacy Policy</a> and consent to the processing of my personal data for recruitment purposes
+                                            </label>
+                                        </div>
+                                        <button type="submit" class="btn btn-gradient w-100 py-3 fs-5 fw-semibold">
+                                            <i class="bi bi-send-fill me-2"></i>
+                                            Submit Application
+                                        </button>
+                                        <p class="text-center text-muted small mt-3 mb-0">
+                                            <i class="bi bi-shield-lock-fill me-1"></i>
+                                            Your information is secure and will only be used for recruitment purposes
+                                        </p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-component"></div>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
+        <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
+        <i id="moon-icon" class="bi bi-moon-fill"></i>
+    </button>
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress" class="position-fixed top-0 start-0 w-100" style="height: 4px; z-index: 1050; background: rgba(0,0,0,0.1);">
+        <div id="scroll-bar" class="h-100" style="width: 0%; background: linear-gradient(90deg, #dc143c, #ffd700);"></div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Theme Toggle Script -->
+    <script src="scripts/navbar-scroll.js"></script>
+    <script src="scripts/theme-toggle.js"></script>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollBar = document.getElementById('scroll-bar');
+            if (scrollBar) {
+                window.addEventListener('scroll', () => {
+                    const scrollTop = window.pageYOffset;
+                    const docHeight = document.body.scrollHeight - window.innerHeight;
+                    const scrollPercent = (scrollTop / docHeight) * 100;
+                    scrollBar.style.width = scrollPercent + '%';
+                });
+            }
+        });
+    </script>
+
+    <!-- Form Submission -->
+    <script>
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const successMsg = document.createElement('div');
+            successMsg.className = 'alert alert-success text-center mt-3';
+            successMsg.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>Thank you for your application! We\'ll review it and get back to you within 5 business days.';
+            
+            this.appendChild(successMsg);
+            
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                this.reset();
+                successMsg.remove();
+            }, 5000);
+        });
+    </script>
+
+    <!-- Component Loader Script -->
+    <script type="module">
+        async function loadComponent(id, path) {
+            try {
+                const res = await fetch(path);
+                if (!res.ok) throw new Error(`${path} (${res.status})`);
+                const html = await res.text();
+
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = html;
+                else console.warn(`Missing container #${id}`);
+            } catch (err) {
+                console.error(`Component load failed: ${path}`, err);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const components = [
+                ['navigation-component', 'components/navigation/navigation.html'],
+                ['footer-component', 'components/footer/footer.html'],
+                ['right-panel-component', 'components/right-panel/right-panel.html']
+            ];
+
+            await Promise.all(components.map(([id, path]) => loadComponent(id, path)));
+            console.log('✅ Careers page initialized successfully');
+        });
+    </script>
+</body>
+</html>
