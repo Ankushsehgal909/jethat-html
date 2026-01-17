@@ -413,7 +413,7 @@
         @media (max-width: 992px) {
             .innovation-hero {
                 padding: 60px 0;
-                text-align: center;
+                text-align: left;
             }
         }
 
@@ -425,6 +425,45 @@
             .tech-card, .research-card {
                 padding: 30px 25px;
             }
+            
+            /* Mobile overflow fixes */
+            .container, .container-fluid {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                max-width: 100% !important;
+            }
+            
+            .row {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            .col, [class*="col-"] {
+                padding-left: 8px !important;
+                padding-right: 8px !important;
+            }
+        }
+
+        /* Hide floating shapes on mobile to prevent overflow */
+        @media (max-width: 768px) {
+            .floating-shapes {
+                display: none !important;
+            }
+            
+            .shape {
+                display: none !important;
+            }
+        }
+
+        /* Ensure floating shapes don't cause overflow */
+        .floating-shapes {
+            max-width: 100%;
+            overflow: hidden;
+        }
+        
+        .shape {
+            max-width: 120px;
+            max-height: 120px;
         }
 
         /* Animation Classes */
