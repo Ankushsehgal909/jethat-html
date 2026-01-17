@@ -7,7 +7,6 @@ class JetHatBootstrap {
     init() {
         this.initializeGSAP();
         this.initializeVideoBackground();
-        this.initializeThemeToggle();
         this.initializeScrollProgress();
         this.initializeTypingAnimation();
         this.initializeScanningEffects();
@@ -73,105 +72,34 @@ class JetHatBootstrap {
     // Video Background
     initializeVideoBackground() {
         const video = document.getElementById('hero-video');
-        if (video) {
-            // Remove opacity-0 to make video visible immediately
-            video.classList.remove('opacity-0');
-            video.style.opacity = '1';
-            
-            video.addEventListener('loadeddata', () => {
-                video.style.opacity = '1';
-            });
+        if (!video) return;
 
-            video.addEventListener('error', () => {
+        video.classList.remove('opacity-0');
+        video.style.opacity = '1';
+        
+        video.addEventListener('loadeddata', () => {
+            video.style.opacity = '1';
+        });
+
+        video.addEventListener('error', () => {
+            const fallback = document.getElementById('video-fallback');
+            if (fallback) {
+                fallback.classList.remove('d-none');
+                fallback.classList.add('d-flex');
+            }
+        });
+
+        video.load();
+        
+        setTimeout(() => {
+            if (video.readyState < 2) {
                 const fallback = document.getElementById('video-fallback');
                 if (fallback) {
                     fallback.classList.remove('d-none');
                     fallback.classList.add('d-flex');
                 }
-            });
-
-            // Try to load the video explicitly
-            video.load();
-            
-            // Fallback: if video doesn't load within 3 seconds, show fallback
-            setTimeout(() => {
-                if (video.readyState < 2) { // HAVE_CURRENT_DATA or less
-                    const fallback = document.getElementById('video-fallback');
-                    if (fallback) {
-                        fallback.classList.remove('d-none');
-                        fallback.classList.add('d-flex');
-                    }
-                }
-            }, 3000);
-        }
-    }
-
-    // Re-initialize video after components are loaded
-    reinitializeVideoBackground() {
-        const video = document.getElementById('hero-video');
-        console.log('Hero video element found:', !!video);
-        
-        if (video) {
-            // Remove opacity-0 to make video visible immediately
-            video.classList.remove('opacity-0');
-            video.style.opacity = '1';
-            
-            // Clone to remove old event listeners
-            const newVideo = video.cloneNode(true);
-            video.parentNode.replaceChild(newVideo, video);
-            
-            console.log('Video source:', newVideo.querySelector('source')?.src);
-            
-            // Add fresh event listeners
-            newVideo.addEventListener('loadeddata', () => {
-                console.log('Video loaded successfully');
-                newVideo.style.opacity = '1';
-            });
-
-            newVideo.addEventListener('error', (e) => {
-                console.error('Video error:', e);
-                const fallback = document.getElementById('video-fallback');
-                if (fallback) {
-                    fallback.classList.remove('d-none');
-                    fallback.classList.add('d-flex');
-                }
-            });
-
-            // Try to load the video explicitly
-            newVideo.load();
-            
-            console.log('Video readyState:', newVideo.readyState);
-            
-            // Fallback: if video doesn't load within 3 seconds, show fallback
-            setTimeout(() => {
-                console.log('Video timeout - readyState:', newVideo.readyState);
-                if (newVideo.readyState < 2) { // HAVE_CURRENT_DATA or less
-                    const fallback = document.getElementById('video-fallback');
-                    if (fallback) {
-                        fallback.classList.remove('d-none');
-                        fallback.classList.add('d-flex');
-                    }
-                }
-            }, 3000);
-        }
-    }
-
-    // Theme Toggle
-    initializeThemeToggle() {
-        const themeToggle = document.getElementById('theme-toggle');
-        const sunIcon = document.getElementById('sun-icon');
-        const moonIcon = document.getElementById('moon-icon');
-        
-        if (themeToggle && sunIcon && moonIcon) {
-            themeToggle.addEventListener('click', () => {
-                document.documentElement.classList.toggle('light');
-                document.body.classList.toggle('bg-light');
-                document.body.classList.toggle('text-dark');
-                
-                sunIcon.classList.toggle('d-none');
-                moonIcon.classList.toggle('d-none');
-            });
-        }
+            }
+        }, 3000);
     }
 
     // Scroll Progress
@@ -187,29 +115,19 @@ class JetHatBootstrap {
         }
     }
 
-    // Typing Animation - Continuous Typewriter Effect
+    // Typing Animation
     initializeTypingAnimation() {
-        this.setupTypingObserver();
-    }
-    
-    // Setup IntersectionObserver to start typing when element is visible
-    setupTypingObserver() {
         const checkForTypingElement = () => {
             const typingText = document.getElementById('typing-text');
             if (typingText) {
                 this.runTypingAnimation(typingText);
             } else {
-                // Retry after a short delay if element not found yet
                 setTimeout(checkForTypingElement, 100);
             }
         };
-        
-        // Start checking immediately and after a delay
         checkForTypingElement();
-        setTimeout(checkForTypingElement, 500);
     }
     
-    // Run the typing animation
     runTypingAnimation(typingText) {
         const texts = [
             'We Protect Every Moment',
@@ -236,11 +154,9 @@ class JetHatBootstrap {
             }
 
             if (!isDeleting && charIndex === currentText.length) {
-                // Text complete, pause before deleting
                 isDeleting = true;
                 typeSpeed = 2000;
             } else if (isDeleting && charIndex === 0) {
-                // Deletion complete, move to next text
                 isDeleting = false;
                 currentIndex = (currentIndex + 1) % texts.length;
                 typeSpeed = 500;
@@ -249,7 +165,6 @@ class JetHatBootstrap {
             setTimeout(typeText, typeSpeed);
         };
 
-        // Start the typing animation
         typeText();
     }
 
@@ -393,62 +308,3 @@ class JetHatBootstrap {
 document.addEventListener('DOMContentLoaded', () => {
     new JetHatBootstrap();
 });
-
-// Export functions for external use
-export {
-    JetHatBootstrap
-};
-
-// Standalone typing animation function
-function initializeTypingAnimation() {
-    const typingText = document.getElementById('typing-text');
-    if (!typingText) {
-        // Retry after a short delay if element not found yet
-        setTimeout(initializeTypingAnimation, 100);
-        return;
-    }
-    
-    const texts = [
-        'We Protect Every Moment',
-        'अनुक्षणं रक्षामहे',
-        'Securing Digital Future',
-        'Innovation Meets Security'
-    ];
-    let currentIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typeSpeed = 100;
-
-    const typeText = () => {
-        const currentText = texts[currentIndex];
-        
-        if (isDeleting) {
-            typingText.textContent = currentText.substring(0, charIndex - 1);
-            charIndex--;
-            typeSpeed = 50;
-        } else {
-            typingText.textContent = currentText.substring(0, charIndex + 1);
-            charIndex++;
-            typeSpeed = 100;
-        }
-
-        if (!isDeleting && charIndex === currentText.length) {
-            // Text complete, pause before deleting
-            isDeleting = true;
-            typeSpeed = 2000;
-        } else if (isDeleting && charIndex === 0) {
-            // Deletion complete, move to next text
-            isDeleting = false;
-            currentIndex = (currentIndex + 1) % texts.length;
-            typeSpeed = 500;
-        }
-
-        setTimeout(typeText, typeSpeed);
-    };
-
-    // Start the typing animation
-    typeText();
-}
-
-// Make function globally available
-window.initializeTypingAnimation = initializeTypingAnimation;

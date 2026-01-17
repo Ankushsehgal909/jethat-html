@@ -20,9 +20,13 @@
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Breadcrumb Badge -->
+    <script src="../scripts/breadcrumb-badge.js"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/services-dark-mode.css">
     
     <!-- Navigation Fix Script -->
     <script src="../scripts/navigation-fix.js"></script>
@@ -51,7 +55,7 @@
             position: relative;
             overflow: hidden;
             padding: 100px 0;
-            min-height: 100vh;
+            min-height: 60vh;
         }
 
 
@@ -1599,23 +1603,26 @@
 
             <div class="container">
                 <div class="row align-items-center">
+                  <div class="col-12 mb-4" data-breadcrumb data-separator="arrow" style="margin-top: 2.5rem;">
+                      <!-- Breadcrumb will be dynamically generated here -->
+                  </div>
                   <!-- left side --> 
                     <div class="col-lg-6">
-                        <div class="cyber-hero-content">
-                            <div class="hero-badge gsap-fade-up">
+                        <div class="cyber-hero-content" style="margin-top: 2.5rem;">
+                            <!-- <div class="hero-badge gsap-fade-up">
                                 <i class="bi bi-shield-check me-2"></i>
                                 Enterprise Cybersecurity Solutions
-                            </div>
+                            </div> -->
                             <h1 class="hero-title gsap-fade-up" data-delay="100">
                                 Secure Your
                                 <span class="gradient-text">Digital Future</span>
-                                With Intelligence
+                               
                             </h1>
                             <p class="hero-description gsap-fade-up" data-delay="200">
                                 Comprehensive cybersecurity services powered by advanced AI. 
                                 Protect your business from evolving threats with our expert-driven security solutions.
                             </p>
-                            <div class="hero-buttons gsap-fade-up" data-delay="300">
+                            <!-- <div class="hero-buttons gsap-fade-up" data-delay="300">
                                 <a href="../contact.html" class="btn btn-hero-primary">
                                     Get Free Assessment
                                     <i class="bi bi-arrow-right ms-2"></i>
@@ -1624,12 +1631,12 @@
                                     Explore Services
                                     <i class="bi bi-arrow-right ms-2"></i>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- right side -->
                     <div class="col-lg-6">
-                        <div class="floating-shield gsap-fade-left" data-delay="400">
+                        <div class="floating-shield gsap-fade-left" data-delay="400" style="margin-top: 2.5rem;">
                             <div class="position-relative">
                                 <div class="main-image-card">
                                     <img src="../assets/images/cyber.jpg" alt="Cybersecurity Protection" class="img-fluid">
@@ -1663,44 +1670,14 @@
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="stats-section">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-6 col-md-3">
-                        <div class="stat-item">
-                            <div class="stat-number counter" data-target="500">0</div>
-                            <div class="stat-label">Clients Protected</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-item">
-                            <div class="stat-number counter" data-target="99">0</div>
-                            <div class="stat-label">Success Rate %</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-item">
-                            <div class="stat-number counter" data-target="24">0</div>
-                            <div class="stat-label">/7 Support</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-item">
-                            <div class="stat-number counter" data-target="15">0</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      
 
         <!-- Services Section -->
         <section id="services" class="services-section">
             <div class="container">
-                <div class="text-center mb-5">
+                <div class="text-left mb-5">
                     <h2 class="section-title reveal-on-scroll">Our Cybersecurity Services</h2>
-                    <p class="section-subtitle reveal-on-scroll">
+                    <p class=" reveal-on-scroll">
                         Comprehensive security solutions tailored to protect your business from evolving cyber threats
                     </p>
                 </div>
@@ -1847,131 +1824,7 @@
             </div>
         </section>
 
-        <!-- Tech Stack Section -->
-        <section class="tech-stack-section">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="section-title reveal-on-scroll">Our Cybersecurity Technology Stack</h2>
-                    <p class="section-subtitle reveal-on-scroll">
-                        Advanced security tools and technologies protecting your digital assets
-                    </p>
-                </div>
-                <div class="row g-4">
-                    <!-- Security Tools -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="tech-category reveal-on-scroll">
-                            <div class="tech-category-icon">
-                                <i class="bi bi-shield-check text-danger"></i>
-                            </div>
-                            <h4 class="tech-category-title">Security Tools</h4>
-                            <div class="tech-items">
-                                <div class="tech-item">
-                                    <img src="https://www.kali.org/images/kali-logo.svg" alt="Kali Linux">
-                                    <span>Kali Linux</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://nmap.org/images/nmap-logo-256x256.png" alt="Nmap">
-                                    <span>Nmap</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://www.metasploit.com/includes/images/metasploit-r7-logo.svg" alt="Metasploit">
-                                    <span>Metasploit</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://www.wireshark.org/assets/theme-2015/images/wireshark_logo.png" alt="Wireshark">
-                                    <span>Wireshark</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Programming Languages -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="tech-category reveal-on-scroll" data-delay="100">
-                            <div class="tech-category-icon">
-                                <i class="bi bi-code-slash text-warning"></i>
-                            </div>
-                            <h4 class="tech-category-title">Languages</h4>
-                            <div class="tech-items">
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-                                    <span>Python</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash">
-                                    <span>Bash</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
-                                    <span>C/C++</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-                                    <span>JavaScript</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cloud Security -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="tech-category reveal-on-scroll" data-delay="200">
-                            <div class="tech-category-icon">
-                                <i class="bi bi-cloud-lock text-success"></i>
-                            </div>
-                            <h4 class="tech-category-title">Cloud Security</h4>
-                            <div class="tech-items">
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS Security">
-                                    <span>AWS Security</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure Security">
-                                    <span>Azure Security</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP Security">
-                                    <span>GCP Security</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
-                                    <span>Kubernetes</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Monitoring & SIEM -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="tech-category reveal-on-scroll" data-delay="300">
-                            <div class="tech-category-icon">
-                                <i class="bi bi-graph-up text-info"></i>
-                            </div>
-                            <h4 class="tech-category-title">Monitoring & SIEM</h4>
-                            <div class="tech-items">
-                                <div class="tech-item">
-                                    <img src="https://www.elastic.co/static-res/images/elastic-logo-200.png" alt="Elastic Stack">
-                                    <span>Elastic Stack</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://www.splunk.com/content/dam/splunk2/images/logos/splunk-logo.svg" alt="Splunk">
-                                    <span>Splunk</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://grafana.com/static/img/logos/grafana_logo.svg" alt="Grafana">
-                                    <span>Grafana</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://prometheus.io/assets/prometheus_logo_grey.svg" alt="Prometheus">
-                                    <span>Prometheus</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+      
         <!-- Process Section -->
         <section class="process-section bg-light">
             <div class="container">
@@ -2022,146 +1875,7 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section id="cta-component" class="cta-section overflow-hidden bg-gradient-light">
-  <div class="py-5 position-relative">
-    <!-- ================= MAIN CTA ================= -->
-    <section class=" text-dark">
-      <div class="container">
-        <div class="row align-items-center g-2">
-          <!-- Left Side - Content -->
-          <div class="col-lg-12 slide-in-left" data-delay="0">
-            <div class="cta-content">
-              <!-- Badge -->
-              <!-- <span
-                class="badge bg-warning text-dark mb-3 badge-glow floating-text"
-              >
-                Get Started Today
-              </span> -->
-
-              <!-- Main Heading -->
-              <h2 class="fw-bold display-4 mb-4 typewriter-text text-light-primary-theme">
-                Ready to Secure Your
-                <span
-                  class="gradient-text "
-                >
-                  Digital Future?
-                </span>
-              </h2>
-
-              <!-- Description -->
-              <p
-                class="lead text-muted mb-4 fade-in-text"
-                data-delay="400"
-                style="max-width: 600px"
-              >
-                Get started with our comprehensive cybersecurity solutions
-                today. Protect your business with industry-leading security
-                measures.
-              </p>
-
-              <!-- Features List -->
-              <div class="row mb-4">
-                <!-- Feature 1 -->
-                <div class="col-lg-4 col-md-6 mb-3">
-                  <div
-                    class="d-flex gap-3 feature-item slide-in-right"
-                    data-delay="600"
-                  >
-                    <div
-                      class="rounded-circle d-flex align-items-center justify-content-center check-icon bg-accent-success"
-                      style="
-                        width: 24px;
-                        height: 24px;
-                        color: white;
-                      "
-                    >
-                      ✓
-                    </div>
-                    <div>
-                      <span class="fw-semibold">Free Security Assessment</span>
-                      <p class="text-muted small mb-0">
-                        Comprehensive analysis of your current security posture
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="col-lg-4 col-md-6 mb-3">
-                  <div
-                    class="d-flex gap-3 feature-item slide-in-right"
-                    data-delay="700"
-                  >
-                    <div
-                      class="rounded-circle d-flex align-items-center justify-content-center check-icon bg-accent-success"
-                      style="
-                        width: 24px;
-                        height: 24px;
-                        color: white;
-                      "
-                    >
-                      ✓
-                    </div>
-                    <div>
-                      <span class="fw-semibold">24/7 Expert Support</span>
-                      <p class="text-muted small mb-0">
-                        Round-the-clock monitoring and incident response
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="col-lg-4 col-md-6 mb-3">
-                  <div
-                    class="d-flex gap-3 feature-item slide-in-right"
-                    data-delay="800"
-                  >
-                    <div
-                      class="rounded-circle d-flex align-items-center justify-content-center check-icon bg-accent-success"
-                      style="
-                        width: 24px;
-                        height: 24px;
-                        color: white;
-                      "
-                    >
-                      ✓
-                    </div>
-                    <div>
-                      <span class="fw-semibold">Custom Solutions</span>
-                      <p class="text-muted small mb-0">
-                        Tailored security strategies for your business needs
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Action Buttons -->
-              <div class="d-flex gap-3 flex-wrap fade-in-up" data-delay="900">
-                <button
-                  class="btn btn-primary text-white px-5 py-3 shadow-lg animated-btn glow-btn primary-btn"
-                >
-                  <span class="btn-text">Schedule a Consultation</span>
-                  <span class="btn-arrow">→</span>
-                </button>
-
-                <button
-                  class="btn btn-outline-warning px-5 py-3 shadow-sm animated-btn secondary-btn"
-                >
-                  <span class="btn-text">Explore Services</span>
-                  <span class="btn-icon">🔍</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </div>
-</section>
+      
 
 
     </main>
@@ -2169,6 +1883,12 @@
     <!-- Footer -->
     <div id="footer-component"></div>
 
+       <!-- Theme Toggle -->
+    <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
+        <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
+        <i id="moon-icon" class="bi bi-moon-fill"></i>
+    </button>
+    <script src="../scripts/theme-toggle.js"></script>
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 

@@ -24,7 +24,7 @@
     <script src="../scripts/navigation-fix.js"></script>
     <script src="../scripts/navbar-scroll.js"></script>
 </head>
-<body style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb); color: #333333;">
+<body >
     <!-- Navigation -->
     <div id="navigation-component"></div>
 
@@ -34,10 +34,10 @@
     <!-- Main Content -->
     <main class="pt-5">
         <!-- Hero Section -->
-        <section class="py-5 position-relative overflow-hidden" style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb);">
+        <section class="py-5 position-relative overflow-hidden"  style="margin-top: 1.5rem;">
             <div class="container-fluid px-4">
                 <div class="text-center py-5">
-                    <h1 class="display-4 fw-bold mb-4" style="color: #333333;">Terms of Use</h1>
+                    <h1 class="display-4 fw-bold mb-4" >Terms of Use</h1>
                     <div class="w-25 mx-auto" style="height: 4px; background: linear-gradient(to right, var(--accent-primary), var(--accent-gold)); border-radius: 2px;"></div>
                     <p class="lead mt-4 mb-5" style="max-width: 800px; margin: 0 auto; color: #666666;">
                         Please read these terms carefully before using our website and services.
@@ -48,7 +48,7 @@
         </section>
 
         <!-- Terms Content -->
-        <section class="py-5" style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb);">
+        <section class="py-5" >
             <div class="container-fluid px-4">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
@@ -104,6 +104,12 @@
     <!-- Footer -->
     <div id="footer-component"></div>
 
+       <!-- Theme Toggle -->
+    <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
+        <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
+        <i id="moon-icon" class="bi bi-moon-fill"></i>
+    </button>
+    <script src="../scripts/theme-toggle.js"></script>
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 

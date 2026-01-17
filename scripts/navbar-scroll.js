@@ -120,8 +120,6 @@
     
     // Initialize navbar scroll effect
     function initNavbarScroll() {
-        console.log('Navbar Scroll Effect - Initializing...');
-        
         // Initial check
         handleScroll();
         
@@ -160,8 +158,6 @@
                 ticking = true;
             }
         }, { passive: true });
-        
-        console.log('Navbar Scroll Effect - Initialized successfully');
     }
     
     // Enhanced initialization with multiple triggers
@@ -179,7 +175,6 @@
         
         // Handle dynamic navbar loading
         document.addEventListener('navigationLoaded', function() {
-            console.log('Navbar Scroll Effect - Navigation loaded, reinitializing...');
             setTimeout(initNavbarScroll, 100);
         });
     }

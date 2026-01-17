@@ -1,300 +1,883 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Development Pipeline - JetHat Cyber Security</title>
-    <meta name="description" content="Explore what JetHat is currently developing - upcoming projects, innovations, and cutting-edge solutions in progress.">
-    
+    <title>Our Story - JetHat Cyber Security</title>
+    <meta name="description" content="Learn about JetHat Cyber Security's journey, mission, and commitment to securing digital innovation since 2018.">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../styles/main.css">
-    
-    
-    <!-- GSAP for animations -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Breadcrumb Badge -->
+    <script src="../scripts/breadcrumb-badge.js"></script>
+
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffffff 50%, #fffbeb 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 60vh;
+        }
+
+        /* Circuit Pattern Overlay */
+        .circuit-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(90deg, rgba(220, 20, 60, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(220, 20, 60, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(220, 20, 60, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 20px 20px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Grid Pattern */
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+                linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Floating Security Icons */
+        .floating-security-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .security-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.15;
+            animation: orbit 20s linear infinite, floatIcon 6s ease-in-out infinite;
+        }
+
+        .security-icon:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s, 0s; }
+        .security-icon:nth-child(2) { top: 30%; right: 10%; animation-delay: 2s, 1s; }
+        .security-icon:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 4s, 2s; }
+        .security-icon:nth-child(4) { top: 50%; right: 5%; animation-delay: 1s, 3s; }
+        .security-icon:nth-child(5) { bottom: 30%; right: 20%; animation-delay: 3s, 4s; }
+        .security-icon:nth-child(6) { top: 15%; left: 30%; animation-delay: 5s, 5s; }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Particle Effects */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #dc143c;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 8s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 30%; top: 40%; animation-delay: 1s; }
+        .particle:nth-child(3) { left: 50%; top: 60%; animation-delay: 2s; }
+        .particle:nth-child(4) { left: 70%; top: 30%; animation-delay: 3s; }
+        .particle:nth-child(5) { left: 90%; top: 50%; animation-delay: 4s; }
+        .particle:nth-child(6) { left: 20%; top: 70%; animation-delay: 5s; }
+        .particle:nth-child(7) { left: 40%; top: 10%; animation-delay: 6s; }
+        .particle:nth-child(8) { left: 60%; top: 80%; animation-delay: 7s; }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.3;
+            }
+            25% {
+                transform: translateY(-30px) translateX(20px);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-60px) translateX(-20px);
+                opacity: 0.3;
+            }
+            75% {
+                transform: translateY(-30px) translateX(20px);
+                opacity: 0.6;
+            }
+        }
+
+        /* Terminal Typing Effect */
+        .terminal-container {
+            background: #1a1a2e;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            font-size: 0.9rem;
+            max-width: 500px;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot:nth-child(1) { background: #ff5f56; }
+        .terminal-dot:nth-child(2) { background: #ffbd2e; }
+        .terminal-dot:nth-child(3) { background: #27ca40; }
+
+        .terminal-content {
+            min-height: 60px;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background: #00ff00;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Glowing Shield Icon */
+        .glow-shield {
+            position: relative;
+            font-size: 4rem;
+            color: #dc143c;
+            animation: shieldPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes shieldPulse {
+            0%, 100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.5));
+            }
+            50% {
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 30px rgba(220, 20, 60, 0.8));
+            }
+        }
+
+        /* Floating Badge */
+        .floating-badge {
+            position: absolute;
+            background: linear-gradient(135deg, #dc143c, #ffd700);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
+            animation: badgeFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Circuit Board Decorative Elements */
+        .circuit-element {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 2px solid rgba(220, 20, 60, 0.2);
+            border-radius: 5px;
+            pointer-events: none;
+        }
+
+        .circuit-element::before,
+        .circuit-element::after {
+            content: '';
+            position: absolute;
+            background: rgba(220, 20, 60, 0.3);
+        }
+
+        .circuit-element::before {
+            width: 2px;
+            height: 20px;
+            top: -20px;
+            left: 50%;
+        }
+
+        .circuit-element::after {
+            width: 20px;
+            height: 2px;
+            top: 50%;
+            left: calc(100% + 10px);
+        }
+
+        /* Enhanced Info Card Styles */
+        .cyber-info-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cyber-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .cyber-info-card:hover::before {
+            opacity: 1;
+        }
+
+        .cyber-info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .cyber-info-card .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #dc143c, #ffd700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .cyber-info-card .card-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid #dc143c;
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .cyber-info-card:hover .card-icon {
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        .cyber-info-card:hover .card-icon::after {
+            opacity: 0.3;
+            transform: scale(1.2);
+        }
+
+        /* Tech Status Indicator */
+        .tech-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 12px;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #22c55e;
+        }
+
+        .tech-status::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: statusPulse 2s infinite;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        /* Counter Animation */
+        .counter-value {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #dc143c, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Reveal Animations */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-zoom {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-up.visible,
+        .reveal-left.visible,
+        .reveal-right.visible,
+        .reveal-zoom.visible {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* Stagger Animation Delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+
+        /* 3D Tilt Effect */
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .tilt-card:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+
+        /* Glow Border Animation */
+        .glow-border {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #dc143c, #ffd700, #dc143c);
+            background-size: 400% 400%;
+            z-index: -1;
+            border-radius: 22px;
+            animation: borderGlow 3s ease infinite;
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Cyber Grid Background */
+        .cyber-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(220, 20, 60, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(220, 20, 60, 0.03) 1px, transparent 1px);
+            background-size: 25px 25px;
+            z-index: 0;
+        }
+
+        /* Floating Shapes (Original) */
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            background: linear-gradient(45deg, #dc143c, #ffd700);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 120px; height: 120px; top: 60%; right: 15%; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 60px; height: 60px; bottom: 30%; left: 20%; animation-delay: 4s; }
+        .shape:nth-child(4) { width: 100px; height: 100px; top: 40%; right: 30%; animation-delay: 1s; }
+        .shape:nth-child(5) { width: 90px; height: 90px; bottom: 20%; right: 10%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-30px) rotate(90deg) scale(1.1); }
+            50% { transform: translateY(-20px) rotate(180deg) scale(0.9); }
+            75% { transform: translateY(-40px) rotate(270deg) scale(1.05); }
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: none;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(220, 20, 60, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .info-card:hover::before {
+            left: 100%;
+        }
+
+        .info-card:hover {
+            transform: translateY(-15px) scale(1.05) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, #dc143c, #ffd700);
+            border: none;
+            color: white;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-gradient:hover::before {
+            left: 100%;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(220, 20, 60, 0.4);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #dc143c, #ffd700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .contact-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(135deg, #dc143c, #ffd700);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.2) rotate(360deg);
+        }
+
+        .contact-icon:hover::after {
+            opacity: 0.3;
+            transform: scale(1.2);
+        }
+
+        .stats-counter {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #dc143c, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+        }
+
+        .stats-counter:hover {
+            transform: scale(1.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #dc143c, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Advanced Animation Classes */
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-up {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-down {
+            opacity: 0;
+            transform: translateY(-80px);
+            transition: all 0.8s ease;
+        }
+
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.8s ease;
+        }
+
+        .zoom-out {
+            opacity: 0;
+            transform: scale(1.5);
+            transition: all 0.8s ease;
+        }
+
+        .rotate-in {
+            opacity: 0;
+            transform: rotate(-180deg) scale(0.5);
+            transition: all 1s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .bounce-in {
+            opacity: 0;
+            transform: scale(0.3) translateY(-100px);
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* Visible states */
+        .slide-in-left.visible,
+        .slide-in-right.visible,
+        .slide-in-up.visible,
+        .slide-in-down.visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .zoom-in.visible,
+        .zoom-out.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .rotate-in.visible {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        .bounce-in.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        /* Stagger animations */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+
+        /* Parallax elements */
+        .parallax-slow {
+            transition: transform 0.1s ease-out;
+        }
+
+        .parallax-fast {
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Pulse animation */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Glow effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .glow:hover {
+            box-shadow: 0 0 40px rgba(220, 20, 60, 0.6);
+        }
+
+        /* Ensure animations are visible by default for testing */
+      
+        /* Ensure content is visible */
+        main {
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Fix text color issues */
+        .text-light {
+            color: #333333 !important;
+        }
+
+        .text-light-primary-theme {
+            color: #333333 !important;
+        }
+
+        .text-light-secondary-theme {
+            color: #666666 !important;
+        }
+
+        /* Ensure cards are visible */
+        .card {
+            background: white !important;
+            color: #333333 !important;
+        }
+
+        .bg-dark {
+            background: #1a1a1a !important;
+        }
+
+        .text-muted {
+            color: #666666 !important;
+        }
+    </style>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/about-dark-mode.css">
+
+    <!-- Navigation Fix Script -->
+    <script src="../scripts/navigation-fix.js"></script>
+    <script src="../scripts/navbar-scroll.js"></script>
 </head>
-<body class="bg-gradient-light">
+<body style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb); color: #333333;">
     <!-- Navigation -->
-    <div id="navigation-placeholder"></div>
+    <div id="navigation-component"></div>
 
-    <!-- Hero Section -->
-    <section class="min-vh-100 d-flex align-items-center position-relative overflow-hidden bg-gradient-dark text-white">
-        <div class="container px-4 position-relative z-content">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <div class="reveal-up">
-                        <h1 class="display-3 fw-bold mb-4 font-playfair">
-                            What We're <span class="text-gradient">Building</span>
-                        </h1>
-                        <p class="fs-5 mb-4 font-quicksand opacity-75">
-                            Get an exclusive look into JetHat's development pipeline. From next-generation AI solutions to revolutionary cybersecurity frameworks, discover the innovations that will shape tomorrow's digital landscape.
-                        </p>
-                        <div class="d-flex flex-wrap gap-3">
-                            <button class="btn btn-primary btn-lg px-4 py-3 btn-ripple hover-lift">
-                                <i class="bi bi-eye me-2"></i>
-                                View Pipeline
-                            </button>
-                            <button class="btn btn-outline-light btn-lg px-4 py-3 hover-scale">
-                                <i class="bi bi-bell me-2"></i>
-                                Get Updates
-                            </button>
-                        </div>
+    <!-- Right Panel -->
+    <div id="right-panel-component"></div>
+
+    <!-- Main Content -->
+    <main >
+        <!-- Fallback content that shows immediately -->
+        <div id="fallback-content" class="container-fluid px-4 py-5 text-center" style="min-height: 50vh;">
+            <h1 class="display-4 fw-bold text-gradient mb-4">Our Story</h1>
+            <p class="lead text-muted mb-4">
+                Founded in 2018, JetHat Cyber Security has been at the forefront of digital protection,
+                combining cutting-edge technology with unwavering commitment to security excellence.
+            </p>
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="text-muted mt-3">Loading full content...</p>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="about-hero py-5 position-relative overflow-hidden " >
+           
+            <div class="container px-4 position-relative" style="z-index: 2; margin-top: 2.5rem;">
+                <div class="row align-items-center g-5">
+                    <div class="col-12 mb-4" data-breadcrumb data-separator="arrow">
+                        <!-- Breadcrumb will be dynamically generated here -->
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="position-relative reveal-right">
-                        <!-- Development Progress Visualization -->
-                        <div class="position-relative" style="height: 400px;">
-                            <!-- Central Hub -->
-                            <div class="position-absolute top-50 start-50 translate-middle">
-                                <div class="bg-gradient-primary rounded-circle p-4 pulse-glow">
-                                    <i class="bi bi-cpu text-white fs-1"></i>
-                                </div>
+                    <div class="col-lg-6">
+                        <h1 class="display-4 fw-bold text-gradient mb-4 slide-in-left stagger-1">Our Story</h1>
+                        <div class="w-25 mb-4" style="height: 4px; background: linear-gradient(to right, #dc143c, #ffd700); border-radius: 2px;"></div>
+                    
+
+                        <!-- Terminal Typing Effect -->
+                        <div class="terminal-container slide-in-left stagger-3">
+                            <div class="terminal-header">
+                                <div class="terminal-dot"></div>
+                                <div class="terminal-dot"></div>
+                                <div class="terminal-dot"></div>
                             </div>
-                            
-                            <!-- Orbiting Projects -->
-                            <div class="orbit position-absolute top-50 start-50 translate-middle">
-                                <div class="bg-gradient-secondary rounded-circle p-3">
-                                    <i class="bi bi-shield-lock text-white fs-4"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="orbit-reverse position-absolute top-50 start-50 translate-middle">
-                                <div class="bg-gradient-gold rounded-circle p-3">
-                                    <i class="bi bi-robot text-white fs-4"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="orbit-delayed position-absolute top-50 start-50 translate-middle">
-                                <div class="bg-gradient-primary rounded-circle p-3">
-                                    <i class="bi bi-cloud text-white fs-4"></i>
-                                </div>
-                            </div>
-                            
-                            <!-- Floating Elements -->
-                            <div class="particle-float position-absolute" style="top: 10%; right: 10%;">
-                                <i class="bi bi-hexagon text-primary fs-3"></i>
-                            </div>
-                            <div class="particle-float position-absolute" style="bottom: 10%; left: 10%; animation-delay: 1s;">
-                                <i class="bi bi-triangle text-secondary fs-4"></i>
-                            </div>
+                            <div class="terminal-content" id="typed-text"></div>
+                        </div>
+
+                      
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative slide-in-right stagger-2">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="Our Story" class="img-fluid rounded shadow-lg contact-image-container">
+                            <!-- Scanning Line -->
+                            <div class="scanning-line" style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #dc143c, transparent); animation: scan 3s ease-in-out infinite;"></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Animated Background -->
-        <div class="position-absolute top-0 start-0 w-100 h-100 z-background">
-            <div class="position-absolute" style="top: 20%; left: 10%; animation: particle-float 4s ease-in-out infinite;">
-                <i class="bi bi-code text-primary opacity-25 fs-5"></i>
-            </div>
-            <div class="position-absolute" style="top: 60%; right: 15%; animation: particle-float 3s ease-in-out infinite 1s;">
-                <i class="bi bi-gear text-secondary opacity-25 fs-4"></i>
-            </div>
-            <div class="position-absolute" style="bottom: 30%; left: 20%; animation: particle-float 5s ease-in-out infinite 2s;">
-                <i class="bi bi-lightning text-gold opacity-25 fs-3"></i>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Development Status Overview -->
+        <!-- Timeline Section -->
+        <section class="py-5">
+            <div class="container px-4">
+                <h2 class="display-5 fw-bold text-left text-light mb-5">Our Journey</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card bg-dark border-warning h-100">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                    <span class="text-dark fw-bold fs-4">2018</span>
+                                </div>
+                                <h3 class="h5 fw-bold text-warning mb-3">Foundation</h3>
+                                <p class="text-muted">
+                                    JetHat Cyber Security was established with a vision to protect businesses
+                                    from evolving cyber threats through innovative solutions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark border-warning h-100">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                    <span class="text-dark fw-bold fs-4">2020</span>
+                                </div>
+                                <h3 class="h5 fw-bold text-warning mb-3">Expansion</h3>
+                                <p class="text-muted">
+                                    Expanded our services to include AI/ML development and cloud solutions,
+                                    serving clients across multiple industries.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark border-warning h-100">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                    <span class="text-dark fw-bold fs-4">2023</span>
+                                </div>
+                                <h3 class="h5 fw-bold text-warning mb-3">Innovation</h3>
+                                <p class="text-muted">
+                                    Launched groundbreaking AI products and established ourselves as
+                                    leaders in cybersecurity and digital transformation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+ <!-- Development Roadmap -->
     <section class="py-5 bg-light">
         <div class="container px-4">
-            <div class="text-center mb-5 reveal-up">
-                <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Development Status</h2>
-                <p class="fs-5 text-light-secondary-theme font-quicksand">Real-time overview of our active development projects</p>
-            </div>
-            
-            <div class="row g-4">
-                <!-- Active Development -->
-                <div class="col-lg-3 col-md-6 reveal-up stagger-1">
-                    <div class="card-animated bg-white rounded-xl-theme p-4 text-center shadow-md-theme">
-                        <div class="bg-gradient-primary rounded-circle p-3 d-inline-flex mb-3">
-                            <i class="bi bi-code-slash text-white fs-2"></i>
-                        </div>
-                        <h3 class="fw-bold accent-primary mb-2" data-count="12">0</h3>
-                        <h6 class="fw-semibold font-montserrat">Active Projects</h6>
-                        <p class="text-muted small">Currently in development</p>
-                    </div>
-                </div>
-
-                <!-- Testing Phase -->
-                <div class="col-lg-3 col-md-6 reveal-up stagger-2">
-                    <div class="card-animated bg-white rounded-xl-theme p-4 text-center shadow-md-theme">
-                        <div class="bg-gradient-secondary rounded-circle p-3 d-inline-flex mb-3">
-                            <i class="bi bi-bug text-white fs-2"></i>
-                        </div>
-                        <h3 class="fw-bold accent-secondary mb-2" data-count="8">0</h3>
-                        <h6 class="fw-semibold font-montserrat">In Testing</h6>
-                        <p class="text-muted small">Quality assurance phase</p>
-                    </div>
-                </div>
-
-                <!-- Ready for Launch -->
-                <div class="col-lg-3 col-md-6 reveal-up stagger-3">
-                    <div class="card-animated bg-white rounded-xl-theme p-4 text-center shadow-md-theme">
-                        <div class="bg-gradient-gold rounded-circle p-3 d-inline-flex mb-3">
-                            <i class="bi bi-rocket-takeoff text-white fs-2"></i>
-                        </div>
-                        <h3 class="fw-bold accent-gold mb-2" data-count="5">0</h3>
-                        <h6 class="fw-semibold font-montserrat">Ready to Launch</h6>
-                        <p class="text-muted small">Deployment ready</p>
-                    </div>
-                </div>
-
-                <!-- Research Phase -->
-                <div class="col-lg-3 col-md-6 reveal-up stagger-4">
-                    <div class="card-animated bg-white rounded-xl-theme p-4 text-center shadow-md-theme">
-                        <div class="bg-gradient-primary rounded-circle p-3 d-inline-flex mb-3">
-                            <i class="bi bi-lightbulb text-white fs-2"></i>
-                        </div>
-                        <h3 class="fw-bold accent-primary mb-2" data-count="15">0</h3>
-                        <h6 class="fw-semibold font-montserrat">In Research</h6>
-                        <p class="text-muted small">Concept & planning</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Development Projects -->
-    <section class="py-5 bg-gradient-light">
-        <div class="container px-4">
-            <div class="text-center mb-5 reveal-up">
-                <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Featured Projects in Development</h2>
-                <p class="fs-5 text-light-secondary-theme font-quicksand">Our most exciting upcoming innovations</p>
-            </div>
-
-            <div class="row g-5">
-                <!-- Quantum Security Suite -->
-                <div class="col-lg-6 reveal-left">
-                    <div class="card-animated bg-white rounded-xl-theme overflow-hidden shadow-lg-theme">
-                        <div class="position-relative">
-                            <div class="bg-gradient-primary p-4">
-                                <div class="d-flex align-items-center justify-content-between text-white">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-shield-shaded fs-2 me-3"></i>
-                                        <div>
-                                            <h4 class="fw-bold mb-1">Quantum Security Suite</h4>
-                                            <p class="mb-0 opacity-75">Next-Gen Cybersecurity</p>
-                                        </div>
-                                    </div>
-                                    <div class="text-end">
-                                        <div class="badge bg-warning text-dark">75% Complete</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Progress Bar -->
-                            <div class="progress" style="height: 4px;">
-                                <div class="progress-bar bg-warning" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-muted mb-4">Revolutionary quantum-resistant security framework designed to protect against future quantum computing threats. Features advanced encryption algorithms and real-time threat adaptation.</p>
-                            
-                            <div class="row g-3 mb-4">
-                                <div class="col-6">
-                                    <h6 class="fw-bold accent-primary">Q2 2024</h6>
-                                    <small class="text-muted">Expected Launch</small>
-                                </div>
-                                <div class="col-6">
-                                    <h6 class="fw-bold accent-secondary">Enterprise</h6>
-                                    <small class="text-muted">Target Market</small>
-                                </div>
-                            </div>
-
-                            <div class="mb-4">
-                                <h6 class="fw-semibold mb-3">Key Features:</h6>
-                                <ul class="list-unstyled">
-                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Quantum-resistant encryption</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>AI-powered threat detection</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Real-time adaptation</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Zero-trust architecture</li>
-                                </ul>
-                            </div>
-
-                            <div class="d-flex flex-wrap gap-2 mb-4">
-                                <span class="badge bg-primary-10 text-primary">Quantum Computing</span>
-                                <span class="badge bg-secondary-10 text-secondary">AI Security</span>
-                                <span class="badge bg-gold-10 text-gold">Enterprise</span>
-                            </div>
-                            
-                            <button class="btn btn-primary w-100 hover-lift">Get Early Access</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Neural Network Optimizer -->
-                <div class="col-lg-6 reveal-right">
-                    <div class="card-animated bg-white rounded-xl-theme overflow-hidden shadow-lg-theme">
-                        <div class="position-relative">
-                            <div class="bg-gradient-secondary p-4">
-                                <div class="d-flex align-items-center justify-content-between text-white">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-diagram-3 fs-2 me-3"></i>
-                                        <div>
-                                            <h4 class="fw-bold mb-1">Neural Network Optimizer</h4>
-                                            <p class="mb-0 opacity-75">AI Performance Enhancement</p>
-                                        </div>
-                                    </div>
-                                    <div class="text-end">
-                                        <div class="badge bg-info text-dark">60% Complete</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Progress Bar -->
-                            <div class="progress" style="height: 4px;">
-                                <div class="progress-bar bg-info" style="width: 60%"></div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-muted mb-4">Advanced AI system that automatically optimizes neural network architectures for maximum performance and efficiency. Reduces training time by up to 80% while improving accuracy.</p>
-                            
-                            <div class="row g-3 mb-4">
-                                <div class="col-6">
-                                    <h6 class="fw-bold accent-primary">Q3 2024</h6>
-                                    <small class="text-muted">Expected Launch</small>
-                                </div>
-                                <div class="col-6">
-                                    <h6 class="fw-bold accent-secondary">AI/ML Teams</h6>
-                                    <small class="text-muted">Target Users</small>
-                                </div>
-                            </div>
-
-                            <div class="mb-4">
-                                <h6 class="fw-semibold mb-3">Key Features:</h6>
-                                <ul class="list-unstyled">
-                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Auto-architecture optimization</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Performance monitoring</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Resource optimization</li>
-                                    <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Multi-framework support</li>
-                                </ul>
-                            </div>
-
-                            <div class="d-flex flex-wrap gap-2 mb-4">
-                                <span class="badge bg-primary-10 text-primary">Machine Learning</span>
-                                <span class="badge bg-secondary-10 text-secondary">Optimization</span>
-                                <span class="badge bg-gold-10 text-gold">Performance</span>
-                            </div>
-                            
-                            <button class="btn btn-primary w-100 hover-lift">Join Beta Program</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Development Roadmap -->
-    <section class="py-5 bg-light">
-        <div class="container px-4">
-            <div class="text-center mb-5 reveal-up">
+            <div class="text-left mb-5 reveal-up">
                 <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Development Roadmap</h2>
                 <p class="fs-5 text-light-secondary-theme font-quicksand">Our planned releases and milestones for 2024-2025</p>
             </div>
@@ -371,223 +954,436 @@
         </div>
     </section>
 
-    <!-- Innovation Lab -->
-    <section class="py-5 bg-gradient-primary text-white">
-        <div class="container px-4">
-            <div class="text-center mb-5 reveal-up">
-                <h2 class="display-5 fw-bold mb-3 font-playfair">Innovation Lab</h2>
-                <p class="fs-5 mb-4 font-quicksand">Experimental projects and cutting-edge research</p>
-            </div>
+        <!-- Mission & Values -->
+        <section class=" container position-relative overflow-hidden">
+            <!-- Circuit Pattern Overlay -->
+            <div class="circuit-pattern"></div>
 
-            <div class="row g-4">
-                <!-- Research Project 1 -->
-                <div class="col-lg-4 col-md-6 reveal-up stagger-1">
-                    <div class="card-animated bg-white bg-opacity-10 rounded-xl-theme p-4 text-center backdrop-blur">
-                        <i class="bi bi-atom fs-1 mb-3 text-gold"></i>
-                        <h5 class="fw-bold mb-3">Quantum AI Fusion</h5>
-                        <p class="mb-4 opacity-75">Exploring the intersection of quantum computing and artificial intelligence for breakthrough performance.</p>
-                        <div class="badge bg-warning text-dark">Research Phase</div>
+            <!-- Circuit Elements -->
+            <div class="circuit-element" style="top: 20%; left: 10%;"></div>
+            <div class="circuit-element" style="bottom: 30%; right: 15%;"></div>
+
+            <div class="container-fluid px-4 position-relative" style="z-index: 2;">
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <h2 class="display-5 fw-bold text-gradient mb-4 slide-in-left stagger-1">Our Mission</h2>
+                        <p class="lead text-muted mb-4 slide-in-left stagger-2">
+                            To empower businesses with secure, scalable digital transformation solutions
+                            that protect against cyber threats while enabling innovation and growth.
+                        </p>
+                        <ul class="list-unstyled slide-in-left stagger-3">
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check-circle-fill text-success me-3 fs-4 glow"></i>
+                                <span>Comprehensive cybersecurity protection</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check-circle-fill text-success me-3 fs-4 glow"></i>
+                                <span>Cutting-edge AI and ML solutions</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check-circle-fill text-success me-3 fs-4 glow"></i>
+                                <span>24/7 support and monitoring</span>
+                            </li>
+                        </ul>
+
+                        <!-- Glowing Shield Icon -->
+                        <div class="text-center mt-4 slide-in-left stagger-4">
+                            <i class="bi bi-shield-check glow-shield"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="display-5 fw-bold text-gradient mb-4 slide-in-right stagger-1">Our Values</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="cyber-info-card text-center slide-in-right stagger-2">
+                                    <div class="card-body p-4">
+                                        <div class="contact-icon mb-3">
+                                            <i class="bi bi-shield-check text-white fs-2"></i>
+                                        </div>
+                                        <h5 class="fw-bold text-gradient">Security First</h5>
+                                        <p class="text-muted small">Security is at the core of everything we do</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="cyber-info-card text-center slide-in-right stagger-3">
+                                    <div class="card-body p-4">
+                                        <div class="contact-icon mb-3">
+                                            <i class="bi bi-lightbulb text-white fs-2"></i>
+                                        </div>
+                                        <h5 class="fw-bold text-gradient">Innovation</h5>
+                                        <p class="text-muted small">Constantly pushing technological boundaries</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="cyber-info-card text-center slide-in-right stagger-4">
+                                    <div class="card-body p-4">
+                                        <div class="contact-icon mb-3">
+                                            <i class="bi bi-people text-white fs-2"></i>
+                                        </div>
+                                        <h5 class="fw-bold text-gradient">Collaboration</h5>
+                                        <p class="text-muted small">Working together for mutual success</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="cyber-info-card text-center slide-in-right stagger-5">
+                                    <div class="card-body p-4">
+                                        <div class="contact-icon mb-3">
+                                            <i class="bi bi-heart text-white fs-2"></i>
+                                        </div>
+                                        <h5 class="fw-bold text-gradient">Integrity</h5>
+                                        <p class="text-muted small">Honest and ethical in all our dealings</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Research Project 2 -->
-                <div class="col-lg-4 col-md-6 reveal-up stagger-2">
-                    <div class="card-animated bg-white bg-opacity-10 rounded-xl-theme p-4 text-center backdrop-blur">
-                        <i class="bi bi-brain fs-1 mb-3 text-gold"></i>
-                        <h5 class="fw-bold mb-3">Consciousness Simulation</h5>
-                        <p class="mb-4 opacity-75">Advanced neural networks that simulate human-like consciousness and decision-making processes.</p>
-                        <div class="badge bg-info text-dark">Concept Phase</div>
-                    </div>
+            </div>
+            </section>
+        <!-- FAQ Section -->
+        <section class="py-5 position-relative overflow-hidden" style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb);">
+            <!-- Circuit Pattern Overlay -->
+            <div class="circuit-pattern"></div>
+            
+            <!-- Circuit Elements -->
+            <div class="circuit-element" style="top: 15%; left: 8%;"></div>
+            <div class="circuit-element" style="bottom: 25%; right: 8%;"></div>
+            
+            <div class="container px-4 position-relative" style="z-index: 2;">
+                <div class="text-left mb-5 reveal-up">
+                    <h2 class="display-5 fw-bold mb-3" style="color: #333;">
+                        <span class="text-gradient">About Us</span> - FAQ
+                    </h2>
+                    <p class="lead text-muted">Learn more about JetHat Cyber Security and our journey</p>
                 </div>
+                
+                <div class="row justify-content-left">
+                    <div class="col-lg-10">
+                        <div class="accordion" id="aboutFaqAccordion">
+                            
+                            <!-- FAQ Item 1 -->
+                            <div class="accordion-item reveal-up stagger-1" style="border: none; margin-bottom: 1rem; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aboutFaq1" aria-expanded="false" aria-controls="aboutFaq1" style="background: white; border: none; padding: 1.5rem; font-weight: 600; color: #333;">
+                                        <i class="bi bi-building text-gradient me-3 fs-5"></i>
+                                        When was JetHat Cyber Security founded?
+                                    </button>
+                                </h2>
+                                <div id="aboutFaq1" class="accordion-collapse collapse" data-bs-parent="#aboutFaqAccordion">
+                                    <div class="accordion-body" style="background: #f8f9fa; padding: 1.5rem; color: #666;">
+                                        JetHat Cyber Security was founded in 2018 with a vision to protect businesses from evolving cyber threats through innovative solutions. Since our inception, we have been at the forefront of digital protection, combining cutting-edge technology with unwavering commitment to security excellence.
+                                    </div>
+                                </div>
+                            </div>
 
-                <!-- Research Project 3 -->
-                <div class="col-lg-4 col-md-6 reveal-up stagger-3">
-                    <div class="card-animated bg-white bg-opacity-10 rounded-xl-theme p-4 text-center backdrop-blur">
-                        <i class="bi bi-infinity fs-1 mb-3 text-gold"></i>
-                        <h5 class="fw-bold mb-3">Infinite Scale Computing</h5>
-                        <p class="mb-4 opacity-75">Revolutionary architecture for unlimited computational scaling across distributed networks.</p>
-                        <div class="badge bg-primary text-white">Early Development</div>
+                            <!-- FAQ Item 2 -->
+                            <div class="accordion-item reveal-up stagger-2" style="border: none; margin-bottom: 1rem; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aboutFaq2" aria-expanded="false" aria-controls="aboutFaq2" style="background: white; border: none; padding: 1.5rem; font-weight: 600; color: #333;">
+                                        <i class="bi bi-target text-gradient me-3 fs-5"></i>
+                                        What is your company mission?
+                                    </button>
+                                </h2>
+                                <div id="aboutFaq2" class="accordion-collapse collapse" data-bs-parent="#aboutFaqAccordion">
+                                    <div class="accordion-body" style="background: #f8f9fa; padding: 1.5rem; color: #666;">
+                                        Our mission is to empower businesses with secure, scalable digital transformation solutions that protect against cyber threats while enabling innovation and growth. We provide comprehensive cybersecurity protection, cutting-edge AI and ML solutions, and 24/7 support and monitoring.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 3 -->
+                            <div class="accordion-item reveal-up stagger-3" style="border: none; margin-bottom: 1rem; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aboutFaq3" aria-expanded="false" aria-controls="aboutFaq3" style="background: white; border: none; padding: 1.5rem; font-weight: 600; color: #333;">
+                                        <i class="bi bi-heart text-gradient me-3 fs-5"></i>
+                                        What are your core values?
+                                    </button>
+                                </h2>
+                                <div id="aboutFaq3" class="accordion-collapse collapse" data-bs-parent="#aboutFaqAccordion">
+                                    <div class="accordion-body" style="background: #f8f9fa; padding: 1.5rem; color: #666;">
+                                        Our core values are Security First (security is at the core of everything we do), Innovation (constantly pushing technological boundaries), Collaboration (working together for mutual success), and Integrity (honest and ethical in all our dealings).
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 4 -->
+                            <div class="accordion-item reveal-up stagger-4" style="border: none; margin-bottom: 1rem; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aboutFaq4" aria-expanded="false" aria-controls="aboutFaq4" style="background: white; border: none; padding: 1.5rem; font-weight: 600; color: #333;">
+                                        <i class="bi bi-graph-up text-gradient me-3 fs-5"></i>
+                                        How has the company evolved since 2018?
+                                    </button>
+                                </h2>
+                                <div id="aboutFaq4" class="accordion-collapse collapse" data-bs-parent="#aboutFaqAccordion">
+                                    <div class="accordion-body" style="background: #f8f9fa; padding: 1.5rem; color: #666;">
+                                        Since our foundation in 2018, we expanded our services in 2020 to include AI/ML development and cloud solutions, serving clients across multiple industries. By 2023, we launched groundbreaking AI products and established ourselves as leaders in cybersecurity and digital transformation.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 5 -->
+                            <div class="accordion-item reveal-up stagger-5" style="border: none; margin-bottom: 1rem; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aboutFaq5" aria-expanded="false" aria-controls="aboutFaq5" style="background: white; border: none; padding: 1.5rem; font-weight: 600; color: #333;">
+                                        <i class="bi bi-rocket text-gradient me-3 fs-5"></i>
+                                        What's in your development roadmap?
+                                    </button>
+                                </h2>
+                                <div id="aboutFaq5" class="accordion-collapse collapse" data-bs-parent="#aboutFaqAccordion">
+                                    <div class="accordion-body" style="background: #f8f9fa; padding: 1.5rem; color: #666;">
+                                        Our 2024-2025 roadmap includes launching the Quantum Security Suite (Q2 2024), Neural Network Optimizer (Q3 2024), Metaverse Security Suite (Q4 2024), and Quantum ML Platform (Q1 2025). These innovations will further strengthen our position as industry leaders.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Item 6 -->
+                            <div class="accordion-item reveal-up stagger-6" style="border: none; margin-bottom: 1rem; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aboutFaq6" aria-expanded="false" aria-controls="aboutFaq6" style="background: white; border: none; padding: 1.5rem; font-weight: 600; color: #333;">
+                                        <i class="bi bi-people text-gradient me-3 fs-5"></i>
+                                        What makes JetHat different from other cybersecurity companies?
+                                    </button>
+                                </h2>
+                                <div id="aboutFaq6" class="accordion-collapse collapse" data-bs-parent="#aboutFaqAccordion">
+                                    <div class="accordion-body" style="background: #f8f9fa; padding: 1.5rem; color: #666;">
+                                        JetHat stands out through our unique combination of cybersecurity expertise and AI/ML innovation. We don't just protect against current threats - we anticipate future challenges and develop cutting-edge solutions. Our commitment to security-first innovation and collaborative partnerships sets us apart in the industry.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <!-- Learn More CTA -->
+                        <div class="text-center mt-5 reveal-up">
+                            <div class="cyber-info-card p-4" style="background: linear-gradient(135deg, rgba(220, 20, 60, 0.05), rgba(255, 215, 0, 0.05));">
+                                <h4 class="fw-bold text-gradient mb-3">Want to Learn More About Us?</h4>
+                                <p class="text-muted mb-4">Discover how our journey and values can benefit your business security needs.</p>
+                                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                                    <button class="btn btn-gradient px-4 py-2">
+                                        <i class="bi bi-envelope me-2"></i>
+                                        Contact Us
+                                    </button>
+                                    <button class="btn btn-outline-danger px-4 py-2">
+                                        <i class="bi bi-file-text me-2"></i>
+                                        View Our Services
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="py-5 bg-light">
-        <div class="container px-4 text-center">
-            <div class="reveal-up">
-                <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Stay Updated on Our Progress</h2>
-                <p class="fs-5 text-light-secondary-theme mb-4 font-quicksand">Be the first to know about our latest developments and get early access to new innovations.</p>
-                <div class="d-flex flex-wrap gap-3 justify-content-center">
-                    <button class="btn btn-primary btn-lg px-4 py-3 hover-lift">
-                        <i class="bi bi-envelope me-2"></i>
-                        Subscribe to Updates
-                    </button>
-                    <button class="btn btn-outline-primary btn-lg px-4 py-3 hover-scale">
-                        <i class="bi bi-github me-2"></i>
-                        Follow on GitHub
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <div id="footer-placeholder"></div>
-
-    <!-- Right Panel -->
-    <div id="right-panel-placeholder"></div>
-
+    <div id="footer-component"></div>
+ <!-- Theme Toggle -->
+    <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
+        <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
+        <i id="moon-icon" class="bi bi-moon-fill"></i>
+    </button>
+    <script src="../scripts/theme-toggle.js"></script>
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Load Components -->
-    <script>
-        // Load navigation
-        fetch('../components/navigation/navigation.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navigation-placeholder').innerHTML = data;
-            });
+    <!-- About Page Animations -->
+    <script src="about-animations.js"></script>
 
-        // Load footer
-        fetch('../components/footer/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
+    <!-- Component Loader Script -->
+    <script type="module">
+        async function loadComponent(id, path) {
+            try {
+                const res = await fetch(path);
+                if (!res.ok) throw new Error(`${path} (${res.status})`);
+                const html = await res.text();
 
-        // Load right panel
-        fetch('../components/right-panel/right-panel.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('right-panel-placeholder').innerHTML = data;
-            });
-    </script>
-
-    <!-- Animation Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize GSAP ScrollTrigger
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Reveal animations
-            gsap.utils.toArray('.reveal-up').forEach(element => {
-                gsap.fromTo(element, 
-                    { opacity: 0, y: 50 },
-                    { 
-                        opacity: 1, 
-                        y: 0, 
-                        duration: 0.8, 
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 80%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            gsap.utils.toArray('.reveal-left').forEach(element => {
-                gsap.fromTo(element, 
-                    { opacity: 0, x: -50 },
-                    { 
-                        opacity: 1, 
-                        x: 0, 
-                        duration: 0.8, 
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 80%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            gsap.utils.toArray('.reveal-right').forEach(element => {
-                gsap.fromTo(element, 
-                    { opacity: 0, x: 50 },
-                    { 
-                        opacity: 1, 
-                        x: 0, 
-                        duration: 0.8, 
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 80%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            // Stagger animations
-            gsap.utils.toArray('.stagger-1, .stagger-2, .stagger-3, .stagger-4').forEach((element, index) => {
-                gsap.fromTo(element, 
-                    { opacity: 0, y: 30 },
-                    { 
-                        opacity: 1, 
-                        y: 0, 
-                        duration: 0.6, 
-                        delay: index * 0.1,
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 85%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            // Counter animations
-            function animateCounter(element, target) {
-                let current = 0;
-                const increment = target / 60;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    element.textContent = Math.floor(current);
-                }, 16);
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = html;
+                else console.warn(`Missing container #${id}`);
+            } catch (err) {
+                console.error(`Component load failed: ${path}`, err);
             }
+        }
 
-            // Initialize counters when they come into view
-            const counters = document.querySelectorAll('[data-count]');
-            counters.forEach(counter => {
-                ScrollTrigger.create({
-                    trigger: counter,
-                    start: "top 80%",
-                    onEnter: () => {
-                        const target = parseInt(counter.getAttribute('data-count'));
-                        animateCounter(counter, target);
-                    }
-                });
-            });
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('🚀 About page loading started...');
+            
+            const components = [
+                ['navigation-component', '../components/navigation/navigation.html'],
+                ['footer-component', '../components/footer/footer.html'],
+                ['right-panel-component', '../components/right-panel/right-panel-subdirectory.html']
+            ];
 
-            // Progress bar animations
-            gsap.utils.toArray('.progress-bar').forEach(bar => {
-                const width = bar.style.width;
-                gsap.fromTo(bar, 
-                    { width: '0%' },
-                    { 
-                        width: width,
-                        duration: 1.5,
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: bar,
-                            start: "top 80%",
-                            toggleActions: "play none none reverse"
-                        }
+            try {
+                await Promise.all(components.map(([id, path]) => loadComponent(id, path)));
+                console.log('✅ All components loaded successfully');
+                
+                // Hide fallback content once components are loaded
+                const fallbackContent = document.getElementById('fallback-content');
+                if (fallbackContent) {
+                    fallbackContent.style.display = 'none';
+                }
+                
+                // Trigger navigation fix after components are loaded
+                if (window.fixNavigationPaths) {
+                    setTimeout(() => {
+                        window.fixNavigationPaths();
+                        console.log('Navigation paths fixed after component loading');
+                    }, 100);
+                }
+                
+                // Dispatch custom event for navigation fix
+                document.dispatchEvent(new CustomEvent('navigationLoaded'));
+                
+                // Initialize animations after components load
+                setTimeout(() => {
+                    if (window.AboutPageAnimations) {
+                        new window.AboutPageAnimations();
+                        console.log('✅ About page animations initialized');
                     }
-                );
-            });
+                }, 200);
+                
+                console.log('✅ About page initialized successfully');
+            } catch (error) {
+                console.error('❌ Error loading components:', error);
+                // Show error message in fallback content
+                const fallbackContent = document.getElementById('fallback-content');
+                if (fallbackContent) {
+                    fallbackContent.innerHTML = `
+                        <h1 class="display-4 fw-bold text-gradient mb-4">Our Story</h1>
+                        <p class="lead text-muted mb-4">
+                            Founded in 2018, JetHat Cyber Security has been at the forefront of digital protection,
+                            combining cutting-edge technology with unwavering commitment to security excellence.
+                        </p>
+                        <div class="alert alert-warning">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            Some components are still loading. Please refresh the page if content doesn't appear.
+                        </div>
+                    `;
+                }
+            }
         });
+    </script>
+    <script>
+        // About Page Animation Controller
+class AboutPageAnimations {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.initializeScrollAnimations();
+        this.initializeTerminalTyping();
+        this.initializeScanAnimation();
+        this.initializeRevealAnimations();
+    }
+
+    // Initialize scroll-triggered animations
+    initializeScrollAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animation elements
+        const animatedElements = document.querySelectorAll(
+            '.slide-in-left, .slide-in-right, .slide-in-up, .slide-in-down, ' +
+            '.zoom-in, .zoom-out, .rotate-in, .fade-in, .bounce-in, ' +
+            '.reveal-up, .reveal-left, .reveal-right, .reveal-zoom'
+        );
+
+        animatedElements.forEach(el => observer.observe(el));
+    }
+
+    // Terminal typing effect
+    initializeTerminalTyping() {
+        const terminalContent = document.getElementById('typed-text');
+        if (!terminalContent) return;
+
+        const commands = [
+            '$ initializing security protocols...',
+            '$ loading cyber defense systems...',
+            '$ establishing secure connections...',
+            '$ jethat@security:~$ ready for innovation'
+        ];
+
+        let commandIndex = 0;
+        let charIndex = 0;
+
+        const typeCommand = () => {
+            if (commandIndex < commands.length) {
+                const currentCommand = commands[commandIndex];
+                
+                if (charIndex < currentCommand.length) {
+                    terminalContent.innerHTML += currentCommand.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeCommand, 50);
+                } else {
+                    terminalContent.innerHTML += '<br>';
+                    commandIndex++;
+                    charIndex = 0;
+                    setTimeout(typeCommand, 1000);
+                }
+            } else {
+                // Add blinking cursor
+                terminalContent.innerHTML += '<span class="typing-cursor"></span>';
+            }
+        };
+
+        // Start typing after a delay
+        setTimeout(typeCommand, 1000);
+    }
+
+    // Scanning line animation
+    initializeScanAnimation() {
+        const scanningLine = document.querySelector('.scanning-line');
+        if (scanningLine) {
+            // Add CSS animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes scan {
+                    0% { top: 0; opacity: 0; }
+                    50% { opacity: 1; }
+                    100% { top: 100%; opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+
+    // Initialize reveal animations with stagger
+    initializeRevealAnimations() {
+        // Add stagger delays to elements
+        const staggerElements = document.querySelectorAll('[class*="stagger-"]');
+        staggerElements.forEach(el => {
+            const staggerClass = Array.from(el.classList).find(cls => cls.startsWith('stagger-'));
+            if (staggerClass) {
+                const delay = parseInt(staggerClass.split('-')[1]) * 100;
+                el.style.transitionDelay = `${delay}ms`;
+            }
+        });
+    }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new AboutPageAnimations();
+});
+
+// Export for external use
+window.AboutPageAnimations = AboutPageAnimations;
     </script>
 </body>
 </html>

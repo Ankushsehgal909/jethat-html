@@ -54,13 +54,7 @@
             }
         }
         
-        console.log('Navigation Fix - Current path:', currentPath);
-        console.log('Navigation Fix - Path segments:', pathSegments);
-        console.log('Navigation Fix - Is in subdirectory:', isInSubdirectory);
-        console.log('Navigation Fix - Base path:', basePath);
-        
         if (!isInSubdirectory) {
-            console.log('Navigation Fix - No path fixing needed for root page');
             return;
         }
         
@@ -123,7 +117,6 @@
                     
                     const newHref = basePath + originalHref;
                     link.setAttribute('href', newHref);
-                    console.log('Navigation Fix - Updated link:', originalHref, '->', newHref);
                 }
             });
         });
@@ -141,7 +134,6 @@
                 
                 const newHref = basePath + originalHref;
                 link.setAttribute('href', newHref);
-                console.log('Navigation Fix - Updated navigation/footer link:', originalHref, '->', newHref);
             }
         });
         
@@ -152,7 +144,6 @@
             if (originalSrc && originalSrc.startsWith('assets/') && !originalSrc.startsWith('../')) {
                 const newSrc = basePath + originalSrc;
                 logoImg.setAttribute('src', newSrc);
-                console.log('Navigation Fix - Updated logo image:', originalSrc, '->', newSrc);
             }
         }
         
@@ -163,7 +154,6 @@
             if (originalHref === 'index.html' || (originalHref && !originalHref.startsWith('../'))) {
                 const newHref = basePath + (originalHref || 'index.html');
                 brandLink.setAttribute('href', newHref);
-                console.log('Navigation Fix - Updated brand link:', originalHref, '->', newHref);
             }
         }
         
@@ -175,7 +165,6 @@
             if (originalPath && !originalPath.startsWith('../')) {
                 const newPath = basePath + originalPath;
                 element.setAttribute(attr, newPath);
-                console.log('Navigation Fix - Updated asset path:', originalPath, '->', newPath);
             }
         });
         
@@ -186,11 +175,8 @@
             if (originalHref && !originalHref.startsWith('../')) {
                 const newHref = basePath + originalHref;
                 button.setAttribute('href', newHref);
-                console.log('Navigation Fix - Updated CTA button:', originalHref, '->', newHref);
             }
         });
-        
-        console.log('Navigation Fix - Path fixing completed');
         
         // Final comprehensive sweep - fix any remaining navigation links
         const navContainer = document.querySelector('.professional-nav');
@@ -207,7 +193,6 @@
                     
                     const newHref = basePath + originalHref;
                     link.setAttribute('href', newHref);
-                    console.log('Navigation Fix - Final sweep updated link:', originalHref, '->', newHref);
                 }
             });
         }
@@ -215,8 +200,6 @@
     
     // Enhanced initialization with multiple triggers
     function initializeNavigationFix() {
-        console.log('Navigation Fix - Initializing...');
-        
         // Run immediately if DOM is ready
         if (document.readyState !== 'loading') {
             fixNavigationPaths(); // Run immediately
@@ -225,14 +208,12 @@
         
         // Run when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Navigation Fix - DOM loaded, fixing paths...');
             fixNavigationPaths(); // Run immediately
             setTimeout(fixNavigationPaths, 200);
         });
         
         // Run when window is loaded (for additional safety)
         window.addEventListener('load', function() {
-            console.log('Navigation Fix - Window loaded, fixing paths...');
             fixNavigationPaths(); // Run immediately
             setTimeout(fixNavigationPaths, 300);
         });
@@ -250,7 +231,6 @@
     
     // Add event listener for custom navigation loaded event
     document.addEventListener('navigationLoaded', function() {
-        console.log('Navigation Fix - Custom navigationLoaded event detected');
         setTimeout(fixNavigationPaths, 100);
     });
     
@@ -301,7 +281,6 @@
         });
         
         if (shouldFix) {
-            console.log('Navigation Fix - Navigation or Footer component detected via MutationObserver, fixing paths...');
             setTimeout(fixNavigationPaths, 50); // Reduced delay for faster response
             setTimeout(fixNavigationPaths, 150); // Backup fix
             setTimeout(fixNavigationPaths, 300); // Final backup fix

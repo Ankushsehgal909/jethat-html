@@ -20,9 +20,13 @@
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Breadcrumb Badge -->
+    <script src="../scripts/breadcrumb-badge.js"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/products-dark-mode.css">
     
     <!-- Navigation Fix Script -->
     <script src="../scripts/navigation-fix.js"></script>
@@ -34,7 +38,7 @@
             background: linear-gradient(135deg, #fff7ed 0%, #ffffff 50%, #fffbeb 100%);
             position: relative;
             overflow: hidden;
-            min-height: 100vh;
+            min-height: 60vh;
         }
         
         /* Circuit Pattern Overlay */
@@ -458,53 +462,19 @@
     <main class="pt-5">
         <!-- Hero Section -->
         <section class="product-hero py-5 position-relative">
-            <!-- Circuit Pattern Overlay -->
-            <div class="circuit-pattern"></div>
-            <div class="grid-pattern"></div>
-            <div class="cyber-grid"></div>
+           
             
-            <!-- Floating Security Icons -->
-            <div class="floating-security-icons">
-                <div class="security-icon">📚</div>
-                <div class="security-icon">🔍</div>
-                <div class="security-icon">📖</div>
-                <div class="security-icon">💻</div>
-                <div class="security-icon">⚡</div>
-                <div class="security-icon">📊</div>
-            </div>
-            
-            <!-- Particle Effects -->
-            <div class="particles">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-            </div>
-            
-            <!-- Floating Shapes -->
-            <div class="floating-shapes">
-                <div class="shape"></div>
-                <div class="shape"></div>
-                <div class="shape"></div>
-                <div class="shape"></div>
-                <div class="shape"></div>
-            </div>
-            
-            <div class="container-fluid px-4 position-relative" style="z-index: 2;">
+            <div class="container px-4 position-relative" style="z-index: 2;margin-top: 2.5rem;">
                 <div class="row align-items-center py-5">
+                    <div class="col-12 mb-4" data-breadcrumb data-separator="arrow">
+                        <!-- Breadcrumb will be dynamically generated here -->
+                    </div>
                     <div class="col-lg-6">
                         <h1 class="display-3 fw-bold mb-4 reveal-up" style="color: #333333;">
                             E-Library
-                            <span class="d-block text-gradient">Digital Library Management</span>
+                            <span class="d-block text-gradient"> Management</span>
                         </h1>
-                        <p class="lead mb-4 reveal-up stagger-1" style="color: #666666;">
-                            Comprehensive digital library management system with intelligent search,
-                            content organization, and advanced user analytics for modern libraries.
-                        </p>
+                       
                         
                         <!-- Terminal Effect -->
                         <div class="terminal-container reveal-up stagger-2">
@@ -532,16 +502,7 @@
                             </div>
                         </div>
                         
-                        <div class="d-flex flex-column flex-sm-row gap-3 reveal-up stagger-4">
-                            <button class="btn btn-gradient btn-lg px-4 py-3">
-                                <i class="bi bi-book me-2"></i>
-                                Explore E-Library
-                            </button>
-                            <button class="btn btn-outline-danger btn-lg px-4 py-3">
-                                <i class="bi bi-play-circle me-2"></i>
-                                View Demo
-                            </button>
-                        </div>
+                        
                     </div>
                     <div class="col-lg-6">
                         <div class="text-center reveal-up stagger-3">
@@ -564,7 +525,7 @@
             <div class="cyber-grid" style="opacity: 0.5;"></div>
             
             <div class="container position-relative" style="z-index: 2;">
-                <div class="text-center mb-5 reveal-up">
+                <div class="text-left mb-5 reveal-up">
                     <h2 class="display-5 fw-bold mb-3" style="color: #333;">
                         Smart Library <span class="text-gradient">Features</span>
                     </h2>
@@ -574,8 +535,7 @@
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="feature-card p-4 h-100 reveal-up stagger-1">
-                            <!-- Scanning Line -->
-                            <div class="scanning-line"></div>
+                          
                             <div class="feature-icon">
                                 <i class="bi bi-search text-white fs-2"></i>
                             </div>
@@ -592,8 +552,8 @@
 
                     <div class="col-md-6 col-lg-4">
                         <div class="feature-card p-4 h-100 reveal-up stagger-2">
-                            <!-- Scanning Line -->
-                            <div class="scanning-line"></div>
+                            
+                           
                             <div class="feature-icon">
                                 <i class="bi bi-book text-white fs-2"></i>
                             </div>
@@ -610,8 +570,7 @@
 
                     <div class="col-md-6 col-lg-4">
                         <div class="feature-card p-4 h-100 reveal-up stagger-3">
-                            <!-- Scanning Line -->
-                            <div class="scanning-line"></div>
+                           
                             <div class="feature-icon">
                                 <i class="bi bi-bar-chart text-white fs-2"></i>
                             </div>
@@ -672,30 +631,17 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="py-5 product-hero position-relative">
-            <div class="container-fluid px-4 position-relative" style="z-index: 2;">
-                <div class="text-center" style="color: #333333;">
-                    <h2 class="display-4 fw-bold mb-4">Modernize Your Library</h2>
-                    <p class="lead mb-5" style="color: #666666;">Join libraries worldwide in the digital transformation with our E-Library solution.</p>
-                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                        <button class="btn btn-gradient btn-lg px-5 py-3">
-                            <i class="bi bi-calendar-check me-2"></i>
-                            Get Started
-                        </button>
-                        <button class="btn btn-outline-danger btn-lg px-5 py-3">
-                            <i class="bi bi-telephone me-2"></i>
-                            Contact Sales
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
     <div id="footer-component"></div>
 
+       <!-- Theme Toggle -->
+    <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
+        <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
+        <i id="moon-icon" class="bi bi-moon-fill"></i>
+    </button>
+    <script src="../scripts/theme-toggle.js"></script>
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 

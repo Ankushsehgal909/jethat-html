@@ -1,20 +1,174 @@
-<nav class="navbar navbar-expand-lg fixed-top py-2 professional-nav navbar-theme" style="height: 6rem; background: transparent !important;">
-    <div class="container-fluid px-5" style="width: 100vw; margin-left: calc(50% - 50vw); padding-left: 1rem; padding-right: 1rem;">
-        <!-- Logo -->
-        <a class="navbar-brand" href="index.html">
-            <img src="assets/images/logo.png" alt="JetHat Logo" style="height: 4rem; margin-left: 10px; padding-left: 5px;">
-        </a>
+<!-- Mobile Offcanvas Menu -->
+<div class="offcanvas offcanvas-end mobile-nav-canvas" id="mobileMenu" tabindex="-1">
+        <div class="offcanvas-header mobile-nav-header">
+        <div class="d-flex align-items-center gap-2">
+            <img src="assets/images/logo.png" alt="JetHat Logo" style="height: 3.5rem;">
+            <div>
+                <h5 class="mb-0 fw-bold" style="color: var(--gradient-primary);">JetHat</h5>
+                <small style="color: var(--text-secondary);">Cyber Security</small>
+            </div>
+        </div>
+        <button type="button" class="btn-close btn-close-white mobile-nav-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
 
-        <!-- Mobile Menu Button -->
-        <button class="navbar-toggler d-lg-none border-0 order-3 mobile-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+
+    <div class="offcanvas-body mobile-nav-body">
+        <nav class="mobile-nav" id="mobileAccordion">
+            <!-- Home -->
+            <div class="mobile-nav-item">
+                <a href="index.html" class="mobile-nav-link">
+
+                    
+                    <span>Home</span>
+                </a>
+            </div>
+
+            <!-- Company (Accordion) -->
+            <div class="mobile-nav-group">
+                <button class="mobile-nav-group-toggle" data-bs-toggle="collapse" data-bs-target="#mobileCompany" aria-expanded="false" data-bs-parent="#mobileAccordion">
+                    <div class="mobile-nav-link">
+                        <span>Company</span>
+                    </div>
+                    <i class="bi bi-chevron-down mobile-arrow"></i>
+                </button>
+                <div class="collapse mobile-nav-collapse" id="mobileCompany" data-bs-parent="#mobileAccordion">
+                    <div class="mobile-nav-submenu">
+                        <a href="about/index.html" class="mobile-submenu-link"><i class="bi bi-arrow-right"></i><span>About Us</span></a>
+                        <a href="about/team.html" class="mobile-submenu-link"><i class="bi bi-arrow-right"></i><span>Our Team</span></a>
+                        <a href="about/culture.html" class="mobile-submenu-link"><i class="bi bi-arrow-right"></i><span>Company Culture</span></a>
+                        <a href="about/success-stories.html" class="mobile-submenu-link"><i class="bi bi-arrow-right"></i><span>Success Stories</span></a>
+                        <a href="about/projects-showcase.html" class="mobile-submenu-link"><i class="bi bi-arrow-right"></i><span>Projects Showcase</span></a>
+                        <a href="about/development-pipeline.html" class="mobile-submenu-link"><i class="bi bi-arrow-right"></i><span>What We're Building</span></a>
+                        <a href="careers.html" class="mobile-submenu-link"><i class="bi bi-arrow-right"></i><span>Careers</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products (Accordion) -->
+            <div class="mobile-nav-group">
+                <button class="mobile-nav-group-toggle" data-bs-toggle="collapse" data-bs-target="#mobileProducts" aria-expanded="false" data-bs-parent="#mobileAccordion">
+                    <div class="mobile-nav-link">
+                        
+                        <span>Products</span>
+                    </div>
+                    <i class="bi bi-chevron-down mobile-arrow"></i>
+                </button>
+                <div class="collapse mobile-nav-collapse" id="mobileProducts" data-bs-parent="#mobileAccordion">
+                    <div class="mobile-nav-submenu">
+                        <a href="products/magai.html" class="mobile-submenu-link"><i class="bi bi-magic"></i><span>MagAI</span></a>
+                        <a href="products/virtual-naani.html" class="mobile-submenu-link"><i class="bi bi-person-heart"></i><span>Virtual Naani</span></a>
+                        <a href="products/ai-lms.html" class="mobile-submenu-link"><i class="bi bi-book"></i><span>AI Multilingual LMS</span></a>
+                        <a href="products/e-library.html" class="mobile-submenu-link"><i class="bi bi-journal-bookmark"></i><span>E-Library</span></a>
+                        <a href="products/anukaran-ai.html" class="mobile-submenu-link"><i class="bi bi-cpu"></i><span>Anukaran AI</span></a>
+                        <a href="products/sambhasini-ai.html" class="mobile-submenu-link"><i class="bi bi-mic"></i><span>Sambhasini AI</span></a>
+                        <a href="products/multi-dictionary.html" class="mobile-submenu-link"><i class="bi bi-translate"></i><span>Multilingual Dictionary</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services (Accordion) -->
+            <div class="mobile-nav-group">
+                <button class="mobile-nav-group-toggle" data-bs-toggle="collapse" data-bs-target="#mobileServices" aria-expanded="false" data-bs-parent="#mobileAccordion">
+                    <div class="mobile-nav-link">
+                 
+                        <span>Services</span>
+                    </div>
+                    <i class="bi bi-chevron-down mobile-arrow"></i>
+                </button>
+                <div class="collapse mobile-nav-collapse" id="mobileServices" data-bs-parent="#mobileAccordion">
+                    <div class="mobile-nav-submenu">
+                        <a href="services/cybersecurity.html" class="mobile-submenu-link"><i class="bi bi-shield-check"></i><span>Cybersecurity</span></a>
+                        <a href="services/ai-ml.html" class="mobile-submenu-link"><i class="bi bi-robot"></i><span>AI/ML Development</span></a>
+                        <a href="services/web-development.html" class="mobile-submenu-link"><i class="bi bi-globe"></i><span>Web Development</span></a>
+                        <a href="services/mobile-development.html" class="mobile-submenu-link"><i class="bi bi-phone"></i><span>Mobile Development</span></a>
+                        <a href="services/cloud-services.html" class="mobile-submenu-link"><i class="bi bi-cloud"></i><span>Cloud Services</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technologies (Accordion) -->
+            <div class="mobile-nav-group">
+                <button class="mobile-nav-group-toggle" data-bs-toggle="collapse" data-bs-target="#mobileTechnologies" aria-expanded="false" data-bs-parent="#mobileAccordion">
+                    <div class="mobile-nav-link">
+                      
+                        <span>Technologies</span>
+                    </div>
+                    <i class="bi bi-chevron-down mobile-arrow"></i>
+                </button>
+                <div class="collapse mobile-nav-collapse" id="mobileTechnologies" data-bs-parent="#mobileAccordion">
+                    <div class="mobile-nav-submenu">
+                        <a href="technologies/core.html" class="mobile-submenu-link"><i class="bi bi-cpu"></i><span>Core Technology</span></a>
+                        <a href="technologies/case-study.html" class="mobile-submenu-link"><i class="bi bi-file-earmark-text"></i><span>Case Studies</span></a>
+                        <a href="technologies/innovation.html" class="mobile-submenu-link"><i class="bi bi-rocket"></i><span>Innovation Lab</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career -->
+            <div class="mobile-nav-item">
+                <a href="careers.html" class="mobile-nav-link">
+                   
+                    <span>Career</span>
+                </a>
+            </div>
+
+            <!-- Contact -->
+            <div class="mobile-nav-item">
+                <a href="contact.html" class="mobile-nav-link">
+                
+                    <span>Contact</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Mobile CTA Button -->
+        <div class="mobile-nav-cta">
+            <a href="contact.html" class="btn btn-gradient w-100 py-3">
+                <i class="bi bi-chat-dots-fill me-2"></i>
+                Get a Quote
+            </a>
+        </div>
+
+        <!-- Mobile Social Links -->
+        <div class="mobile-nav-social">
+            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- Main Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top py-2 professional-nav navbar-theme">
+    <div class="container d-flex align-items-center">
+        <!-- Logo (Left) -->
+       <a class="d-flex navbar-brand me-auto align-items-center" href="index.html">
+    <img src="assets/images/logo.png" alt="JetHat Logo"
+         style="height: 3rem; margin-right: 6px;">
+
+    <div class="d-flex flex-column" style="line-height: 1;">
+        <span class="fw-bold"
+              style="font-size: 1.5rem; ">
+            JetHat
+        </span>
+        <small style="color: var(--text-secondary) !important; font-size: 0.75rem;">
+            Cyber Security
+        </small>
+    </div>
+</a>
+
+       
+        <!-- Mobile Menu Button (Right on mobile) -->
+        <button class="navbar-toggler d-lg-none border-0 order-3 mobile-toggle ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
         </button>
 
-        <!-- Desktop Navigation -->
-        <div class="collapse navbar-collapse px-3" id="navbarNav">
-            <ul class="navbar-nav mx-auto professional-nav-menu">
+        <!-- Desktop Navigation (Right side) -->
+        <div class="collapse navbar-collapse order-lg-4" id="navbarNav">
+            <ul class="navbar-nav ms-auto professional-nav-menu">
                 <li class="nav-item nav-item-enhanced">
                     <a class="nav-link fw-medium font-poppins nav-link-enhanced" href="index.html">
                         <span class="nav-text">Home</span>
@@ -30,9 +184,7 @@
                     <ul class="dropdown-menu single-column-dropdown dropdown-menu-theme bg-white border-bottom border-1 border-primary shadow-lg dropdown-animation professional-dropdown">
                         <li><a href="about/index.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-building"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">About Us</div>
                                     <div class="item-subtitle">Learn more about JetHat</div>
@@ -42,9 +194,7 @@
                         
                         <li><a href="about/team.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-people"></i>
-                                </div>
+                               
                                 <div class="item-text">
                                     <div class="item-title">Our Team</div>
                                     <div class="item-subtitle">Meet our experts</div>
@@ -54,9 +204,7 @@
                         
                         <li><a href="about/culture.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-heart"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">Company Culture</div>
                                     <div class="item-subtitle">Our values and environment</div>
@@ -66,9 +214,7 @@
                         
                         <li><a href="about/success-stories.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-trophy"></i>
-                                </div>
+                              
                                 <div class="item-text">
                                     <div class="item-title">Success Stories</div>
                                     <div class="item-subtitle">Case studies & achievements</div>
@@ -78,9 +224,7 @@
                         
                         <li><a href="about/projects-showcase.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-collection"></i>
-                                </div>
+                               
                                 <div class="item-text">
                                     <div class="item-title">Projects Showcase</div>
                                     <div class="item-subtitle">Our project portfolio</div>
@@ -90,9 +234,7 @@
                         
                         <li><a href="about/development-pipeline.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-gear"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">What We're Building</div>
                                     <div class="item-subtitle">Development pipeline</div>
@@ -102,9 +244,7 @@
                         
                         <li><a href="careers.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-briefcase"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">Careers</div>
                                     <div class="item-subtitle">Join our team</div>
@@ -123,9 +263,7 @@
                     <ul class="dropdown-menu single-column-dropdown bg-white border-bottom border-2 border-primary shadow-lg dropdown-animation professional-dropdown">
                         <li><a href="products/magai.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-magic"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">MagAI</div>
                                     <div class="item-subtitle">AI-powered content management</div>
@@ -135,9 +273,7 @@
                         
                         <li><a href="products/virtual-naani.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-person-heart"></i>
-                                </div>
+                               
                                 <div class="item-text">
                                     <div class="item-title">Virtual Naani</div>
                                     <div class="item-subtitle">AI grandmother for elderly care</div>
@@ -147,9 +283,7 @@
                         
                         <li><a href="products/ai-lms.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-book"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">AI Multilingual LMS</div>
                                     <div class="item-subtitle">Smart learning management</div>
@@ -159,9 +293,7 @@
                         
                         <li><a href="products/e-library.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-journal-bookmark"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">E-Library</div>
                                     <div class="item-subtitle">Digital library platform</div>
@@ -171,9 +303,7 @@
                         
                         <li><a href="products/anukaran-ai.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-cpu"></i>
-                                </div>
+                               
                                 <div class="item-text">
                                     <div class="item-title">Anukaran AI</div>
                                     <div class="item-subtitle">AI model replication system</div>
@@ -183,9 +313,7 @@
                         
                         <li><a href="products/sambhasini-ai.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-mic"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">Sambhasini AI</div>
                                     <div class="item-subtitle">Multilingual voice AI</div>
@@ -195,9 +323,7 @@
                         
                         <li><a href="products/multi-dictionary.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-translate"></i>
-                                </div>
+                               
                                 <div class="item-text">
                                     <div class="item-title">Multilingual Dictionary</div>
                                     <div class="item-subtitle">Language translation tool</div>
@@ -205,17 +331,7 @@
                             </div>
                         </a></li>
                         
-                        <li><a href="products/jetpay.html" class="dropdown-item smooth-item">
-                            <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-credit-card"></i>
-                                </div>
-                                <div class="item-text">
-                                    <div class="item-title">JetPay</div>
-                                    <div class="item-subtitle">Secure payment automation</div>
-                                </div>
-                            </div>
-                        </a></li>
+                        
                     </ul>
                 </li>
 
@@ -230,23 +346,11 @@
                         <li class="dropdown-header">
                             <i class="bi bi-cpu me-2"></i>Service Overview
                         </li>
-                        <!-- <li><a href="about/services-overview.html" class="dropdown-item smooth-item">
-                            <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-grid"></i>
-                                </div>
-                                <div class="item-text">
-                                    <div class="item-title">Services Overview</div>
-                                    <div class="item-subtitle">Complete service portfolio</div>
-                                </div>
-                            </div>
-                        </a></li> -->
+                    
                         
                         <li><a href="services/cybersecurity.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-shield-check"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">Cybersecurity</div>
                                     <div class="item-subtitle">Comprehensive security solutions</div>
@@ -256,9 +360,7 @@
                         
                         <li><a href="services/ai-ml.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-robot"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">AI/ML Development</div>
                                     <div class="item-subtitle">Custom AI and ML solutions</div>
@@ -268,9 +370,7 @@
                         
                         <li><a href="services/web-development.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-globe"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">Web Development</div>
                                     <div class="item-subtitle">Modern web applications</div>
@@ -280,9 +380,7 @@
                         
                         <li><a href="services/mobile-development.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-phone"></i>
-                                </div>
+                              
                                 <div class="item-text">
                                     <div class="item-title">Mobile Development</div>
                                     <div class="item-subtitle">iOS and Android apps</div>
@@ -292,9 +390,7 @@
                         
                         <li><a href="services/cloud-services.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-cloud"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">Cloud Services</div>
                                     <div class="item-subtitle">Scalable cloud infrastructure</div>
@@ -316,123 +412,11 @@
                             <i class="bi bi-cpu me-2"></i>Core Technologies
                         </li>
                         
-                        <!-- Frontend Technologies -->
-                        <!-- <li class="tech-category">
-                            <div class="category-header">
-                                <i class="bi bi-display me-2"></i>Frontend
-                            </div>
-                            <div class="tech-items">
-                                <a href="technologies/core.html#react" class="dropdown-item tech-item smooth-item">
-                                    <div class="item-content">
-                                        <div class="tech-icon react-icon"></div>
-                                        <span>React.js</span>
-                                    </div>
-                                </a>
-                                <a href="technologies/core.html#vue" class="dropdown-item tech-item smooth-item">
-                                    <div class="item-content">
-                                        <div class="tech-icon vue-icon"></div>
-                                        <span>Vue.js</span>
-                                    </div>
-                                </a>
-                                <a href="technologies/core.html#angular" class="dropdown-item tech-item smooth-item">
-                                    <div class="item-content">
-                                        <div class="tech-icon angular-icon"></div>
-                                        <span>Angular</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </li> -->
-
-                        <!-- Backend Technologies -->
-                        <!-- <li class="tech-category">
-                            <div class="category-header">
-                                <i class="bi bi-server me-2"></i>Backend
-                            </div>
-                            <div class="tech-items">
-                                <a href="technologies/core.html#nodejs" class="dropdown-item tech-item smooth-item">
-                                    <div class="item-content">
-                                        <div class="tech-icon nodejs-icon"></div>
-                                        <span>Node.js</span>
-                                    </div>
-                                </a>
-                                <a href="technologies/core.html#python" class="dropdown-item tech-item smooth-item">
-                                    <div class="item-content">
-                                        <div class="tech-icon python-icon"></div>
-                                        <span>Python</span>
-                                    </div>
-                                </a>
-                                <a href="technologies/core.html#java" class="dropdown-item tech-item smooth-item">
-                                    <div class="item-content">
-                                        <div class="tech-icon java-icon"></div>
-                                        <span>Java</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </li> -->
-
-                        <!-- AI/ML Technologies -->
-                        <!-- <li class="tech-category">
-                            <div class="category-header">
-                                <i class="bi bi-brain me-2"></i>AI/ML
-                            </div>
-                            <div class="tech-items">
-                                <a href="technologies/core.html#tensorflow" class="dropdown-item tech-item smooth-item">
-                                    <div class="item-content">
-                                        <div class="tech-icon tensorflow-icon"></div>
-                                        <span>TensorFlow</span>
-                                    </div>
-                                </a>
-                                <a href="technologies/core.html#pytorch" class="dropdown-item tech-item smooth-item">
-                                    <div class="item-content">
-                                        <div class="tech-icon pytorch-icon"></div>
-                                        <span>PyTorch</span>
-                                    </div>
-                                </a>
-                                <a href="technologies/core.html#openai" class="dropdown-item tech-item smooth-item">
-                                    <div class="item-content">
-                                        <div class="tech-icon openai-icon"></div>
-                                        <span>OpenAI</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </li> -->
-
-                        <!-- Cloud Technologies -->
-                        <!-- <li class="tech-category">
-                            <div class="category-header">
-                                <i class="bi bi-cloud me-2"></i>Cloud
-                            </div>
-                            <div class="tech-items">
-                                <a href="technologies/core.html#aws" class="dropdown-item tech-item smooth-item">
-                                    <div class="item-content">
-                                        <div class="tech-icon aws-icon"></div>
-                                        <span>AWS</span>
-                                    </div>
-                                </a>
-                                <a href="technologies/core.html#azure" class="dropdown-item tech-item smooth-item">
-                                    <div class="item-content">
-                                        <div class="tech-icon azure-icon"></div>
-                                        <span>Azure</span>
-                                    </div>
-                                </a>
-                                <a href="technologies/core.html#gcp" class="dropdown-item tech-item smooth-item">
-                                    <div class="item-content">
-                                        <div class="tech-icon gcp-icon"></div>
-                                        <span>Google Cloud</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </li> -->
-
-                        <!-- Divider -->
-                        <!-- <li><hr class="dropdown-divider"></li> -->
-
+                      
                         <!-- Other Resources -->
                         <li><a href="technologies/core.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-file-earmark-text"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title"> Core Technology </div>
                                     <div class="item-subtitle">Real-world implementations</div>
@@ -441,9 +425,7 @@
                         </a></li>
                         <li><a href="technologies/case-study.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-file-earmark-text"></i>
-                                </div>
+                               
                                 <div class="item-text">
                                     <div class="item-title">Case Studies</div>
                                     <div class="item-subtitle">Real-world implementations</div>
@@ -452,9 +434,7 @@
                         </a></li>
                         <li><a href="technologies/case-study.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-file-earmark-text"></i>
-                                </div>
+                                
                                 <div class="item-text">
                                     <div class="item-title">Case Studies</div>
                                     <div class="item-subtitle">Real-world implementations</div>
@@ -464,27 +444,14 @@
                         
                         <li><a href="technologies/innovation.html" class="dropdown-item smooth-item">
                             <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-rocket"></i>
-                                </div>
+                                <
                                 <div class="item-text">
                                     <div class="item-title">Innovation Lab</div>
                                     <div class="item-subtitle">Research & development</div>
                                 </div>
                             </div>
                         </a></li>
-                        
-                        <li><a href="technologies/index.html" class="dropdown-item smooth-item">
-                            <div class="item-content">
-                                <div class="item-icon">
-                                    <i class="bi bi-collection"></i>
-                                </div>
-                                <div class="item-text">
-                                    <div class="item-title">Tech Overview</div>
-                                    <div class="item-subtitle">Complete technology stack</div>
-                                </div>
-                            </div>
-                        </a></li>
+                      
                     </ul>
                 </li>
 
@@ -501,16 +468,10 @@
             </ul>
         </div>
 
-        <!-- Theme Toggle & CTA Button -->
-        <div class="d-flex align-items-center gap-3 order-3">
-            <!-- Theme Toggle Button -->
-            <!-- <button id="theme-toggle" class="btn btn-outline-secondary border-0 rounded-circle p-2 theme-toggle-btn" type="button" title="Toggle Theme">
-                <i id="sun-icon" class="bi bi-sun-fill"></i>
-                <i id="moon-icon" class="bi bi-moon-fill d-none"></i>
-            </button> -->
-            
+        <!-- CTA Button (Right side) -->
+        <div class="d-flex align-items-left gap-3 order-lg-5 ms-lg-3">
             <!-- CTA Button -->
-            <a href="contact.html" class="d-none d-lg-inline-block --text-primary px-4 py-2 bg-danger rounded-1 text-decoration-none">
+            <a href="contact.html" class="d-none d-lg-inline-block btn  btn-primary px-2 py-2 rounded-3 text-decoration-none" style="width: 9rem;">
                 Get a Quote
             </a>
         </div>
@@ -672,8 +633,8 @@
 
 .dark-theme .single-column-dropdown {
     background: var(--bg-secondary) !important;
-    border: 1px solid rgba(220, 20, 60, 0.2) !important;
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(220, 20, 60, 0.2) !important;
+    border: 1px solid rgba(242, 88, 49, 0.2) !important;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(220, 100, 20, 0.2) !important;
 }
 
 /* Dropdown Arrow Pointer */
@@ -686,14 +647,14 @@
     width: 16px;
     height: 16px;
     background: var(--bg-light);
-    border-top: 1px solid rgba(220, 20, 60, 0.1);
-    border-left: 1px solid rgba(220, 20, 60, 0.1);
+    border-top: 1px solid rgba(220, 87, 20, 0.1);
+    border-left: 1px solid rgba(220, 117, 20, 0.1);
     border-radius: 2px 0 0 0;
 }
 
 .dark-theme .single-column-dropdown::before {
     background: var(--bg-secondary);
-    border-color: rgba(220, 20, 60, 0.2);
+    border-color: rgba(220, 67, 20, 0.2);
 }
 
 /* Smooth Dropdown Items */
@@ -736,7 +697,7 @@
     width: 32px;
     height: 32px;
     border-radius: 8px;
-    background: linear-gradient(135deg, rgba(220, 20, 60, 0.1), rgba(220, 20, 60, 0.15));
+    background: linear-gradient(135deg, rgba(220, 83, 20, 0.1), rgba(220, 100, 20, 0.188));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -748,7 +709,7 @@
 
 .smooth-item:hover .item-icon {
     transform: scale(1.05);
-    background: linear-gradient(135deg, rgba(220, 20, 60, 0.15), rgba(220, 20, 60, 0.25));
+    background: linear-gradient(135deg, rgba(220, 113, 20, 0.15), rgba(220, 97, 20, 0.25));
 }
 
 .item-text {
@@ -819,7 +780,7 @@
 
 .react-icon { background: linear-gradient(135deg, #61DAFB, #21D4FD); color: #000; }
 .vue-icon { background: linear-gradient(135deg, #4FC08D, #42B883); }
-.angular-icon { background: linear-gradient(135deg, #DD0031, #C3002F); }
+.angular-icon { background: linear-gradient(135deg, #dd5c00, #c36200); }
 .nodejs-icon { background: linear-gradient(135deg, #339933, #68CC68); }
 .python-icon { background: linear-gradient(135deg, #3776AB, #4B8BBE); }
 .java-icon { background: linear-gradient(135deg, #ED8B00, #F89500); }
@@ -858,7 +819,7 @@
     letter-spacing: 1px;
     padding: 0.75rem 1rem 0.5rem !important;
     margin-bottom: 0.25rem;
-    border-bottom: 2px solid rgba(220, 20, 60, 0.2);
+    border-bottom: 2px solid rgba(220, 83, 20, 0.2);
     background: none !important;
 }
 
@@ -875,7 +836,7 @@
     margin-bottom: 0.25rem;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(220, 20, 60, 0.1);
+    border-bottom: 1px solid rgba(220, 77, 20, 0.1);
 }
 
 .tech-items {
@@ -928,19 +889,19 @@
 /* Dropdown Divider */
 .dropdown-divider {
     margin: 0.5rem 1rem;
-    border-color: rgba(220, 20, 60, 0.2);
+    border-color: rgba(240, 89, 7, 0.2);
 }
 
 /* CTA Button Enhancement */
 .btn-gradient {
-    background: linear-gradient(135deg, var(--accent-primary), #FF1744) !important;
+    background: linear-gradient(135deg, var(--accent-primary), #e66000) !important;
     border: none !important;
     color: white !important;
     font-weight: 600;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+    box-shadow: 0 4px 15px rgba(242, 115, 3, 0.3);
 }
 
 .btn-gradient::before {
@@ -950,7 +911,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #FF1744, var(--accent-primary));
+    background: linear-gradient(135deg, #ff8717, var(--accent-primary));
     transition: all 0.4s ease;
     z-index: -1;
 }
@@ -961,7 +922,7 @@
 
 .btn-gradient:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(220, 20, 60, 0.4);
+    box-shadow: 0 8px 30px rgba(220, 90, 20, 0.4);
     color: white !important;
 }
 
@@ -1103,11 +1064,404 @@
 }
 
 .dark-theme .item-icon {
-    background: linear-gradient(135deg, rgba(220, 20, 60, 0.15), rgba(220, 20, 60, 0.25));
+    background: linear-gradient(135deg, rgba(220, 20, 60, 0.15), rgba(220, 93, 20, 0.25));
 }
 
 .dark-theme .smooth-item:hover .item-icon {
-    background: linear-gradient(135deg, rgba(220, 20, 60, 0.25), rgba(220, 20, 60, 0.35));
+    background: linear-gradient(135deg, rgba(220, 97, 20, 0.25), rgba(220, 133, 20, 0.35));
+}
+
+/* ============================================
+   MOBILE NAVIGATION STYLES (Theme-Aware)
+   ============================================ */
+
+/* Mobile Offcanvas */
+.mobile-nav-canvas {
+    width: 85% !important;
+    max-width: 400px;
+    background: var(--bg-secondary) !important;
+    border-left: 1px solid rgba(220, 133, 20, 0.2);
+}
+
+[data-bs-theme="light"] .mobile-nav-canvas,
+.light-theme .mobile-nav-canvas {
+    background: var(--bg-light) !important;
+}
+
+.mobile-nav-header {
+    background: linear-gradient(135deg, rgba(220, 20, 60, 0.15), rgba(255, 215, 0, 0.15));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(220, 110, 20, 0.3);
+    padding: 2.25rem 2.5rem;
+}
+
+.mobile-nav-header h5 {
+    color: var(--text-primary) !important;
+}
+
+.mobile-nav-header small {
+    color: var(--text-secondary) !important;
+}
+
+.mobile-nav-close {
+    filter: invert(1);
+}
+
+[data-bs-theme="light"] .mobile-nav-close,
+.light-theme .mobile-nav-close {
+    filter: none;
+}
+
+.mobile-nav-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--text-primary) !important;
+}
+
+/* Mobile Navigation Items */
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mobile-nav-item {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    color: var(--text-primary) !important;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.mobile-nav-link:hover {
+    color: var(--accent-primary) !important;
+    transform: translateX(8px);
+}
+
+.mobile-nav-link i {
+    font-size: 1.25rem;
+    color: var(--accent-primary);
+    width: 28px;
+    text-align: center;
+}
+
+/* Mobile Navigation Groups (Accordions) */
+.mobile-nav-group {
+    border-radius: 12px;
+    overflow: hidden;
+    background: transparent;
+    border: none;
+}
+
+.mobile-nav-group-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.mobile-nav-group-toggle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1.25rem;
+    right: 1.25rem;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-gold));
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+}
+
+.mobile-nav-group-toggle[aria-expanded="true"]::after {
+    transform: scaleX(1);
+}
+
+.mobile-nav-group-toggle[aria-expanded="true"] .mobile-nav-link {
+    color: var(--accent-primary) !important;
+}
+
+.mobile-nav-group-toggle .mobile-nav-link {
+    flex: 1;
+}
+
+.mobile-arrow {
+    color: var(--accent-primary);
+    font-size: 0.85rem;
+    margin-right: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.mobile-nav-group-toggle[aria-expanded="true"] .mobile-arrow {
+    transform: rotate(180deg);
+}
+
+/* Mobile Submenu */
+.mobile-nav-collapse {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.mobile-nav-collapse.collapsing {
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav-submenu {
+    padding: 0.5rem 0 0.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-submenu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--text-secondary) !important;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    animation: slideInLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+
+/* Staggered animation for submenu items */
+.mobile-submenu-link:nth-child(1) { animation-delay: 0.05s; }
+.mobile-submenu-link:nth-child(2) { animation-delay: 0.1s; }
+.mobile-submenu-link:nth-child(3) { animation-delay: 0.15s; }
+.mobile-submenu-link:nth-child(4) { animation-delay: 0.2s; }
+.mobile-submenu-link:nth-child(5) { animation-delay: 0.25s; }
+.mobile-submenu-link:nth-child(6) { animation-delay: 0.3s; }
+.mobile-submenu-link:nth-child(7) { animation-delay: 0.35s; }
+.mobile-submenu-link:nth-child(8) { animation-delay: 0.4s; }
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.mobile-submenu-link:hover {
+    color: var(--text-primary) !important;
+    transform: translateX(5px);
+}
+
+.mobile-submenu-link i {
+    font-size: 0.8rem;
+    color: var(--accent-primary);
+}
+
+/* Mobile CTA Button */
+.mobile-nav-cta {
+    margin-top: 0.5rem;
+}
+
+.mobile-nav-cta .btn-gradient {
+    font-size: 1rem;
+}
+
+/* Mobile Contact Info */
+.mobile-nav-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: transparent;
+    border-radius: 12px;
+    border: 1px solid rgba(220, 107, 20, 0.1);
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.contact-info-item i {
+    color: var(--accent-primary);
+    font-size: 1rem;
+}
+
+/* Mobile Social Links */
+.mobile-nav-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(220, 20, 60, 0.1);
+}
+
+.social-link {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-secondary) !important;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(220, 20, 60, 0.2);
+}
+
+.social-link:hover {
+    background: var(--gradient-primary);
+    color: white !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(220, 100, 20, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE FIXES
+   ============================================ */
+
+/* Desktop Navbar Layout - Logo Left, Nav Right */
+@media (min-width: 992px) {
+    .navbar > .container {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    
+    .navbar-brand {
+        flex: 0 0 auto;
+        margin-right: auto;
+    }
+    
+    #navbarNav {
+        flex: 0 0 auto;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        justify-content: flex-end;
+    }
+    
+    #navbarNav .navbar-nav {
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .professional-nav-menu {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+/* Enhanced mobile toggle for all screen sizes */
+@media (max-width: 991.98px) {
+    .mobile-toggle {
+        position: relative;
+        width: 44px;
+        height: 44px;
+        border: 2px solid rgba(236, 102, 0, 0.3) !important;
+        background: transparent;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        transition: all 0.3s ease;
+        border-radius: 10px;
+    }
+
+    .mobile-toggle:hover {
+        border-color: #dc5a14 !important;
+        background: rgba(220, 20, 60, 0.1);
+    }
+
+    .hamburger-line {
+        width: 22px;
+        height: 2px;
+        background: linear-gradient(90deg, #dc6414, #FF8C00);
+        border-radius: 2px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+/* Navbar height adjustment for mobile */
+@media (max-width: 200px) {
+    .navbar {
+        height: 5rem !important;
+    }
+
+    .navbar-brand img {
+        height: 2.8rem !important;
+    }
+
+    .mobile-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .hamburger-line {
+        width: 18px;
+    }
+
+    .mobile-nav-canvas {
+        width: 100% !important;
+        max-width: 100%;
+    }
+
+    .mobile-nav-header {
+        padding: 1rem;
+    }
+
+    .mobile-nav-body {
+        padding: 1rem;
+    }
+
+    .mobile-nav-link {
+        padding: 0.85rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .mobile-nav-submenu {
+        padding-left: 2.5rem;
+        
+    }
+   
 }
 </style>
 
@@ -1115,6 +1469,29 @@
 // Enhanced Navigation Script
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar');
+    const navbarNav = document.getElementById('navbarNav');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    
+    // Force show navbar on desktop
+    function handleNavbarDisplay() {
+        const isDesktop = window.innerWidth >= 992;
+        
+        if (isDesktop) {
+            // Show navbar on desktop
+            navbarNav.classList.add('show');
+            navbarToggler.classList.add('collapsed');
+            navbarToggler.setAttribute('aria-expanded', 'true');
+        } else {
+            // Hide navbar on mobile (let Bootstrap handle it)
+            navbarNav.classList.remove('show');
+        }
+    }
+    
+    // Run on load
+    handleNavbarDisplay();
+    
+    // Run on resize
+    window.addEventListener('resize', handleNavbarDisplay);
     
     // Smooth scroll handler
     function updateNavbarBackground() {

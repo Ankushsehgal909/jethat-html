@@ -20,6 +20,9 @@
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Breadcrumb Badge -->
+    <script src="../scripts/breadcrumb-badge.js"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/main.css">
@@ -64,32 +67,6 @@
             color: var(--text-primary);
             overflow-x: hidden;
             transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        /* Theme Toggle Button */
-        .theme-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #dc143c, #ffd700);
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1) rotate(15deg);
-            box-shadow: 0 6px 20px rgba(220, 20, 60, 0.6);
         }
 
         /* Hero Section */
@@ -478,20 +455,18 @@
     <main>
         <!-- Hero Section -->
         <section class="innovation-hero position-relative">
-            <!-- Floating Shapes -->
-            <div class="floating-shapes">
-                <div class="shape"></div>
-                <div class="shape"></div>
-                <div class="shape"></div>
-            </div>
+           
             
-            <div class="container position-relative" style="z-index: 2;">
+            <div class="container position-relative" style="z-index: 2; margin-top: 2.5rem;">
                 <div class="row align-items-center">
+                    <div class="col-12 mb-4" data-breadcrumb data-separator="arrow">
+                        <!-- Breadcrumb will be dynamically generated here -->
+                    </div>
                     <div class="col-lg-6">
-                        <div class="hero-badge gsap-fade-up">
+                        <!-- <div class="hero-badge gsap-fade-up">
                             <i class="bi bi-gear me-2"></i>
                             Core Technology 
-                        </div>
+                        </div> -->
                         <h1 class="display-3 fw-bold mb-4 reveal-up" style="color: var(--text-primary);">
                             Innovation
                             <span class="d-block text-gradient">Laboratory</span>
@@ -501,7 +476,7 @@
                             develop breakthrough solutions, and shape the future of cybersecurity and AI.
                         </p>
                         
-                        <div class="d-flex flex-column flex-sm-row gap-3 reveal-up stagger-2">
+                        <!-- <div class="d-flex flex-column flex-sm-row gap-3 reveal-up stagger-2">
                             <a href="../contact.html" class="btn btn-gradient btn-lg px-4 py-3">
                                 <i class="bi bi-lightbulb me-2"></i>
                                 Explore Research
@@ -510,7 +485,7 @@
                                 <i class="bi bi-journal-text me-2"></i>
                                 Research Papers
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-lg-6">
                         <div class="text-center reveal-up stagger-3">
@@ -871,30 +846,13 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="py-5 innovation-hero position-relative">
-            <div class="container-fluid px-4 position-relative" style="z-index: 2;">
-                <div class="text-center" style="color: var(--text-primary);">
-                    <h2 class="display-4 fw-bold mb-4">Join Our Innovation Journey</h2>
-                    <p class="lead mb-5" style="color: var(--text-secondary);">Collaborate with us on cutting-edge research and development projects.</p>
-                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                        <button class="btn btn-gradient btn-lg px-5 py-3">
-                            <i class="bi bi-calendar-check me-2"></i>
-                            Research Partnership
-                        </button>
-                        <button class="btn btn-outline-danger btn-lg px-5 py-3">
-                            <i class="bi bi-journal-text me-2"></i>
-                            View Publications
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
     </main>
 
     <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <i class="bi bi-moon-fill" id="themeIcon"></i>
+    <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
+        <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
+        <i id="moon-icon" class="bi bi-moon-fill"></i>
     </button>
 
     <div id="footer-component"></div>
@@ -902,36 +860,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Theme Toggle Script -->
-    <script>
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const html = document.documentElement;
-
-        // Load saved theme or default to light
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-bs-theme', savedTheme);
-        updateThemeIcon(savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-bs-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            html.setAttribute('data-bs-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-
-        function updateThemeIcon(theme) {
-            if (theme === 'dark') {
-                themeIcon.classList.remove('bi-moon-fill');
-                themeIcon.classList.add('bi-sun-fill');
-            } else {
-                themeIcon.classList.remove('bi-sun-fill');
-                themeIcon.classList.add('bi-moon-fill');
-            }
-        }
-    </script>
+    <script src="../scripts/theme-toggle.js"></script>
 
     <script>
         function initAnimations() {

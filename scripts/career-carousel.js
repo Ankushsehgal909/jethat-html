@@ -11,7 +11,6 @@ function initializeCareerCarousel() {
     
     // Check if elements exist
     if (!carouselTrack || !prevBtn || !nextBtn || slides.length === 0) {
-        console.log('Carousel elements not found, retrying...');
         setTimeout(initializeCareerCarousel, 100);
         return;
     }
@@ -189,8 +188,6 @@ function initializeCareerCarousel() {
     // Initialize carousel
     updateCarousel();
     startAutoPlay();
-    
-    console.log('Career carousel initialized successfully');
 }
 
 // ================= SCROLL ANIMATIONS ================= 
@@ -306,8 +303,6 @@ function initializeCareerAnimations() {
         `;
         document.head.appendChild(style);
     }
-    
-    console.log('Career animations initialized successfully');
 }
 
 // Initialize everything when DOM is ready

@@ -20,492 +20,16 @@
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-    <!-- Exact Contact Page Styles -->
-    <style>
-        /* Cyber Security Theme Styles - Exact Copy from Contact Page */
-        .text-gradient {
-            background: linear-gradient(135deg, #dc143c, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .btn-gradient {
-            background: linear-gradient(135deg, #dc143c, #ffd700);
-            border: none;
-            color: white;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-gradient::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-gradient:hover::before {
-            left: 100%;
-        }
-
-        .btn-gradient:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(220, 20, 60, 0.4);
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #dc143c, #ffd700);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .contact-icon::after {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            background: linear-gradient(135deg, #dc143c, #ffd700);
-            border-radius: 50%;
-            opacity: 0;
-            transition: all 0.4s ease;
-            z-index: -1;
-        }
-
-        .contact-icon:hover {
-            transform: scale(1.2) rotate(360deg);
-        }
-
-        .contact-icon:hover::after {
-            opacity: 0.3;
-            transform: scale(1.2);
-        }
-
-        .info-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            border: none;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(220, 20, 60, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .info-card:hover::before {
-            left: 100%;
-        }
-
-        .info-card:hover {
-            transform: translateY(-15px) scale(1.05) rotateY(5deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        }
-
-        .glow {
-            box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .glow:hover {
-            box-shadow: 0 0 40px rgba(220, 20, 60, 0.6);
-        }
-
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-100px);
-            transition: all 0.8s ease;
-        }
-
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(100px);
-            transition: all 0.8s ease;
-        }
-
-        .slide-in-up {
-            opacity: 0;
-            transform: translateY(80px);
-            transition: all 0.8s ease;
-        }
-
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
-        .stagger-5 { transition-delay: 0.5s; }
-        .stagger-6 { transition-delay: 0.6s; }
-
-        .slide-in-left.visible,
-        .slide-in-right.visible,
-        .slide-in-up.visible {
-            opacity: 1;
-            transform: translate(0, 0);
-        }
-
-        .contact-hero {
-            background: linear-gradient(135deg, #fff7ed 0%, #ffffff 50%, #fffbeb 100%);
-            position: relative;
-            overflow: hidden;
-            min-height: 60vh;
-        }
-        
-        /* Circuit Pattern Overlay */
-        .circuit-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(90deg, rgba(220, 20, 60, 0.03) 1px, transparent 1px),
-                linear-gradient(rgba(220, 20, 60, 0.03) 1px, transparent 1px),
-                radial-gradient(circle at 50% 50%, rgba(220, 20, 60, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px, 50px 50px, 20px 20px;
-            z-index: 0;
-            pointer-events: none;
-        }
-        
-        /* Grid Pattern */
-        .grid-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px),
-                linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: 0;
-            pointer-events: none;
-        }
-        
-        /* Floating Security Icons */
-        .floating-security-icons {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-            pointer-events: none;
-        }
-        
-        .security-icon {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.15;
-            animation: orbit 20s linear infinite, floatIcon 6s ease-in-out infinite;
-        }
-        
-        .security-icon:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s, 0s; }
-        .security-icon:nth-child(2) { top: 30%; right: 10%; animation-delay: 2s, 1s; }
-        .security-icon:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 4s, 2s; }
-        .security-icon:nth-child(4) { top: 50%; right: 5%; animation-delay: 1s, 3s; }
-        .security-icon:nth-child(5) { bottom: 30%; right: 20%; animation-delay: 3s, 4s; }
-        .security-icon:nth-child(6) { top: 15%; left: 30%; animation-delay: 5s, 5s; }
-        
-        @keyframes orbit {
-            0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
-        }
-        
-        @keyframes floatIcon {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        /* Scanning Line Animation */
-        .scanning-line {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #dc143c, #ffd700, transparent);
-            box-shadow: 0 0 20px rgba(220, 20, 60, 0.8);
-            animation: scan 3s linear infinite;
-            z-index: 10;
-            pointer-events: none;
-        }
-        
-        @keyframes scan {
-            0% { top: 0%; opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-        }
-        
-        /* Particle Effects */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #dc143c;
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: particleFloat 8s ease-in-out infinite;
-        }
-        
-        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 30%; top: 40%; animation-delay: 1s; }
-        .particle:nth-child(3) { left: 50%; top: 60%; animation-delay: 2s; }
-        .particle:nth-child(4) { left: 70%; top: 30%; animation-delay: 3s; }
-        .particle:nth-child(5) { left: 90%; top: 50%; animation-delay: 4s; }
-        .particle:nth-child(6) { left: 20%; top: 70%; animation-delay: 5s; }
-        .particle:nth-child(7) { left: 40%; top: 10%; animation-delay: 6s; }
-        .particle:nth-child(8) { left: 60%; top: 80%; animation-delay: 7s; }
-        
-        @keyframes particleFloat {
-            0%, 100% { 
-                transform: translateY(0) translateX(0);
-                opacity: 0.3;
-            }
-            25% { 
-                transform: translateY(-30px) translateX(20px);
-                opacity: 0.6;
-            }
-            50% { 
-                transform: translateY(-60px) translateX(-20px);
-                opacity: 0.3;
-            }
-            75% { 
-                transform: translateY(-30px) translateX(20px);
-                opacity: 0.6;
-            }
-        }
-        
-        /* Enhanced Info Card Styles */
-        .cyber-info-card {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .cyber-info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .cyber-info-card:hover::before {
-            opacity: 1;
-        }
-        
-        .cyber-info-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-        }
-        
-        .cyber-info-card .card-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #dc143c, #ffd700);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-        
-        .cyber-info-card .card-icon::after {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border: 2px solid #dc143c;
-            border-radius: 50%;
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
-        
-        .cyber-info-card:hover .card-icon {
-            transform: scale(1.1) rotate(360deg);
-        }
-        
-        .cyber-info-card:hover .card-icon::after {
-            opacity: 0.3;
-            transform: scale(1.2);
-        }
-        
-        /* Tech Status Indicator */
-        .tech-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 5px 12px;
-            background: rgba(34, 197, 94, 0.1);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: #22c55e;
-        }
-        
-        .tech-status::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: #22c55e;
-            border-radius: 50%;
-            animation: statusPulse 2s infinite;
-        }
-        
-        @keyframes statusPulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
-        }
-        
-        /* Reveal Animations */
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-100px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(100px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .reveal-zoom {
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .reveal-up.visible,
-        .reveal-left.visible,
-        .reveal-right.visible,
-        .reveal-zoom.visible {
-            opacity: 1;
-            transform: translate(0, 0) scale(1);
-        }
-        
-        /* 3D Tilt Effect */
-        .tilt-card {
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-        
-        .tilt-card:hover {
-            transform: rotateY(5deg) rotateX(5deg);
-        }
-        
-        /* Cyber Grid Background */
-        .cyber-grid {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(220, 20, 60, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(220, 20, 60, 0.03) 1px, transparent 1px);
-            background-size: 25px 25px;
-            z-index: 0;
-        }
-        
-        /* Floating Shapes */
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .shape {
-            position: absolute;
-            background: linear-gradient(45deg, #dc143c, #ffd700);
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        .shape:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
-        .shape:nth-child(2) { width: 120px; height: 120px; top: 60%; right: 15%; animation-delay: 2s; }
-        .shape:nth-child(3) { width: 60px; height: 60px; bottom: 30%; left: 20%; animation-delay: 4s; }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
-            25% { transform: translateY(-30px) rotate(90deg) scale(1.1); }
-            50% { transform: translateY(-20px) rotate(180deg) scale(0.9); }
-            75% { transform: translateY(-40px) rotate(270deg) scale(1.05); }
-        }
-        
-        .contact-card {
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(220, 20, 60, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-hero {
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            background: #f8f9fa;
-        }
-    </style>
+    
+    <!-- Breadcrumb Badge -->
+    <script src="../scripts/breadcrumb-badge.js"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/about-dark-mode.css">
+    
+    <!-- About Pages Shared Styles -->
+    <link rel="stylesheet" href="../styles/about-shared.css">
     
     <!-- Navigation Fix Script -->
      <script src="../scripts/navbar-scroll.js"></script>
@@ -519,19 +43,17 @@
     <div id="right-panel-component"></div>
 
     <!-- Main Content -->
-    <main class="">
+    <main >
         <!-- Hero Section - Exact Copy from Contact Page -->
         <section class="contact-hero py-5 h position-relative overflow-hidden">
         
             
-            <div class="container-fluid px-4 position-relative" style="z-index: 2;">
+            <div class="container position-relative" style="z-index: 2; margin-top: 2.5rem;">
                 <div class="row align-items-center py-5">
-                <!-- Page Badge -->
-                <div class="mb-4">
-                    <span class="badge bg-danger bg-opacity-75 fs-6 px-3 py-2">
-                        <i class="bi bi-building me-2"></i>Company Culture
-                    </span>
-                </div>
+                
+                    <div class="mb-4" data-breadcrumb data-separator="arrow">
+                        <!-- Breadcrumb will be dynamically generated here -->
+                    </div>
                     
                     <!-- left side  -->
                     <div class="col-lg-6 animate-on-scroll">
@@ -539,9 +61,7 @@
                         style="color: #333333; line-height: 1.2;">
                             Our <span class="d-block text-gradient">Cyber Culture</span>
                         </h1>
-                        <p class="lead mb-4 reveal-up stagger-1" style="color: #666666;">
-                            At JetHat, we've built a culture that thrives on cybersecurity excellence, innovation, and digital transformation. Our team operates like a cyber defense unit - collaborative, vigilant, and always evolving.
-                        </p>
+                        
                         
                         <div class="d-flex flex-wrap gap-3 mb-4 mt-4 reveal-up stagger-3">
                             <div class="d-flex align-items-center tech-status" style="color: #333333;">
@@ -557,23 +77,14 @@
                                 <span>Team Collaboration</span>
                             </div>
                         </div>
-                        <div class="d-flex flex-column flex-sm-row gap-3 reveal-up stagger-4">
-                            <button class="btn btn-gradient btn-lg px-4 py-3">
-                                <i class="bi bi-shield-check me-2"></i>
-                                Explore Culture
-                            </button>
-                            <button class="btn btn-outline-danger btn-lg px-4 py-3">
-                                <i class="bi bi-people me-2"></i>
-                                Join Our Team
-                            </button>
-                        </div>
+                       
                     </div>
                     <!-- right side  -->
                     <div class="col-lg-6 order-1 order-lg-1 animate-on-scroll position-relative">
                         <div class="position-relative">
                             <!-- Main Large Card -->
                             <div class="contact-card-main position-relative mb-4 reveal-zoom">
-                                <div class="contact-image-container glow-border" style="width: 500px; height: 350px; background: white; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; position: relative;">
+                                <div class="contact-image-container glow-border" style="width: 350px; height: 250px; background: white; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; position: relative;">
                                     <div class="scanning-line"></div>
                                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" alt="Company Culture" class="contact-main-image" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.6s ease;">
                                     <div class="contact-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(236,72,153,0.2)); opacity: 0; transition: all 0.4s ease;"></div>
@@ -585,8 +96,8 @@
                             </div>
 
                             <!-- Secondary Card -->
-                            <div class="contact-card-secondary position-absolute reveal-right" style="top: 50px; right: 10px; z-index: 2;">
-                                <div class="contact-image-container" style="width: 300px; height: 250px; background: white; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); overflow: hidden; position: relative;">
+                            <div class="contact-card-secondary position-absolute reveal-right" style="top: 50px; right: 30px; z-index: 2;">
+                                <div class="contact-image-container" style="width: 200px; height: 150px; background: white; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); overflow: hidden; position: relative;">
                                     <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998" alt="Team Values" class="contact-secondary-image" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.6s ease;">
                                     <div class="contact-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(249,115,22,0.2)); opacity: 0; transition: all 0.4s ease;"></div>
                                     <div class="contact-badge" style="position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.9); padding: 8px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #1f2937;">
@@ -612,8 +123,8 @@
 
     <!-- Core Values Section -->
     <section class="py-5 bg-light">
-        <div class="container px-4">
-            <div class="text-center mb-5 reveal-up">
+        <div class="container ">
+            <div class="text-left mb-5 reveal-up">
                 <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Our Cyber Values</h2>
                 <p class="fs-5 text-light-secondary-theme font-quicksand">The principles that guide our cybersecurity-first culture</p>
             </div>
@@ -762,8 +273,8 @@
 
     <!-- Work Environment Section -->
     <section class="py-5 bg-gradient-light">
-        <div class="container px-4">
-            <div class="text-center mb-5 reveal-up">
+        <div class="container ">
+            <div class="text-left mb-5 reveal-up">
                 <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Cyber Work Environment</h2>
                 <p class="fs-5 text-light-secondary-theme font-quicksand">A secure, flexible, and innovative workplace designed for cyber professionals</p>
             </div>
@@ -867,222 +378,8 @@
         </div>
     </section>
 
-    <!-- Culture Stats -->
-    <section class="py-5 bg-gradient-primary text-white">
-        <div class="container px-4">
-            <div class="text-center mb-5 reveal-up">
-                <h2 class="display-5 fw-bold mb-3 font-playfair">Culture by Numbers</h2>
-                <p class="fs-5 mb-4 font-quicksand">Metrics that reflect our cyber-focused culture</p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 reveal-up stagger-1">
-                    <div class="text-center">
-                        <h2 class="fw-bold mb-2" data-count="95">0%</h2>
-                        <h6 class="fw-semibold font-montserrat">Employee Satisfaction</h6>
-                        <p class="opacity-75 small">Based on annual culture survey</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 reveal-up stagger-2">
-                    <div class="text-center">
-                        <h2 class="fw-bold mb-2" data-count="40">0+</h2>
-                        <h6 class="fw-semibold font-montserrat">Security Certifications</h6>
-                        <p class="opacity-75 small">Held by our team members</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 reveal-up stagger-3">
-                    <div class="text-center">
-                        <h2 class="fw-bold mb-2" data-count="24">0/7</h2>
-                        <h6 class="fw-semibold font-montserrat">Security Monitoring</h6>
-                        <p class="opacity-75 small">Round-the-clock threat detection</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 reveal-up stagger-4">
-                    <div class="text-center">
-                        <h2 class="fw-bold mb-2" data-count="99">0.9%</h2>
-                        <h6 class="fw-semibold font-montserrat">Uptime Achievement</h6>
-                        <p class="opacity-75 small">System availability record</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="py-5 bg-light">
-        <div class="container px-4 text-center">
-            <div class="reveal-up">
-                <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Ready to Join Our Cyber Culture?</h2>
-                <p class="fs-5 text-light-secondary-theme mb-4 font-quicksand">Experience our cybersecurity-first culture and become part of our elite defense team.</p>
-                <div class="d-flex flex-wrap gap-3 justify-content-center">
-                    <button class="btn btn-primary btn-lg px-4 py-3 hover-lift">
-                        <i class="bi bi-briefcase me-2"></i>
-                        View Open Positions
-                    </button>
-                    <button class="btn btn-outline-primary btn-lg px-4 py-3 hover-scale">
-                        <i class="bi bi-envelope me-2"></i>
-                        Contact HR Team
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
-      <!-- Theme Toggle -->
-    <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
-        <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
-        <i id="moon-icon" class="bi bi-moon-fill"></i>
-    </button>
-    <script src="scripts/theme-toggle.js"></script>
-
-
-    <!-- Right Panel -->
-    <div id="right-panel-placeholder"></div>
-
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Load Components -->
-    <script>
-        // Load navigation
-        fetch('../components/navigation/navigation.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navigation-placeholder').innerHTML = data;
-            });
-
-        // Load footer
-        fetch('../components/footer/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
-
-        // Load right panel
-        fetch('../components/right-panel/right-panel.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('right-panel-placeholder').innerHTML = data;
-            });
-    </script>
-
-    <!-- Animation Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize GSAP ScrollTrigger
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Reveal animations
-            gsap.utils.toArray('.reveal-up').forEach(element => {
-                gsap.fromTo(element, 
-                    { opacity: 0, y: 50 },
-                    { 
-                        opacity: 1, 
-                        y: 0, 
-                        duration: 0.8, 
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 80%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            gsap.utils.toArray('.reveal-left').forEach(element => {
-                gsap.fromTo(element, 
-                    { opacity: 0, x: -50 },
-                    { 
-                        opacity: 1, 
-                        x: 0, 
-                        duration: 0.8, 
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 80%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            gsap.utils.toArray('.reveal-right').forEach(element => {
-                gsap.fromTo(element, 
-                    { opacity: 0, x: 50 },
-                    { 
-                        opacity: 1, 
-                        x: 0, 
-                        duration: 0.8, 
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 80%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            // Stagger animations
-            gsap.utils.toArray('.stagger-1, .stagger-2, .stagger-3, .stagger-4, .stagger-5, .stagger-6').forEach((element, index) => {
-                gsap.fromTo(element, 
-                    { opacity: 0, y: 30 },
-                    { 
-                        opacity: 1, 
-                        y: 0, 
-                        duration: 0.6, 
-                        delay: index * 0.1,
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 85%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            // Counter animations
-            function animateCounter(element, target) {
-                let current = 0;
-                const increment = target / 60;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    const suffix = element.textContent.includes('%') ? '%' : 
-                                  element.textContent.includes('+') ? '+' : 
-                                  element.textContent.includes('/7') ? '/7' : 
-                                  element.textContent.includes('.9%') ? '.9%' : '';
-                    element.textContent = Math.floor(current) + suffix;
-                }, 16);
-            }
-
-            // Initialize counters when they come into view
-            const counters = document.querySelectorAll('[data-count]');
-            counters.forEach(counter => {
-                ScrollTrigger.create({
-                    trigger: counter,
-                    start: "top 80%",
-                    onEnter: () => {
-                        const target = parseInt(counter.getAttribute('data-count'));
-                        animateCounter(counter, target);
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
-        <!-- Culture Values Section -->
+  <!-- Culture Values Section -->
         <section class="py-5 position-relative" style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb);">
             <div class="cyber-grid" style="opacity: 0.3;"></div>
             
@@ -1246,6 +543,161 @@
                 </div>
             </div>
         </section>
+  
+</main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+      <!-- Theme Toggle -->
+    <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
+        <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
+        <i id="moon-icon" class="bi bi-moon-fill"></i>
+    </button>
+    <script src="../scripts/theme-toggle.js"></script>
+
+
+    <!-- Right Panel -->
+    <div id="right-panel-placeholder"></div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Load Components -->
+    <script>
+        // Load navigation
+        fetch('../components/navigation/navigation.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navigation-placeholder').innerHTML = data;
+            });
+
+        // Load footer
+        fetch('../components/footer/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+
+        // Load right panel
+        fetch('../components/right-panel/right-panel.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('right-panel-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <!-- Animation Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize GSAP ScrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Reveal animations
+            gsap.utils.toArray('.reveal-up').forEach(element => {
+                gsap.fromTo(element, 
+                    { opacity: 0, y: 50 },
+                    { 
+                        opacity: 1, 
+                        y: 0, 
+                        duration: 0.8, 
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 80%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+            gsap.utils.toArray('.reveal-left').forEach(element => {
+                gsap.fromTo(element, 
+                    { opacity: 0, x: -50 },
+                    { 
+                        opacity: 1, 
+                        x: 0, 
+                        duration: 0.8, 
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 80%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+            gsap.utils.toArray('.reveal-right').forEach(element => {
+                gsap.fromTo(element, 
+                    { opacity: 0, x: 50 },
+                    { 
+                        opacity: 1, 
+                        x: 0, 
+                        duration: 0.8, 
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 80%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+            // Stagger animations
+            gsap.utils.toArray('.stagger-1, .stagger-2, .stagger-3, .stagger-4, .stagger-5, .stagger-6').forEach((element, index) => {
+                gsap.fromTo(element, 
+                    { opacity: 0, y: 30 },
+                    { 
+                        opacity: 1, 
+                        y: 0, 
+                        duration: 0.6, 
+                        delay: index * 0.1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+
+            // Counter animations
+            function animateCounter(element, target) {
+                let current = 0;
+                const increment = target / 60;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    const suffix = element.textContent.includes('%') ? '%' : 
+                                  element.textContent.includes('+') ? '+' : 
+                                  element.textContent.includes('/7') ? '/7' : 
+                                  element.textContent.includes('.9%') ? '.9%' : '';
+                    element.textContent = Math.floor(current) + suffix;
+                }, 16);
+            }
+
+            // Initialize counters when they come into view
+            const counters = document.querySelectorAll('[data-count]');
+            counters.forEach(counter => {
+                ScrollTrigger.create({
+                    trigger: counter,
+                    start: "top 80%",
+                    onEnter: () => {
+                        const target = parseInt(counter.getAttribute('data-count'));
+                        animateCounter(counter, target);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+      
 
         <!-- CTA Section -->
         <div id="cta-component"></div>
@@ -1348,8 +800,8 @@
             ];
 
             await Promise.all(components.map(([id, path]) => loadComponent(id, path)));
-            console.log('✅ Culture page initialized successfully');
         });
     </script>
-</body>
-</html>
+    
+    <!-- About Pages Shared Animations -->
+    <script src="../scripts/about-shared.js"></script>

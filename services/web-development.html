@@ -20,9 +20,13 @@
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Breadcrumb Badge -->
+    <script src="../scripts/breadcrumb-badge.js"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/services-dark-mode.css">
     
     <!-- Navigation Fix Script -->
     <script src="../scripts/navigation-fix.js"></script>
@@ -51,7 +55,7 @@
             position: relative;
             overflow: hidden;
             padding: 100px 0;
-            min-height: 100vh;
+            min-height: 60vh;
         }
 
         /* .cyber-hero::before {
@@ -1023,13 +1027,16 @@
             
             <div class="container">
                 <div class="row align-items-center">
+                    <div class="col-12 mb-4" data-breadcrumb data-separator="arrow" style="margin-top: 2.5rem;">
+                        <!-- Breadcrumb will be dynamically generated here -->
+                    </div>
                     <!-- left side --> 
                     <div class="col-lg-6">
-                        <div class="cyber-hero-content">
-                            <div class="hero-badge gsap-fade-up">
+                        <div class="cyber-hero-content" style="margin-top: 2.5rem;">
+                            <!-- <div class="hero-badge gsap-fade-up">
                                 <i class="bi bi-code-slash me-2"></i>
                                 Professional Web Development
-                            </div>
+                            </div> -->
                             <h1 class="hero-title gsap-fade-up" data-delay="100">
                                 Build Your
                                 <span class="gradient-text">Digital Presence</span>
@@ -1039,7 +1046,7 @@
                                 Modern, scalable web applications built with cutting-edge technologies. 
                                 Transform your ideas into powerful digital solutions with our expert development team.
                             </p>
-                            <div class="hero-buttons gsap-fade-up" data-delay="300">
+                            <!-- <div class="hero-buttons gsap-fade-up" data-delay="300">
                                 <a href="../contact.html" class="btn btn-hero-primary">
                                     Start Your Project
                                     <i class="bi bi-arrow-right ms-2"></i>
@@ -1048,12 +1055,12 @@
                                     View Portfolio
                                     <i class="bi bi-arrow-right ms-2"></i>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- right side -->
                     <div class="col-lg-6">
-                        <div class=" gsap-fade-left" data-delay="400">
+                        <div class=" gsap-fade-left" data-delay="400" style="margin-top: 2.5rem;">
                             <div class="position-relative">
                                 <div class="main-image-card">
                                     <img src="../assets/images/cyber.jpg" alt="Web Development" class="img-fluid">
@@ -1087,38 +1094,7 @@
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="stats-section">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-6 col-md-3">
-                        <div class="stat-item">
-                            <div class="stat-number counter" data-target="200">0</div>
-                            <div class="stat-label">Projects Delivered</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-item">
-                            <div class="stat-number counter" data-target="98">0</div>
-                            <div class="stat-label">Client Satisfaction %</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-item">
-                            <div class="stat-number counter" data-target="24">0</div>
-                            <div class="stat-label">/7 Support</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-item">
-                            <div class="stat-number counter" data-target="8">0</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+      
         <!-- Services Section -->
         <section id="services" class="services-section">
             <div class="container">
@@ -1444,91 +1420,18 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section id="cta-component" class="cta-section overflow-hidden bg-gradient-light">
-            <div class="py-5 position-relative">
-                <section class="text-dark">
-                    <div class="container">
-                        <div class="row align-items-center g-2">
-                            <div class="col-lg-12 slide-in-left" data-delay="0">
-                                <div class="cta-content">
-                                    <h2 class="fw-bold display-4 mb-4 text-light-primary-theme">
-                                        Ready to Build Your
-                                        <span class="gradient-text">Dream Website?</span>
-                                    </h2>
-
-                                    <p class="lead text-muted mb-4 fade-in-text" data-delay="400" style="max-width: 600px">
-                                        Let's transform your ideas into a powerful web presence. 
-                                        Get started with our professional web development services today.
-                                    </p>
-
-                                    <div class="row mb-4">
-                                        <div class="col-lg-4 col-md-6 mb-3">
-                                            <div class="d-flex gap-3 feature-item slide-in-right" data-delay="600">
-                                                <div class="rounded-circle d-flex align-items-center justify-content-center check-icon bg-accent-success" style="width: 24px; height: 24px; color: white;">
-                                                    ✓
-                                                </div>
-                                                <div>
-                                                    <span class="fw-semibold">Free Consultation</span>
-                                                    <p class="text-muted small mb-0">
-                                                        Discuss your project requirements with our experts
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-6 mb-3">
-                                            <div class="d-flex gap-3 feature-item slide-in-right" data-delay="700">
-                                                <div class="rounded-circle d-flex align-items-center justify-content-center check-icon bg-accent-success" style="width: 24px; height: 24px; color: white;">
-                                                    ✓
-                                                </div>
-                                                <div>
-                                                    <span class="fw-semibold">Modern Technologies</span>
-                                                    <p class="text-muted small mb-0">
-                                                        Latest frameworks and development tools
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-6 mb-3">
-                                            <div class="d-flex gap-3 feature-item slide-in-right" data-delay="800">
-                                                <div class="rounded-circle d-flex align-items-center justify-content-center check-icon bg-accent-success" style="width: 24px; height: 24px; color: white;">
-                                                    ✓
-                                                </div>
-                                                <div>
-                                                    <span class="fw-semibold">Ongoing Support</span>
-                                                    <p class="text-muted small mb-0">
-                                                        Maintenance and updates for your website
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex gap-3 flex-wrap fade-in-up" data-delay="900">
-                                        <button class="btn btn-primary text-white px-5 py-3 shadow-lg animated-btn primary-btn">
-                                            <span class="btn-text">Start Your Project</span>
-                                            <span class="btn-arrow">→</span>
-                                        </button>
-
-                                        <button class="btn btn-outline-warning px-5 py-3 shadow-sm animated-btn secondary-btn">
-                                            <span class="btn-text">View Portfolio</span>
-                                            <span class="btn-icon">🎨</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </section>
+       
     </main>
 
     <!-- Footer -->
     <div id="footer-component"></div>
 
+       <!-- Theme Toggle -->
+    <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
+        <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
+        <i id="moon-icon" class="bi bi-moon-fill"></i>
+    </button>
+    <script src="../scripts/theme-toggle.js"></script>
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 

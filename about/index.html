@@ -20,13 +20,16 @@
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Breadcrumb Badge -->
+    <script src="../scripts/breadcrumb-badge.js"></script>
 
     <style>
         .about-hero {
             background: linear-gradient(135deg, #fff7ed 0%, #ffffff 50%, #fffbeb 100%);
             position: relative;
             overflow: hidden;
-            min-height: 100vh;
+            min-height: 60vh;
         }
 
         /* Circuit Pattern Overlay */
@@ -719,24 +722,7 @@
         }
 
         /* Ensure animations are visible by default for testing */
-        .slide-in-left,
-        .slide-in-right,
-        .slide-in-up,
-        .slide-in-down,
-        .zoom-in,
-        .zoom-out,
-        .rotate-in,
-        .fade-in,
-        .bounce-in,
-        .reveal-up,
-        .reveal-left,
-        .reveal-right,
-        .reveal-zoom {
-            /* Remove initial opacity: 0 for debugging */
-            /* opacity: 1 !important; */
-            /* transform: none !important; */
-        }
-
+      
         /* Ensure content is visible */
         main {
             min-height: 100vh;
@@ -774,12 +760,14 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/about-dark-mode.css">
+    
 
     <!-- Navigation Fix Script -->
     <script src="../scripts/navigation-fix.js"></script>
     <script src="../scripts/navbar-scroll.js"></script>
 </head>
-<body style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb); color: #333333;">
+<body>
     <!-- Navigation -->
     <div id="navigation-component"></div>
 
@@ -787,7 +775,7 @@
     <div id="right-panel-component"></div>
 
     <!-- Main Content -->
-    <main class="pt-5">
+    <main >
         <!-- Fallback content that shows immediately -->
         <div id="fallback-content" class="container-fluid px-4 py-5 text-center" style="min-height: 50vh;">
             <h1 class="display-4 fw-bold text-gradient mb-4">Our Story</h1>
@@ -802,17 +790,17 @@
         </div>
 
         <!-- Hero Section -->
-        <section class="about-hero py-5 position-relative overflow-hidden">
+        <section class="about-hero py-5 position-relative overflow-hidden " >
            
-            <div class="container-fluid px-4 position-relative" style="z-index: 2;">
-                <div class="row align-items-center g-5">
+            <div class="container px-4 position-relative" style="z-index: 2; margin-top: 2.5rem;">
+                <div class="row align-items-center py-5 g-5">
+                    <div class="col-12 mb-4" data-breadcrumb data-separator="chevron">
+                        <!-- Breadcrumb will be dynamically generated here -->
+                    </div>
                     <div class="col-lg-6">
                         <h1 class="display-4 fw-bold text-gradient mb-4 slide-in-left stagger-1">Our Story</h1>
                         <div class="w-25 mb-4" style="height: 4px; background: linear-gradient(to right, #dc143c, #ffd700); border-radius: 2px;"></div>
-                        <p class="lead text-muted mb-4 slide-in-left stagger-2">
-                            Founded in 2018, JetHat Cyber Security has been at the forefront of digital protection,
-                            combining cutting-edge technology with unwavering commitment to security excellence.
-                        </p>
+                    
 
                         <!-- Terminal Typing Effect -->
                         <div class="terminal-container slide-in-left stagger-3">
@@ -824,14 +812,11 @@
                             <div class="terminal-content" id="typed-text"></div>
                         </div>
 
-                        <div class="d-flex flex-column flex-sm-row gap-3 mt-4 slide-in-left stagger-4">
-                            <button class="btn btn-gradient btn-lg">Our Mission</button>
-                            <button class="btn btn-outline-primary btn-lg" style="border-color: #dc143c; color: #dc143c;">Our Values</button>
-                        </div>
+                      
                     </div>
                     <div class="col-lg-6">
                         <div class="position-relative slide-in-right stagger-2">
-                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="Our Story" class="img-fluid rounded shadow-lg contact-image-container">
+                            <img src="assets/images/cyber.jpg" alt="Our Story" class="img-fluid rounded shadow-lg contact-image-container">
                             <!-- Scanning Line -->
                             <div class="scanning-line" style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #dc143c, transparent); animation: scan 3s ease-in-out infinite;"></div>
                         </div>
@@ -842,13 +827,13 @@
 
         <!-- Timeline Section -->
         <section class="py-5">
-            <div class="container-fluid px-4">
-                <h2 class="display-5 fw-bold text-center text-light mb-5">Our Journey</h2>
+            <div class="container px-4">
+                <h2 class="display-5 fw-bold text-left text-light mb-5">Our Journey</h2>
                 <div class="row g-4">
                     <div class="col-md-4">
                         <div class="card bg-dark border-warning h-100">
                             <div class="card-body text-center p-4">
-                                <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                <div class="bg-gradient-secondary p-5 rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
                                     <span class="text-dark fw-bold fs-4">2018</span>
                                 </div>
                                 <h3 class="h5 fw-bold text-warning mb-3">Foundation</h3>
@@ -862,7 +847,7 @@
                     <div class="col-md-4">
                         <div class="card bg-dark border-warning h-100">
                             <div class="card-body text-center p-4">
-                                <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                <div class="bg-gradient-secondary p-5 rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
                                     <span class="text-dark fw-bold fs-4">2020</span>
                                 </div>
                                 <h3 class="h5 fw-bold text-warning mb-3">Expansion</h3>
@@ -876,7 +861,7 @@
                     <div class="col-md-4">
                         <div class="card bg-dark border-warning h-100">
                             <div class="card-body text-center p-4">
-                                <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                <div class="bg-gradient-secondary p-5 rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
                                     <span class="text-dark fw-bold fs-4">2023</span>
                                 </div>
                                 <h3 class="h5 fw-bold text-warning mb-3">Innovation</h3>
@@ -893,7 +878,7 @@
  <!-- Development Roadmap -->
     <section class="py-5 bg-light">
         <div class="container px-4">
-            <div class="text-center mb-5 reveal-up">
+            <div class="text-left mb-5 reveal-up">
                 <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Development Roadmap</h2>
                 <p class="fs-5 text-light-secondary-theme font-quicksand">Our planned releases and milestones for 2024-2025</p>
             </div>
@@ -908,7 +893,7 @@
                         <!-- Q2 2024 -->
                         <div class="d-flex align-items-center mb-5 reveal-up stagger-1">
                             <div class="flex-shrink-0 me-4 text-end" style="width: 45%;">
-                                <div class="card-animated bg-white rounded-lg-theme p-3 shadow-sm-theme">
+                                <div class="card-animated  rounded-lg-theme p-3 shadow-sm-theme">
                                     <h6 class="fw-bold accent-primary mb-2">Q2 2024</h6>
                                     <h5 class="fw-semibold mb-2">Quantum Security Suite</h5>
                                     <p class="text-muted small mb-0">Launch of quantum-resistant security framework</p>
@@ -927,7 +912,7 @@
                                 <i class="bi bi-robot text-white fs-5"></i>
                             </div>
                             <div class="flex-shrink-0 ms-4" style="width: 45%;">
-                                <div class="card-animated bg-white rounded-lg-theme p-3 shadow-sm-theme">
+                                <div class="card-animated rounded-lg-theme p-3 shadow-sm-theme">
                                     <h6 class="fw-bold accent-secondary mb-2">Q3 2024</h6>
                                     <h5 class="fw-semibold mb-2">Neural Network Optimizer</h5>
                                     <p class="text-muted small mb-0">AI performance enhancement platform</p>
@@ -938,7 +923,7 @@
                         <!-- Q4 2024 -->
                         <div class="d-flex align-items-center mb-5 reveal-up stagger-3">
                             <div class="flex-shrink-0 me-4 text-end" style="width: 45%;">
-                                <div class="card-animated bg-white rounded-lg-theme p-3 shadow-sm-theme">
+                                <div class="card-animated  rounded-lg-theme p-3 shadow-sm-theme">
                                     <h6 class="fw-bold accent-gold mb-2">Q4 2024</h6>
                                     <h5 class="fw-semibold mb-2">Metaverse Security Suite</h5>
                                     <p class="text-muted small mb-0">Virtual world security solutions</p>
@@ -957,7 +942,7 @@
                                 <i class="bi bi-lightning text-white fs-5"></i>
                             </div>
                             <div class="flex-shrink-0 ms-4" style="width: 45%;">
-                                <div class="card-animated bg-white rounded-lg-theme p-3 shadow-sm-theme">
+                                <div class="card-animated  rounded-lg-theme p-3 shadow-sm-theme">
                                     <h6 class="fw-bold accent-primary mb-2">Q1 2025</h6>
                                     <h5 class="fw-semibold mb-2">Quantum ML Platform</h5>
                                     <p class="text-muted small mb-0">Quantum-enhanced machine learning</p>
@@ -971,7 +956,7 @@
     </section>
 
         <!-- Mission & Values -->
-        <section class="py-5 position-relative overflow-hidden">
+        <section class=" container position-relative overflow-hidden">
             <!-- Circuit Pattern Overlay -->
             <div class="circuit-pattern"></div>
 
@@ -1057,8 +1042,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            </section>
         <!-- FAQ Section -->
-        <section class="py-5 position-relative overflow-hidden" style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb);">
+        <section class="py-5 position-relative overflow-hidden" ">
             <!-- Circuit Pattern Overlay -->
             <div class="circuit-pattern"></div>
             
@@ -1066,16 +1053,16 @@
             <div class="circuit-element" style="top: 15%; left: 8%;"></div>
             <div class="circuit-element" style="bottom: 25%; right: 8%;"></div>
             
-            <div class="container-fluid px-4 position-relative" style="z-index: 2;">
-                <div class="text-center mb-5 reveal-up">
+            <div class="container px-4 position-relative" style="z-index: 2;">
+                <div class="text-left mb-5 reveal-up">
                     <h2 class="display-5 fw-bold mb-3" style="color: #333;">
                         <span class="text-gradient">About Us</span> - FAQ
                     </h2>
                     <p class="lead text-muted">Learn more about JetHat Cyber Security and our journey</p>
                 </div>
                 
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
+                <div class="row justify-content-left">
+                    <div class="col-lg-12">
                         <div class="accordion" id="aboutFaqAccordion">
                             
                             <!-- FAQ Item 1 -->
@@ -1200,7 +1187,7 @@
         <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
         <i id="moon-icon" class="bi bi-moon-fill"></i>
     </button>
-    <script src="scripts/theme-toggle.js"></script>
+    <script src="../scripts/theme-toggle.js"></script>
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
@@ -1281,6 +1268,123 @@
                 }
             }
         });
+    </script>
+    <script>
+        // About Page Animation Controller
+class AboutPageAnimations {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.initializeScrollAnimations();
+        this.initializeTerminalTyping();
+        this.initializeScanAnimation();
+        this.initializeRevealAnimations();
+    }
+
+    // Initialize scroll-triggered animations
+    initializeScrollAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animation elements
+        const animatedElements = document.querySelectorAll(
+            '.slide-in-left, .slide-in-right, .slide-in-up, .slide-in-down, ' +
+            '.zoom-in, .zoom-out, .rotate-in, .fade-in, .bounce-in, ' +
+            '.reveal-up, .reveal-left, .reveal-right, .reveal-zoom'
+        );
+
+        animatedElements.forEach(el => observer.observe(el));
+    }
+
+    // Terminal typing effect
+    initializeTerminalTyping() {
+        const terminalContent = document.getElementById('typed-text');
+        if (!terminalContent) return;
+
+        const commands = [
+            // '$ initializing security protocols...',
+            '$ loading cyber defense systems...',
+            // '$ establishing secure connections...',
+            // '$ jethat@security:~$ ready for innovation'
+        ];
+
+        let commandIndex = 0;
+        let charIndex = 0;
+
+        const typeCommand = () => {
+            if (commandIndex < commands.length) {
+                const currentCommand = commands[commandIndex];
+                
+                if (charIndex < currentCommand.length) {
+                    terminalContent.innerHTML += currentCommand.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeCommand, 50);
+                } else {
+                    terminalContent.innerHTML += '<br>';
+                    commandIndex++;
+                    charIndex = 0;
+                    setTimeout(typeCommand, 1000);
+                }
+            } else {
+                // Add blinking cursor
+                terminalContent.innerHTML += '<span class="typing-cursor"></span>';
+            }
+        };
+
+        // Start typing after a delay
+        setTimeout(typeCommand, 1000);
+    }
+
+    // Scanning line animation
+    initializeScanAnimation() {
+        const scanningLine = document.querySelector('.scanning-line');
+        if (scanningLine) {
+            // Add CSS animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes scan {
+                    0% { top: 0; opacity: 0; }
+                    50% { opacity: 1; }
+                    100% { top: 100%; opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+
+    // Initialize reveal animations with stagger
+    initializeRevealAnimations() {
+        // Add stagger delays to elements
+        const staggerElements = document.querySelectorAll('[class*="stagger-"]');
+        staggerElements.forEach(el => {
+            const staggerClass = Array.from(el.classList).find(cls => cls.startsWith('stagger-'));
+            if (staggerClass) {
+                const delay = parseInt(staggerClass.split('-')[1]) * 100;
+                el.style.transitionDelay = `${delay}ms`;
+            }
+        });
+    }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new AboutPageAnimations();
+});
+
+// Export for external use
+window.AboutPageAnimations = AboutPageAnimations;
     </script>
 </body>
 </html>

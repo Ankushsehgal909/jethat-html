@@ -169,6 +169,26 @@ class ThemeManager {
             }
         }
 
+        // Update navbar links
+        const navLinks = document.querySelectorAll('.nav-link, .nav-link-enhanced, .navbar-nav .nav-link');
+        navLinks.forEach(link => {
+            if (theme === 'dark') {
+                link.style.color = '#ffffff !important';
+            } else {
+                link.style.color = '#000000 !important';
+            }
+        });
+
+        // Update nav text spans
+        const navTexts = document.querySelectorAll('.nav-text');
+        navTexts.forEach(text => {
+            if (theme === 'dark') {
+                text.style.color = '#ffffff';
+            } else {
+                text.style.color = '#000000';
+            }
+        });
+
         // Update dropdown menus
         const dropdowns = document.querySelectorAll('.dropdown-menu, .dropdown-menu-theme');
         dropdowns.forEach(dropdown => {

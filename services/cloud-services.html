@@ -20,9 +20,13 @@
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Breadcrumb Badge -->
+    <script src="../scripts/breadcrumb-badge.js"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/services-dark-mode.css">
     
     <!-- Navigation Fix Script -->
     <script src="../scripts/navigation-fix.js"></script>
@@ -51,7 +55,7 @@
             position: relative;
             overflow: hidden;
             padding: 100px 0;
-            min-height: 100vh;
+            min-height: 60vh;
         }
 
        
@@ -1064,13 +1068,16 @@
             
             <div class="container">
                 <div class="row align-items-center">
+                    <div class="col-12 mb-4" data-breadcrumb data-separator="arrow" style="margin-top: 2.5rem;">
+                        <!-- Breadcrumb will be dynamically generated here -->
+                    </div>
                     <!-- left side --> 
                     <div class="col-lg-6">
-                        <div class="cyber-hero-content">
-                            <div class="hero-badge gsap-fade-up">
+                        <div class="cyber-hero-content" style="margin-top: 2.5rem;">
+                            <!-- <div class="hero-badge gsap-fade-up">
                                 <i class="bi bi-cloud me-2"></i>
                                 Enterprise Cloud Solutions
-                            </div>
+                            </div> -->
                             <h1 class="hero-title gsap-fade-up" data-delay="100">
                                 Scale Your
                                 <span class="gradient-text">Cloud Infrastructure</span>
@@ -1080,7 +1087,7 @@
                                 Scalable cloud infrastructure, migration services, and cloud-native solutions. 
                                 Transform your business with high availability and cost-effective cloud operations.
                             </p>
-                            <div class="hero-buttons gsap-fade-up" data-delay="300">
+                            <!-- <div class="hero-buttons gsap-fade-up" data-delay="300">
                                 <a href="../contact.html" class="btn btn-hero-primary">
                                     Get Cloud Assessment
                                     <i class="bi bi-arrow-right ms-2"></i>
@@ -1089,12 +1096,12 @@
                                     Explore Solutions
                                     <i class="bi bi-arrow-right ms-2"></i>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- right side -->
                     <div class="col-lg-6">
-                        <div class=" gsap-fade-left" data-delay="400">
+                        <div class=" gsap-fade-left" data-delay="400" style="margin-top: 2.5rem;">
                             <div class="position-relative">
                                 <div class="main-image-card">
                                     <img src="../assets/images/cyber.jpg" alt="Cloud Services" class="img-fluid">
@@ -1128,37 +1135,7 @@
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="stats-section">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-6 col-md-3">
-                        <div class="stat-item">
-                            <div class="stat-number counter" data-target="150">0</div>
-                            <div class="stat-label">Cloud Migrations</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-item">
-                            <div class="stat-number counter" data-target="99">0</div>
-                            <div class="stat-label">Uptime %</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-item">
-                            <div class="stat-number counter" data-target="24">0</div>
-                            <div class="stat-label">/7 Monitoring</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-item">
-                            <div class="stat-number counter" data-target="50">0</div>
-                            <div class="stat-label">Cost Reduction %</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      
 
         <!-- Services Section -->
         <section id="services" class="services-section">
@@ -1310,131 +1287,7 @@
             </div>
         </section>
 
-        <!-- Tech Stack Section -->
-        <section class="tech-stack-section">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="section-title reveal-on-scroll">Our Cloud Technology Stack</h2>
-                    <p class="section-subtitle reveal-on-scroll">
-                        Leading cloud platforms and technologies powering scalable solutions
-                    </p>
-                </div>
-                <div class="row g-4">
-                    <!-- Cloud Platforms -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="tech-category reveal-on-scroll">
-                            <div class="tech-category-icon">
-                                <i class="bi bi-cloud text-danger"></i>
-                            </div>
-                            <h4 class="tech-category-title">Cloud Platforms</h4>
-                            <div class="tech-items">
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
-                                    <span>Amazon AWS</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
-                                    <span>Microsoft Azure</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud">
-                                    <span>Google Cloud</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://www.digitalocean.com/_next/static/media/logo.ac2cdd9c.svg" alt="DigitalOcean">
-                                    <span>DigitalOcean</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Container & Orchestration -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="tech-category reveal-on-scroll" data-delay="100">
-                            <div class="tech-category-icon">
-                                <i class="bi bi-boxes text-warning"></i>
-                            </div>
-                            <h4 class="tech-category-title">Containers</h4>
-                            <div class="tech-items">
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
-                                    <span>Docker</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
-                                    <span>Kubernetes</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://helm.sh/img/helm.svg" alt="Helm">
-                                    <span>Helm</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://istio.io/latest/img/istio-bluelogo-whitebackground-unframed.svg" alt="Istio">
-                                    <span>Istio</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Infrastructure as Code -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="tech-category reveal-on-scroll" data-delay="200">
-                            <div class="tech-category-icon">
-                                <i class="bi bi-gear text-success"></i>
-                            </div>
-                            <h4 class="tech-category-title">Infrastructure</h4>
-                            <div class="tech-items">
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform">
-                                    <span>Terraform</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" alt="Ansible">
-                                    <span>Ansible</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://www.pulumi.com/logos/brand/logo-on-white-box.svg" alt="Pulumi">
-                                    <span>Pulumi</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins">
-                                    <span>Jenkins</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Monitoring & Security -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="tech-category reveal-on-scroll" data-delay="300">
-                            <div class="tech-category-icon">
-                                <i class="bi bi-shield-check text-info"></i>
-                            </div>
-                            <h4 class="tech-category-title">Monitoring</h4>
-                            <div class="tech-items">
-                                <div class="tech-item">
-                                    <img src="https://prometheus.io/assets/prometheus_logo_grey.svg" alt="Prometheus">
-                                    <span>Prometheus</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://grafana.com/static/img/logos/grafana_logo.svg" alt="Grafana">
-                                    <span>Grafana</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://www.elastic.co/static-res/images/elastic-logo-200.png" alt="ELK Stack">
-                                    <span>ELK Stack</span>
-                                </div>
-                                <div class="tech-item">
-                                    <img src="https://www.datadoghq.com/img/dd_logo_70x75.png" alt="Datadog">
-                                    <span>Datadog</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+     
         <!-- Process Section -->
         <section class="process-section bg-light">
             <div class="container">
@@ -1485,91 +1338,18 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section id="cta-component" class="cta-section overflow-hidden bg-gradient-light">
-            <div class="py-5 position-relative">
-                <section class="text-dark">
-                    <div class="container">
-                        <div class="row align-items-center g-2">
-                            <div class="col-lg-12 slide-in-left" data-delay="0">
-                                <div class="cta-content">
-                                    <h2 class="fw-bold display-4 mb-4 text-light-primary-theme">
-                                        Ready to Transform Your
-                                        <span class="gradient-text">Cloud Infrastructure?</span>
-                                    </h2>
-
-                                    <p class="lead text-muted mb-4 fade-in-text" data-delay="400" style="max-width: 600px">
-                                        Accelerate your digital transformation with our expert cloud services. 
-                                        Get started with a free cloud assessment today.
-                                    </p>
-
-                                    <div class="row mb-4">
-                                        <div class="col-lg-4 col-md-6 mb-3">
-                                            <div class="d-flex gap-3 feature-item slide-in-right" data-delay="600">
-                                                <div class="rounded-circle d-flex align-items-center justify-content-center check-icon bg-accent-success" style="width: 24px; height: 24px; color: white;">
-                                                    ✓
-                                                </div>
-                                                <div>
-                                                    <span class="fw-semibold">Free Cloud Assessment</span>
-                                                    <p class="text-muted small mb-0">
-                                                        Comprehensive evaluation of your cloud readiness
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-6 mb-3">
-                                            <div class="d-flex gap-3 feature-item slide-in-right" data-delay="700">
-                                                <div class="rounded-circle d-flex align-items-center justify-content-center check-icon bg-accent-success" style="width: 24px; height: 24px; color: white;">
-                                                    ✓
-                                                </div>
-                                                <div>
-                                                    <span class="fw-semibold">Multi-Cloud Expertise</span>
-                                                    <p class="text-muted small mb-0">
-                                                        AWS, Azure, Google Cloud certified professionals
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-6 mb-3">
-                                            <div class="d-flex gap-3 feature-item slide-in-right" data-delay="800">
-                                                <div class="rounded-circle d-flex align-items-center justify-content-center check-icon bg-accent-success" style="width: 24px; height: 24px; color: white;">
-                                                    ✓
-                                                </div>
-                                                <div>
-                                                    <span class="fw-semibold">24/7 Support</span>
-                                                    <p class="text-muted small mb-0">
-                                                        Continuous monitoring and expert support
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex gap-3 flex-wrap fade-in-up" data-delay="900">
-                                        <button class="btn btn-primary text-white px-5 py-3 shadow-lg animated-btn primary-btn">
-                                            <span class="btn-text">Get Cloud Assessment</span>
-                                            <span class="btn-arrow">→</span>
-                                        </button>
-
-                                        <button class="btn btn-outline-warning px-5 py-3 shadow-sm animated-btn secondary-btn">
-                                            <span class="btn-text">View Case Studies</span>
-                                            <span class="btn-icon">☁️</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </section>
+     
     </main>
 
     <!-- Footer -->
     <div id="footer-component"></div>
 
+       <!-- Theme Toggle -->
+    <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
+        <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
+        <i id="moon-icon" class="bi bi-moon-fill"></i>
+    </button>
+    <script src="../scripts/theme-toggle.js"></script>
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
