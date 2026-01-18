@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Advanced Protection System Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            min-height: 100vh;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="btn btn-outline-warning theme-toggle" onclick="toggleTheme()">
+        <i class="bi bi-sun-fill" id="theme-icon"></i>
+    </button>
+
+    <div class="container-fluid py-5">
+        <!-- Include the enhanced advanced protection component -->
+        <div id="advanced-protection-container"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            
+            if (html.getAttribute('data-bs-theme') === 'dark') {
+                html.setAttribute('data-bs-theme', 'light');
+                icon.className = 'bi bi-sun-fill';
+            } else {
+                html.setAttribute('data-bs-theme', 'dark');
+                icon.className = 'bi bi-moon-fill';
+            }
+        }
+
+        // Load the advanced protection component
+        fetch('components/advanced-protection/advanced-protection.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('advanced-protection-container').innerHTML = html;
+                console.log('✅ Enhanced Advanced Protection System loaded successfully');
+            })
+            .catch(error => {
+                console.error('❌ Error loading component:', error);
+                document.getElementById('advanced-protection-container').innerHTML = 
+                    '<div class="alert alert-danger">Error loading Advanced Protection System component</div>';
+            });
+
+        // Set initial dark theme
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+        document.getElementById('theme-icon').className = 'bi bi-moon-fill';
+    </script>
+</body>
+</html>

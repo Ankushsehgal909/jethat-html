@@ -26,6 +26,7 @@
     const descElement = document.getElementById('active-desc');
     const activeBox = document.getElementById('active-box');
     const sections = document.querySelectorAll('#who-we-are-sections-container section[data-index]');
+    const stickyElement = document.querySelector('.who-we-are-sticky');
     
     if (!titleElement || !descElement || !sections.length) {
       console.log('Who We Are: Elements not found, retrying...');
@@ -40,7 +41,22 @@
       activeBox.style.transition = 'all 0.3s ease';
     }
 
-    // Create intersection observer
+    // Sticky detection for visual feedback
+    if (stickyElement) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.intersectionRatio < 1) {
+            stickyElement.classList.add('stuck');
+          } else {
+            stickyElement.classList.remove('stuck');
+          }
+        },
+        { threshold: [1] }
+      );
+      observer.observe(stickyElement);
+    }
+
+    // Create intersection observer with better settings for full-height sections
     const observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
@@ -71,8 +87,8 @@
       });
     }, {
       root: null,
-      rootMargin: '-30% 0px -30% 0px',
-      threshold: 0.5
+      rootMargin: '-20% 0px -20% 0px', // Trigger when section is more centered
+      threshold: 0.3 // Lower threshold for better detection
     });
 
     // Observe all sections

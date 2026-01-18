@@ -1,108 +1,70 @@
-// Testimonial Section Carousel Controller
+// Modern Testimonial Section Controller
 function initializeTestimonialCarousel() {
     const testimonialSection = document.getElementById('testimonials');
     
-    // ================= CAROUSEL FUNCTIONALITY ================= 
-    const carouselTrack = document.getElementById('testimonials-carousel-track');
-    const prevBtn = document.getElementById('testimonial-prev');
-    const nextBtn = document.getElementById('testimonial-next');
-    const indicators = document.querySelectorAll('.testimonial-indicator');
-    const slides = document.querySelectorAll('.testimonial-slide');
+    // ================= MODERN CAROUSEL FUNCTIONALITY ================= 
+    const modernTrack = document.getElementById('testimonials-modern-track');
+    const slides = document.querySelectorAll('.testimonial-modern-slide');
+    const dots = document.querySelectorAll('.dot');
     
     // Check if elements exist
-    if (!carouselTrack || !prevBtn || !nextBtn || slides.length === 0) {
-        console.log('Testimonial carousel elements not found, retrying...');
+    if (!modernTrack || slides.length === 0 || dots.length === 0) {
+        console.log('Modern testimonial elements not found, retrying...');
         setTimeout(initializeTestimonialCarousel, 100);
         return;
     }
     
     let currentSlide = 0;
-    let slidesPerView = getSlidesPerView();
-    let maxSlide = Math.max(0, slides.length - slidesPerView);
     let isAnimating = false;
     let autoPlayInterval;
     
-    function getSlidesPerView() {
-        // Always show 1 slide at a time in the new layout
-        return 1;
-    }
-    
-    function updateCarousel() {
+    function updateSlide() {
         if (isAnimating) return;
         isAnimating = true;
         
-        const slideWidth = slides[0].offsetWidth;
-        const translateX = -currentSlide * slideWidth;
-        
-        carouselTrack.style.transform = `translateX(${translateX}px)`;
-        
-        // Update indicators
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === Math.floor(currentSlide / slidesPerView));
+        // Hide all slides
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
         });
         
-        // Update button states
-        prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
-        nextBtn.style.opacity = currentSlide >= maxSlide ? '0.5' : '1';
+        // Show current slide
+        slides[currentSlide].classList.add('active');
         
-        // Add loading state to visible cards
-        slides.forEach((slide, index) => {
-            const card = slide.querySelector('.testimonial-card');
-            if (index >= currentSlide && index < currentSlide + slidesPerView) {
-                card.classList.remove('loading');
-            } else {
-                card.classList.add('loading');
-            }
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
         });
         
         setTimeout(() => {
             isAnimating = false;
-        }, 600);
+        }, 500);
     }
     
     function nextSlide() {
-        if (currentSlide < maxSlide) {
-            currentSlide++;
-            updateCarousel();
-        } else {
-            // Loop back to start
-            currentSlide = 0;
-            updateCarousel();
-        }
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlide();
     }
     
     function prevSlide() {
-        if (currentSlide > 0) {
-            currentSlide--;
-            updateCarousel();
-        } else {
-            // Loop to end
-            currentSlide = maxSlide;
-            updateCarousel();
-        }
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlide();
     }
     
     function goToSlide(slideIndex) {
-        const targetSlide = slideIndex * slidesPerView;
-        if (targetSlide <= maxSlide) {
-            currentSlide = targetSlide;
-            updateCarousel();
-        }
+        currentSlide = slideIndex;
+        updateSlide();
     }
     
-    // Event listeners
-    prevBtn.addEventListener('click', prevSlide);
-    nextBtn.addEventListener('click', nextSlide);
-    
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => goToSlide(index));
+    // Event listeners for dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
     });
     
     // Auto-play carousel
     function startAutoPlay() {
         autoPlayInterval = setInterval(() => {
             nextSlide();
-        }, 5000); // 5 seconds for testimonials
+        }, 4000); // 4 seconds for testimonials
     }
     
     function stopAutoPlay() {
@@ -112,40 +74,30 @@ function initializeTestimonialCarousel() {
     }
     
     // Pause auto-play on hover
-    const carouselContainer = document.querySelector('.testimonial-carousel-container');
+    const carouselContainer = document.querySelector('.testimonial-modern-container');
     if (carouselContainer) {
         carouselContainer.addEventListener('mouseenter', stopAutoPlay);
         carouselContainer.addEventListener('mouseleave', startAutoPlay);
     }
-    
-    // Handle window resize
-    function handleResize() {
-        slidesPerView = getSlidesPerView();
-        maxSlide = Math.max(0, slides.length - slidesPerView);
-        currentSlide = Math.min(currentSlide, maxSlide);
-        updateCarousel();
-    }
-    
-    window.addEventListener('resize', handleResize);
     
     // Touch/swipe support
     let startX = 0;
     let currentX = 0;
     let isDragging = false;
     
-    carouselTrack.addEventListener('touchstart', (e) => {
+    modernTrack.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
         isDragging = true;
         stopAutoPlay();
     });
     
-    carouselTrack.addEventListener('touchmove', (e) => {
+    modernTrack.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
         currentX = e.touches[0].clientX;
-        e.preventDefault(); // Prevent scrolling
+        e.preventDefault();
     });
     
-    carouselTrack.addEventListener('touchend', () => {
+    modernTrack.addEventListener('touchend', () => {
         if (!isDragging) return;
         isDragging = false;
         
@@ -161,23 +113,21 @@ function initializeTestimonialCarousel() {
     });
     
     // Mouse drag support
-    carouselTrack.addEventListener('mousedown', (e) => {
+    modernTrack.addEventListener('mousedown', (e) => {
         startX = e.clientX;
         isDragging = true;
-        carouselTrack.style.cursor = 'grabbing';
         stopAutoPlay();
         e.preventDefault();
     });
     
-    carouselTrack.addEventListener('mousemove', (e) => {
+    modernTrack.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
         currentX = e.clientX;
     });
     
-    carouselTrack.addEventListener('mouseup', () => {
+    modernTrack.addEventListener('mouseup', () => {
         if (!isDragging) return;
         isDragging = false;
-        carouselTrack.style.cursor = 'grab';
         
         const diffX = startX - currentX;
         if (Math.abs(diffX) > 50) {
@@ -190,9 +140,8 @@ function initializeTestimonialCarousel() {
         startAutoPlay();
     });
     
-    carouselTrack.addEventListener('mouseleave', () => {
+    modernTrack.addEventListener('mouseleave', () => {
         isDragging = false;
-        carouselTrack.style.cursor = 'grab';
         if (!carouselContainer.matches(':hover')) {
             startAutoPlay();
         }
@@ -211,10 +160,10 @@ function initializeTestimonialCarousel() {
     });
     
     // Initialize carousel
-    updateCarousel();
+    updateSlide();
     startAutoPlay();
     
-    console.log('Testimonial carousel initialized successfully');
+    console.log('Modern testimonial carousel initialized successfully');
 }
 
 // ================= SCROLL ANIMATIONS ================= 
@@ -242,55 +191,40 @@ function initializeTestimonialAnimations() {
     
     observer.observe(testimonialSection);
     
-    // Enhanced card hover effects with stagger
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
-    testimonialCards.forEach((card, index) => {
-        card.addEventListener('mouseenter', function() {
-            // Add stagger effect to other cards
-            testimonialCards.forEach((otherCard, otherIndex) => {
-                if (otherIndex !== index) {
-                    otherCard.style.transform = 'scale(0.98)';
-                    otherCard.style.opacity = '0.8';
-                }
-            });
+    // Enhanced modern layout hover effects
+    const modernLayouts = document.querySelectorAll('.testimonial-modern-layout');
+    modernLayouts.forEach((layout, index) => {
+        layout.addEventListener('mouseenter', function() {
+            // Add subtle scale effect
+            this.style.transform = 'scale(1.02)';
+            this.style.transition = 'transform 0.3s ease';
         });
         
-        card.addEventListener('mouseleave', function() {
-            // Reset all cards
-            testimonialCards.forEach(otherCard => {
-                otherCard.style.transform = '';
-                otherCard.style.opacity = '';
-            });
+        layout.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
         });
     });
     
-    // Animate trust badges on scroll
-    const trustBadges = document.querySelectorAll('.trust-badge');
-    const badgeObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 100);
-            }
+    // Animate frame colors on hover
+    const frames = document.querySelectorAll('.testimonial-frame');
+    frames.forEach(frame => {
+        frame.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) rotate(2deg)';
+            this.style.transition = 'transform 0.3s ease';
         });
-    }, { threshold: 0.5 });
-    
-    trustBadges.forEach(badge => {
-        badge.style.opacity = '0';
-        badge.style.transform = 'translateY(20px)';
-        badge.style.transition = 'all 0.5s ease';
-        badgeObserver.observe(badge);
+        
+        frame.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
     });
     
-    // Add ripple effect to buttons
-    const buttons = document.querySelectorAll('#testimonial-prev, #testimonial-next');
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
+    // Add ripple effect to dots
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach(dot => {
+        dot.addEventListener('click', function(e) {
             const ripple = document.createElement('span');
             const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
+            const size = Math.max(rect.width, rect.height) * 2;
             const x = e.clientX - rect.left - size / 2;
             const y = e.clientY - rect.top - size / 2;
             
@@ -300,10 +234,10 @@ function initializeTestimonialAnimations() {
                 height: ${size}px;
                 left: ${x}px;
                 top: ${y}px;
-                background: rgba(255,140,0,0.3);
+                background: rgba(46,139,87,0.3);
                 border-radius: 50%;
                 transform: scale(0);
-                animation: testimonialRipple 0.6s linear;
+                animation: dotRipple 0.6s linear;
                 pointer-events: none;
             `;
             
@@ -315,53 +249,91 @@ function initializeTestimonialAnimations() {
         });
     });
     
-    // Add CSS for ripple animation
-    if (!document.getElementById('testimonial-ripple-styles')) {
+    // Add CSS for dot ripple animation
+    if (!document.getElementById('dot-ripple-styles')) {
         const style = document.createElement('style');
-        style.id = 'testimonial-ripple-styles';
+        style.id = 'dot-ripple-styles';
         style.textContent = `
-            @keyframes testimonialRipple {
+            @keyframes dotRipple {
                 to {
                     transform: scale(4);
                     opacity: 0;
                 }
             }
+            .dot {
+                position: relative;
+                overflow: hidden;
+            }
         `;
         document.head.appendChild(style);
     }
     
-    // Counter animation
-    const counters = document.querySelectorAll('.counter');
-    const counterObserver = new IntersectionObserver((entries) => {
+    // Animate author lines
+    const authorLines = document.querySelectorAll('.author-line');
+    const lineObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = parseInt(counter.getAttribute('data-target'));
-                const duration = 2000; // 2 seconds
-                const increment = target / (duration / 16); // 60fps
-                let current = 0;
-                
-                const updateCounter = () => {
-                    if (current < target) {
-                        current += increment;
-                        counter.textContent = Math.ceil(current);
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-                
-                updateCounter();
-                counterObserver.unobserve(counter);
+                entry.target.style.width = '40px';
+                entry.target.style.transition = 'width 0.8s ease';
             }
         });
     }, { threshold: 0.5 });
     
-    counters.forEach(counter => {
-        counterObserver.observe(counter);
+    authorLines.forEach(line => {
+        line.style.width = '0px';
+        lineObserver.observe(line);
     });
     
-    console.log('Testimonial animations initialized successfully');
+    // Animate testimonial content on scroll
+    const contentAreas = document.querySelectorAll('.testimonial-content-area');
+    const contentObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                const title = entry.target.querySelector('.testimonial-title');
+                const description = entry.target.querySelector('.testimonial-description');
+                const author = entry.target.querySelector('.testimonial-author');
+                
+                setTimeout(() => {
+                    if (title) {
+                        title.style.opacity = '1';
+                        title.style.transform = 'translateY(0)';
+                    }
+                }, 100);
+                
+                setTimeout(() => {
+                    if (description) {
+                        description.style.opacity = '1';
+                        description.style.transform = 'translateY(0)';
+                    }
+                }, 300);
+                
+                setTimeout(() => {
+                    if (author) {
+                        author.style.opacity = '1';
+                        author.style.transform = 'translateY(0)';
+                    }
+                }, 500);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    contentAreas.forEach(area => {
+        const title = area.querySelector('.testimonial-title');
+        const description = area.querySelector('.testimonial-description');
+        const author = area.querySelector('.testimonial-author');
+        
+        [title, description, author].forEach(element => {
+            if (element) {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'all 0.6s ease';
+            }
+        });
+        
+        contentObserver.observe(area);
+    });
+    
+    console.log('Modern testimonial animations initialized successfully');
 }
 
 // Initialize everything when DOM is ready

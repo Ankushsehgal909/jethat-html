@@ -45,6 +45,8 @@
 
         <!-- Clients Marquee Section -->
         <div id="clients-marquee"></div>
+          <!-- Who We Are Section -->
+        <div id="who-we-are-component"></div>
         
         <!-- Cybersecurity Section -->
         <div id="cyber-security-component"></div>
@@ -53,14 +55,37 @@
         <div id="services"></div>
 
         <!-- Products Section -->
-        <div id="products-component"></div>
+        <!-- <div id="products-component"></div> -->
 
-        <!-- Who We Are Section -->
-        <div id="who-we-are-component"></div>
+      
 
-        <!-- Advanced Protection Section -->
+      
+
+        <!-- Video Introduction Section -->
+        <section class="video-intro-section position-relative overflow-hidden py-5" style="background: linear-gradient(135deg, rgba(220, 112, 4, 0), rgba(255, 217, 0, 0)), url('assets/images/cyber.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+            <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4);"></div>
+            <div class="container position-relative" style="z-index: 2;">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 text-center text-white">
+                        <h2 class="display-4 fw-bold mb-4 text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                            Together we will explore new things
+                        </h2>
+                        <p class="lead mb-5 text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                            Join us on a journey of innovation and discovery in cybersecurity and technology
+                        </p>
+                        <a href="#" class="icon-video d-flex align-items-center justify-content-center mx-auto" 
+                           style="width: 80px; height: 80px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease; text-decoration: none;"
+                           onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255, 255, 255, 0.3)'"
+                           onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255, 255, 255, 0.2)'">
+                            <i class="bi bi-play-fill text-white" style="font-size: 2rem; margin-left: 4px;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+          <!-- Advanced Protection Section -->
         <div id="advanced-protection"></div>
-
         <!-- Career Section -->
         <div id="career-component"></div>
 
@@ -71,8 +96,8 @@
         <div id="register-section"></div>
 
         <!-- Contact CTA -->
-        <div class="text-center mt-5">
-            <div class="contact-card p-5">
+        <div class="text-center mt-5 "   >
+            <div class=" p-5">
                 <h4 class="fw-bold mb-3">Still Have Questions?</h4>
                 <p class="text-muted mb-4">Our cybersecurity experts are here to help you find the right solution for your business.</p>
                 <div class="d-flex flex-wrap gap-3 justify-content-center">
