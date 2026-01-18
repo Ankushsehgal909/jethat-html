@@ -14,8 +14,8 @@
         'careers.html': { title: 'Careers', icon: 'bi-briefcase' },
         
         // About pages
-        'about': { title: 'About Us', icon: 'bi-info-circle' },
-        'about/index.html': { title: 'Our Story', icon: 'bi-book' },
+        'about': { title: 'Company', icon: 'bi-info-circle' },
+        'about/index.html': { title: 'About Us', icon: 'bi-book' },
         'about/team.html': { title: 'Our Team', icon: 'bi-people' },
         'about/projects-showcase.html': { title: 'Projects', icon: 'bi-folder' },
         'about/culture.html': { title: 'Culture', icon: 'bi-heart' },

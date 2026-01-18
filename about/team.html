@@ -14,56 +14,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <!-- Breadcrumb Badge -->
     <script src="../scripts/breadcrumb-badge.js"></script>
 
-    <!-- Exact Contact Page Styles -->
     <style>
-        /* Cyber Security Theme Styles - Exact Copy from Contact Page */
-        .text-gradient {
-            background: linear-gradient(135deg, #dc143c, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .btn-gradient {
-            background: linear-gradient(135deg, #dc143c, #ffd700);
-            border: none;
-            color: white;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-gradient::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-gradient:hover::before {
-            left: 100%;
-        }
-
-        .btn-gradient:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(220, 20, 60, 0.4);
-        }
-
-        .contact-icon {
+        /* Team-specific styles only - removing duplicates from main.css */
+        
+        /* Contact/Team specific card styles */
+        .team-contact-icon {
             width: 60px;
             height: 60px;
             background: linear-gradient(135deg, #dc143c, #ffd700);
@@ -76,7 +37,7 @@
             position: relative;
         }
 
-        .contact-icon::after {
+        .team-contact-icon::after {
             content: '';
             position: absolute;
             top: -5px;
@@ -90,11 +51,11 @@
             z-index: -1;
         }
 
-        .contact-icon:hover {
+        .team-contact-icon:hover {
             transform: scale(1.2) rotate(360deg);
         }
 
-        .contact-icon:hover::after {
+        .team-contact-icon:hover::after {
             opacity: 0.3;
             transform: scale(1.2);
         }
@@ -128,6 +89,7 @@
             transform: translateY(-15px) scale(1.05) rotateY(5deg);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
         }
+
         .glow {
             box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
             transition: box-shadow 0.3s ease;
@@ -137,111 +99,16 @@
             box-shadow: 0 0 40px rgba(220, 20, 60, 0.6);
         }
 
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-100px);
-            transition: all 0.8s ease;
-        }
-
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(100px);
-            transition: all 0.8s ease;
-        }
-
-        .slide-in-up {
-            opacity: 0;
-            transform: translateY(80px);
-            transition: all 0.8s ease;
-        }
-
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
-        .stagger-5 { transition-delay: 0.5s; }
-        .stagger-6 { transition-delay: 0.6s; }
-
-        .slide-in-left.visible,
-        .slide-in-right.visible,
-        .slide-in-up.visible {
-            opacity: 1;
-            transform: translate(0, 0);
-        }
-
-        .team-hero{
-            /* background: linear-gradient(135deg, #fff7ed 0%, #ffffff 50%, #fffbeb 100%); */
+        /* Team hero section */
+        .team-hero {
             position: relative;
             overflow: hidden;
             min-height: 60vh;
+            display: flex;
+            align-items: center;
         }
         
-        /* Circuit Pattern Overlay */
-        .circuit-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(90deg, rgba(220, 20, 60, 0.03) 1px, transparent 1px),
-                linear-gradient(rgba(220, 20, 60, 0.03) 1px, transparent 1px),
-                radial-gradient(circle at 50% 50%, rgba(220, 20, 60, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px, 50px 50px, 20px 20px;
-            z-index: 0;
-            pointer-events: none;
-        }
-        
-        /* Grid Pattern */
-        .grid-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px),
-                linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: 0;
-            pointer-events: none;
-        }
-        
-        /* Floating Security Icons */
-        .floating-security-icons {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-            pointer-events: none;
-        }
-        
-        .security-icon {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.15;
-            animation: orbit 20s linear infinite, floatIcon 6s ease-in-out infinite;
-        }
-        
-        .security-icon:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s, 0s; }
-        .security-icon:nth-child(2) { top: 30%; right: 10%; animation-delay: 2s, 1s; }
-        .security-icon:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 4s, 2s; }
-        .security-icon:nth-child(4) { top: 50%; right: 5%; animation-delay: 1s, 3s; }
-        .security-icon:nth-child(5) { bottom: 30%; right: 20%; animation-delay: 3s, 4s; }
-        .security-icon:nth-child(6) { top: 15%; left: 30%; animation-delay: 5s, 5s; }
-        
-        @keyframes orbit {
-            0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
-        }
-        
-        @keyframes floatIcon {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        /* Scanning Line Animation */
+        /* Scanning Line Animation - Team specific */
         .scanning-line {
             position: absolute;
             top: 0;
@@ -260,54 +127,7 @@
             100% { top: 100%; opacity: 0; }
         }
         
-        /* Particle Effects */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #dc143c;
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: particleFloat 8s ease-in-out infinite;
-        }
-        
-        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 30%; top: 40%; animation-delay: 1s; }
-        .particle:nth-child(3) { left: 50%; top: 60%; animation-delay: 2s; }
-        .particle:nth-child(4) { left: 70%; top: 30%; animation-delay: 3s; }
-        .particle:nth-child(5) { left: 90%; top: 50%; animation-delay: 4s; }
-        .particle:nth-child(6) { left: 20%; top: 70%; animation-delay: 5s; }
-        .particle:nth-child(7) { left: 40%; top: 10%; animation-delay: 6s; }
-        .particle:nth-child(8) { left: 60%; top: 80%; animation-delay: 7s; }
-        
-        @keyframes particleFloat {
-            0%, 100% { 
-                transform: translateY(0) translateX(0);
-                opacity: 0.3;
-            }
-            25% { 
-                transform: translateY(-30px) translateX(20px);
-                opacity: 0.6;
-            }
-            50% { 
-                transform: translateY(-60px) translateX(-20px);
-                opacity: 0.3;
-            }
-            75% { 
-                transform: translateY(-30px) translateX(20px);
-                opacity: 0.6;
-            }
-        }
-        
-        /* Terminal Typing Effect */
+        /* Terminal styles - Team specific */
         .terminal-container {
             background: #1a1a2e;
             border-radius: 10px;
@@ -352,7 +172,7 @@
             51%, 100% { opacity: 0; }
         }
         
-        /* Enhanced Info Card Styles */
+        /* Enhanced Info Card Styles - Team specific */
         .cyber-info-card {
             background: white;
             border-radius: 16px;
@@ -418,7 +238,7 @@
             transform: scale(1.2);
         }
         
-        /* Tech Status Indicator */
+        /* Tech Status Indicator - Team specific */
         .tech-status {
             display: inline-flex;
             align-items: center;
@@ -444,40 +264,7 @@
             50% { opacity: 0.5; transform: scale(0.8); }
         }
         
-        /* Reveal Animations */
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-100px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(100px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .reveal-zoom {
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .reveal-up.visible,
-        .reveal-left.visible,
-        .reveal-right.visible,
-        .reveal-zoom.visible {
-            opacity: 1;
-            transform: translate(0, 0) scale(1);
-        }
-        
-        /* 3D Tilt Effect */
+        /* 3D Tilt Effect - Team specific */
         .tilt-card {
             transform-style: preserve-3d;
             perspective: 1000px;
@@ -487,7 +274,7 @@
             transform: rotateY(5deg) rotateX(5deg);
         }
         
-        /* Cyber Grid Background */
+        /* Cyber Grid Background - Team specific */
         .cyber-grid {
             position: absolute;
             top: 0;
@@ -501,35 +288,8 @@
             z-index: 0;
         }
         
-        /* Floating Shapes */
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .shape {
-            position: absolute;
-            background: linear-gradient(45deg, #dc143c, #ffd700);
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        .shape:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
-        .shape:nth-child(2) { width: 120px; height: 120px; top: 60%; right: 15%; animation-delay: 2s; }
-        .shape:nth-child(3) { width: 60px; height: 60px; bottom: 30%; left: 20%; animation-delay: 4s; }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
-            25% { transform: translateY(-30px) rotate(90deg) scale(1.1); }
-            50% { transform: translateY(-20px) rotate(180deg) scale(0.9); }
-            75% { transform: translateY(-40px) rotate(270deg) scale(1.05); }
-        }
-        
-        .contact-card {
+        /* Team contact card styles - Team specific */
+        .team-contact-card {
             background: rgba(255, 255, 255, 0.95);
             border: 1px solid rgba(220, 20, 60, 0.1);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -538,16 +298,26 @@
             backdrop-filter: blur(10px);
         }
         
-        .contact-card:hover {
+        .team-contact-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
         }
 
-        .team-hero {
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            /* background: #f8f9fa; */
+        /* Stagger delays for animations */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+
+        /* Visible state for animations - using main.css reveal classes */
+        .reveal-up.visible,
+        .reveal-left.visible,
+        .reveal-right.visible,
+        .reveal-zoom.visible {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
         }
     </style>
 
@@ -584,10 +354,8 @@
                         style="color: #333333; line-height: 1.2;">
                             Meet Our <span class="d-block text-gradient">Expert Team</span>
                         </h1>
-                        <!-- <p class="lead mb-4 reveal-up stagger-1" style="color: #666666;">
-                            Our diverse team of cybersecurity experts, AI/ML engineers, and technology leaders 
-                            brings decades of combined experience to protect and innovate for your business.
-                        </p> -->
+                       
+                      
                         
                         <div class="d-flex flex-wrap gap-3 mb-4 mt-4 reveal-up stagger-3">
                             <div class="d-flex align-items-center tech-status" style="color: #333333;">
@@ -603,16 +371,8 @@
                                 <span>Global Expertise</span>
                             </div>
                         </div>
-                        <!-- <div class="d-flex flex-column flex-sm-row gap-3 reveal-up stagger-4">
-                            <button class="btn btn-gradient btn-lg px-4 py-3">
-                                <i class="bi bi-person-plus me-2"></i>
-                                Join Our Team
-                            </button>
-                            <button class="btn btn-outline-danger btn-lg px-4 py-3">
-                                <i class="bi bi-linkedin me-2"></i>
-                                Connect With Us
-                            </button>
-                        </div> -->
+                     
+                      
                     </div>
                     <!-- right side  -->
                     <div class="col-lg-6 order-1 order-lg-1 animate-on-scroll position-relative">
@@ -653,32 +413,76 @@
                 </div>
             </div>
         </section>
-        <!-- Team Members Section -->
+        <!-- Team Statistics Section -->
+        <section class="py-5" style="background: #f8f9fa;">
+            <div class="container">
+                <div class="row text-center g-4">
+                    <div class="col-md-3 col-6">
+                        <div class="cyber-info-card h-100 reveal-up stagger-1">
+                            <div class="p-4">
+                                <div class="display-4 fw-bold text-gradient mb-2">50+</div>
+                                <h6 class="text-muted mb-0">Team Members</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="cyber-info-card h-100 reveal-up stagger-2">
+                            <div class="p-4">
+                                <div class="display-4 fw-bold text-gradient mb-2">15+</div>
+                                <h6 class="text-muted mb-0">Years Experience</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="cyber-info-card h-100 reveal-up stagger-3">
+                            <div class="p-4">
+                                <div class="display-4 fw-bold text-gradient mb-2">100+</div>
+                                <h6 class="text-muted mb-0">Projects Delivered</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="cyber-info-card h-100 reveal-up stagger-4">
+                            <div class="p-4">
+                                <div class="display-4 fw-bold text-gradient mb-2">24/7</div>
+                                <h6 class="text-muted mb-0">Support Available</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Team Section -->
         <section class="py-5 position-relative" style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb);">
             <div class="cyber-grid" style="opacity: 0.3;"></div>
             
             <div class="container position-relative" style="z-index: 2;">
-                <div class="text-left mb-5 reveal-up">
+                <div class="text-center mb-5 reveal-up">
                     <h2 class="display-5 fw-bold mb-3" style="color: #333;">
                         <span class="text-gradient">Leadership</span> Team
                     </h2>
-                    <p class="lead text-muted">Meet the experts driving our innovation</p>
+                    <p class="lead text-muted">Meet the visionaries driving our innovation and growth</p>
                 </div>
                 
-                <div class="row g-4">
-                    <!-- Team Member 1 -->
-                    <div class="col-md-6 col-lg-3">
+                <div class="row g-4 mb-5">
+                    <!-- CEO -->
+                    <div class="col-md-6 col-lg-4">
                         <div class="contact-feature-card reveal-up stagger-1">
-                            <div class="cyber-info-card tilt-card" style="width: 100%; height: 350px;">
-                                <div class="card-icon mt-4">
-                                    <i class="bi bi-person-badge text-white fs-4"></i>
+                            <div class="cyber-info-card tilt-card" style="height: 420px;">
+                                <div class="position-relative overflow-hidden" style="height: 200px; border-radius: 16px 16px 0 0;">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=face" 
+                                         alt="Rajesh Kumar" class="w-100 h-100" style="object-fit: cover;">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(220,20,60,0.1), rgba(255,215,0,0.1));"></div>
                                 </div>
                                 <div style="padding: 20px; text-align: center;">
-                                    <h5 class="fw-bold mb-2 text-dark">Rajesh Kumar</h5>
-                                    <p class="text-muted mb-2 small">CEO & Founder</p>
-                                    <p class="text-muted small mb-3">15+ years in cybersecurity and AI/ML leadership</p>
-                                    <div class="tech-status justify-content-center mb-3">
-                                        <span>Cybersecurity Expert</span>
+                                    <h5 class="fw-bold mb-1 text-dark">Rajesh Kumar</h5>
+                                    <p class="text-gradient fw-semibold mb-2 small">CEO & Founder</p>
+                                    <p class="text-muted small mb-3">Visionary leader with 15+ years in cybersecurity and AI/ML. Former security architect at Fortune 500 companies.</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1 mb-3">
+                                        <span class="badge bg-light text-dark">Cybersecurity</span>
+                                        <span class="badge bg-light text-dark">Leadership</span>
+                                        <span class="badge bg-light text-dark">Strategy</span>
                                     </div>
                                     <div class="d-flex justify-content-center gap-2">
                                         <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
@@ -687,25 +491,32 @@
                                         <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
                                             <i class="bi bi-twitter"></i>
                                         </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                                            <i class="bi bi-envelope"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Team Member 2 -->
-                    <div class="col-md-6 col-lg-3">
+                    <!-- CTO -->
+                    <div class="col-md-6 col-lg-4">
                         <div class="contact-feature-card reveal-up stagger-2">
-                            <div class="cyber-info-card tilt-card" style="width: 100%; height: 350px;">
-                                <div class="card-icon mt-4">
-                                    <i class="bi bi-code-slash text-white fs-4"></i>
+                            <div class="cyber-info-card tilt-card" style="height: 420px;">
+                                <div class="position-relative overflow-hidden" style="height: 200px; border-radius: 16px 16px 0 0;">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=300&fit=crop&crop=face" 
+                                         alt="Priya Sharma" class="w-100 h-100" style="object-fit: cover;">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(220,20,60,0.1), rgba(255,215,0,0.1));"></div>
                                 </div>
                                 <div style="padding: 20px; text-align: center;">
-                                    <h5 class="fw-bold mb-2 text-dark">Priya Sharma</h5>
-                                    <p class="text-muted mb-2 small">CTO</p>
-                                    <p class="text-muted small mb-3">AI/ML architect with 12+ years experience</p>
-                                    <div class="tech-status justify-content-center mb-3">
-                                        <span>AI/ML Expert</span>
+                                    <h5 class="fw-bold mb-1 text-dark">Priya Sharma</h5>
+                                    <p class="text-gradient fw-semibold mb-2 small">Chief Technology Officer</p>
+                                    <p class="text-muted small mb-3">AI/ML architect and technology innovator with 12+ years building scalable security solutions.</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1 mb-3">
+                                        <span class="badge bg-light text-dark">AI/ML</span>
+                                        <span class="badge bg-light text-dark">Architecture</span>
+                                        <span class="badge bg-light text-dark">Innovation</span>
                                     </div>
                                     <div class="d-flex justify-content-center gap-2">
                                         <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
@@ -714,25 +525,32 @@
                                         <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
                                             <i class="bi bi-github"></i>
                                         </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
+                                            <i class="bi bi-envelope"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Team Member 3 -->
-                    <div class="col-md-6 col-lg-3">
+                    <!-- Head of Security -->
+                    <div class="col-md-6 col-lg-4">
                         <div class="contact-feature-card reveal-up stagger-3">
-                            <div class="cyber-info-card tilt-card" style="width: 100%; height: 350px;">
-                                <div class="card-icon mt-4">
-                                    <i class="bi bi-shield-check text-white fs-4"></i>
+                            <div class="cyber-info-card tilt-card" style="height: 420px;">
+                                <div class="position-relative overflow-hidden" style="height: 200px; border-radius: 16px 16px 0 0;">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop&crop=face" 
+                                         alt="Amit Singh" class="w-100 h-100" style="object-fit: cover;">
+                                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(220,20,60,0.1), rgba(255,215,0,0.1));"></div>
                                 </div>
                                 <div style="padding: 20px; text-align: center;">
-                                    <h5 class="fw-bold mb-2 text-dark">Amit Singh</h5>
-                                    <p class="text-muted mb-2 small">Head of Security</p>
-                                    <p class="text-muted small mb-3">Cybersecurity specialist with 10+ years</p>
-                                    <div class="tech-status justify-content-center mb-3">
-                                        <span>Security Architect</span>
+                                    <h5 class="fw-bold mb-1 text-dark">Amit Singh</h5>
+                                    <p class="text-gradient fw-semibold mb-2 small">Head of Security</p>
+                                    <p class="text-muted small mb-3">Cybersecurity specialist with 10+ years protecting enterprise infrastructure and data.</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1 mb-3">
+                                        <span class="badge bg-light text-dark">Security</span>
+                                        <span class="badge bg-light text-dark">Compliance</span>
+                                        <span class="badge bg-light text-dark">Risk Management</span>
                                     </div>
                                     <div class="d-flex justify-content-center gap-2">
                                         <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
@@ -740,30 +558,6 @@
                                         </a>
                                         <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
                                             <i class="bi bi-twitter"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Team Member 4 -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="contact-feature-card reveal-up stagger-4">
-                            <div class="cyber-info-card tilt-card" style="width: 100%; height: 350px;">
-                                <div class="card-icon mt-4">
-                                    <i class="bi bi-people text-white fs-4"></i>
-                                </div>
-                                <div style="padding: 20px; text-align: center;">
-                                    <h5 class="fw-bold mb-2 text-dark">Neha Gupta</h5>
-                                    <p class="text-muted mb-2 small">Head of Operations</p>
-                                    <p class="text-muted small mb-3">Operations and project management expert</p>
-                                    <div class="tech-status justify-content-center mb-3">
-                                        <span>Operations Lead</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center gap-2">
-                                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
-                                            <i class="bi bi-linkedin"></i>
                                         </a>
                                         <a href="#" class="btn btn-sm btn-outline-primary rounded-circle">
                                             <i class="bi bi-envelope"></i>
@@ -777,13 +571,349 @@
             </div>
         </section>
 
+        <!-- Department Teams Section -->
+        <section class="py-5" style="background: white;">
+            <div class="container">
+                <div class="text-center mb-5 reveal-up">
+                    <h2 class="display-5 fw-bold mb-3" style="color: #333;">
+                        Our <span class="text-gradient">Expert</span> Teams
+                    </h2>
+                    <p class="lead text-muted">Specialized teams working together to deliver excellence</p>
+                </div>
+
+                <!-- Cybersecurity Team -->
+                <div class="mb-5">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-8">
+                            <h3 class="fw-bold text-dark mb-2">
+                                <i class="bi bi-shield-check text-gradient me-2"></i>
+                                Cybersecurity Team
+                            </h3>
+                            <p class="text-muted mb-0">Protecting your digital assets with advanced security solutions</p>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <span class="badge bg-light text-dark px-3 py-2">12 Security Experts</span>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="cyber-info-card reveal-up stagger-1" style="height: 280px;">
+                                <div class="p-3 text-center">
+                                    <div class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc143c, #ffd700); display: flex; align-items: center; justify-content: center;">
+                                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face" 
+                                             alt="Security Analyst" class="rounded-circle" style="width: 70px; height: 70px; object-fit: cover;">
+                                    </div>
+                                    <h6 class="fw-bold text-dark mb-1">Vikram Patel</h6>
+                                    <p class="text-muted small mb-2">Senior Security Analyst</p>
+                                    <p class="text-muted small mb-3">Threat detection and incident response specialist</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1">
+                                        <span class="badge bg-light text-dark small">CISSP</span>
+                                        <span class="badge bg-light text-dark small">CEH</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="cyber-info-card reveal-up stagger-2" style="height: 280px;">
+                                <div class="p-3 text-center">
+                                    <div class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc143c, #ffd700); display: flex; align-items: center; justify-content: center;">
+                                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face" 
+                                             alt="Penetration Tester" class="rounded-circle" style="width: 70px; height: 70px; object-fit: cover;">
+                                    </div>
+                                    <h6 class="fw-bold text-dark mb-1">Anita Reddy</h6>
+                                    <p class="text-muted small mb-2">Penetration Tester</p>
+                                    <p class="text-muted small mb-3">Ethical hacking and vulnerability assessment expert</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1">
+                                        <span class="badge bg-light text-dark small">OSCP</span>
+                                        <span class="badge bg-light text-dark small">GPEN</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="cyber-info-card reveal-up stagger-3" style="height: 280px;">
+                                <div class="p-3 text-center">
+                                    <div class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc143c, #ffd700); display: flex; align-items: center; justify-content: center;">
+                                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=80&h=80&fit=crop&crop=face" 
+                                             alt="Security Architect" class="rounded-circle" style="width: 70px; height: 70px; object-fit: cover;">
+                                    </div>
+                                    <h6 class="fw-bold text-dark mb-1">Rohit Mehta</h6>
+                                    <p class="text-muted small mb-2">Security Architect</p>
+                                    <p class="text-muted small mb-3">Designing secure infrastructure and systems</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1">
+                                        <span class="badge bg-light text-dark small">SABSA</span>
+                                        <span class="badge bg-light text-dark small">TOGAF</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI/ML Team -->
+                <div class="mb-5">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-8">
+                            <h3 class="fw-bold text-dark mb-2">
+                                <i class="bi bi-cpu text-gradient me-2"></i>
+                                AI/ML Development Team
+                            </h3>
+                            <p class="text-muted mb-0">Building intelligent solutions with cutting-edge AI technology</p>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <span class="badge bg-light text-dark px-3 py-2">15 AI Engineers</span>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="cyber-info-card reveal-up stagger-1" style="height: 280px;">
+                                <div class="p-3 text-center">
+                                    <div class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc143c, #ffd700); display: flex; align-items: center; justify-content: center;">
+                                        <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=80&h=80&fit=crop&crop=face" 
+                                             alt="ML Engineer" class="rounded-circle" style="width: 70px; height: 70px; object-fit: cover;">
+                                    </div>
+                                    <h6 class="fw-bold text-dark mb-1">Kavya Nair</h6>
+                                    <p class="text-muted small mb-2">Senior ML Engineer</p>
+                                    <p class="text-muted small mb-3">Deep learning and neural network specialist</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1">
+                                        <span class="badge bg-light text-dark small">TensorFlow</span>
+                                        <span class="badge bg-light text-dark small">PyTorch</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="cyber-info-card reveal-up stagger-2" style="height: 280px;">
+                                <div class="p-3 text-center">
+                                    <div class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc143c, #ffd700); display: flex; align-items: center; justify-content: center;">
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face" 
+                                             alt="Data Scientist" class="rounded-circle" style="width: 70px; height: 70px; object-fit: cover;">
+                                    </div>
+                                    <h6 class="fw-bold text-dark mb-1">Arjun Kapoor</h6>
+                                    <p class="text-muted small mb-2">Data Scientist</p>
+                                    <p class="text-muted small mb-3">Advanced analytics and predictive modeling</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1">
+                                        <span class="badge bg-light text-dark small">Python</span>
+                                        <span class="badge bg-light text-dark small">R</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="cyber-info-card reveal-up stagger-3" style="height: 280px;">
+                                <div class="p-3 text-center">
+                                    <div class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc143c, #ffd700); display: flex; align-items: center; justify-content: center;">
+                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" 
+                                             alt="AI Researcher" class="rounded-circle" style="width: 70px; height: 70px; object-fit: cover;">
+                                    </div>
+                                    <h6 class="fw-bold text-dark mb-1">Sneha Joshi</h6>
+                                    <p class="text-muted small mb-2">AI Research Lead</p>
+                                    <p class="text-muted small mb-3">Natural language processing and computer vision</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1">
+                                        <span class="badge bg-light text-dark small">NLP</span>
+                                        <span class="badge bg-light text-dark small">Computer Vision</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Development Team -->
+                <div class="mb-5">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-md-8">
+                            <h3 class="fw-bold text-dark mb-2">
+                                <i class="bi bi-code-slash text-gradient me-2"></i>
+                                Software Development Team
+                            </h3>
+                            <p class="text-muted mb-0">Creating robust and scalable software solutions</p>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <span class="badge bg-light text-dark px-3 py-2">20 Developers</span>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="cyber-info-card reveal-up stagger-1" style="height: 280px;">
+                                <div class="p-3 text-center">
+                                    <div class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc143c, #ffd700); display: flex; align-items: center; justify-content: center;">
+                                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&h=80&fit=crop&crop=face" 
+                                             alt="Full Stack Developer" class="rounded-circle" style="width: 70px; height: 70px; object-fit: cover;">
+                                    </div>
+                                    <h6 class="fw-bold text-dark mb-1">Rahul Agarwal</h6>
+                                    <p class="text-muted small mb-2">Senior Full Stack Developer</p>
+                                    <p class="text-muted small mb-3">End-to-end web application development</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1">
+                                        <span class="badge bg-light text-dark small">React</span>
+                                        <span class="badge bg-light text-dark small">Node.js</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="cyber-info-card reveal-up stagger-2" style="height: 280px;">
+                                <div class="p-3 text-center">
+                                    <div class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc143c, #ffd700); display: flex; align-items: center; justify-content: center;">
+                                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face" 
+                                             alt="Mobile Developer" class="rounded-circle" style="width: 70px; height: 70px; object-fit: cover;">
+                                    </div>
+                                    <h6 class="fw-bold text-dark mb-1">Pooja Iyer</h6>
+                                    <p class="text-muted small mb-2">Mobile App Developer</p>
+                                    <p class="text-muted small mb-3">iOS and Android application development</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1">
+                                        <span class="badge bg-light text-dark small">Flutter</span>
+                                        <span class="badge bg-light text-dark small">React Native</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="cyber-info-card reveal-up stagger-3" style="height: 280px;">
+                                <div class="p-3 text-center">
+                                    <div class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc143c, #ffd700); display: flex; align-items: center; justify-content: center;">
+                                        <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=80&h=80&fit=crop&crop=face" 
+                                             alt="DevOps Engineer" class="rounded-circle" style="width: 70px; height: 70px; object-fit: cover;">
+                                    </div>
+                                    <h6 class="fw-bold text-dark mb-1">Karan Malhotra</h6>
+                                    <p class="text-muted small mb-2">DevOps Engineer</p>
+                                    <p class="text-muted small mb-3">Infrastructure automation and deployment</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-1">
+                                        <span class="badge bg-light text-dark small">Docker</span>
+                                        <span class="badge bg-light text-dark small">Kubernetes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Culture Section -->
+        <section class="py-5" style="background: linear-gradient(135deg, #f8f9fa, #ffffff);">
+            <div class="container">
+                <div class="text-center mb-5 reveal-up">
+                    <h2 class="display-5 fw-bold mb-3" style="color: #333;">
+                        Our <span class="text-gradient">Culture</span> & Values
+                    </h2>
+                    <p class="lead text-muted">What makes JetHat a great place to work</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="cyber-info-card text-center h-100 reveal-up stagger-1">
+                            <div class="p-4">
+                                <div class="card-icon mb-3">
+                                    <i class="bi bi-lightbulb text-white fs-4"></i>
+                                </div>
+                                <h5 class="fw-bold text-dark mb-3">Innovation First</h5>
+                                <p class="text-muted small">We encourage creative thinking and cutting-edge solutions to complex problems.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="cyber-info-card text-center h-100 reveal-up stagger-2">
+                            <div class="p-4">
+                                <div class="card-icon mb-3">
+                                    <i class="bi bi-people text-white fs-4"></i>
+                                </div>
+                                <h5 class="fw-bold text-dark mb-3">Team Collaboration</h5>
+                                <p class="text-muted small">We believe in the power of teamwork and open communication across all levels.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="cyber-info-card text-center h-100 reveal-up stagger-3">
+                            <div class="p-4">
+                                <div class="card-icon mb-3">
+                                    <i class="bi bi-graph-up text-white fs-4"></i>
+                                </div>
+                                <h5 class="fw-bold text-dark mb-3">Continuous Learning</h5>
+                                <p class="text-muted small">We invest in our team's growth with training, certifications, and skill development.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="cyber-info-card text-center h-100 reveal-up stagger-4">
+                            <div class="p-4">
+                                <div class="card-icon mb-3">
+                                    <i class="bi bi-balance-scale text-white fs-4"></i>
+                                </div>
+                                <h5 class="fw-bold text-dark mb-3">Work-Life Balance</h5>
+                                <p class="text-muted small">We promote flexible working arrangements and prioritize employee well-being.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Our Team Section -->
+        <section class="py-5" style="background: white;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 reveal-left">
+                        <h2 class="display-5 fw-bold mb-4" style="color: #333;">
+                            Ready to Join Our <span class="text-gradient">Amazing Team?</span>
+                        </h2>
+                      
+                        <div class="row g-3 mb-4">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span class="text-muted">Competitive Salary</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span class="text-muted">Health Benefits</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span class="text-muted">Remote Work Options</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <span class="text-muted">Learning & Development</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+                            <a href="../careers.html" class="btn btn-gradient btn-lg px-4 ">
+                                <i class="bi bi-briefcase me-2"></i>
+                                View Open Positions
+                            </a>
+                            <a href="../contact.html" class="btn btn-outline-danger btn-lg px-4">
+                                <i class="bi bi-envelope me-2"></i>
+                                Get In Touch
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 reveal-right">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop" 
+                                 alt="Team Working Together" class="img-fluid rounded-4 shadow-lg">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 rounded-4" 
+                                 style="background: linear-gradient(135deg, rgba(220,20,60,0.1), rgba(255,215,0,0.1));"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
      
     </main>
 
     <!-- Footer -->
     <div id="footer-component"></div>
        <!-- Theme Toggle -->
-    <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
+    <button id="theme-toggle" class="position-fixed bottom-0 start-0 m-4 rounded-circle  shadow-lg" style="z-index: 1050;">
         <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
         <i id="moon-icon" class="bi bi-moon-fill"></i>
     </button>
@@ -792,13 +922,11 @@
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Contact Page Animation Script (Exact Copy) -->
+    <!-- Team Page Animation Script -->
     <script>
-        // Exact copy of contact page animations
+        // Optimized animation initialization
         function initAdvancedAnimations() {
             const animationElements = document.querySelectorAll([
-                '.slide-in-left', '.slide-in-right', '.slide-in-up', '.slide-in-down',
-                '.zoom-in', '.zoom-out', '.rotate-in', '.fade-in', '.bounce-in',
                 '.reveal-up', '.reveal-left', '.reveal-right', '.reveal-zoom'
             ].join(', '));
             
@@ -821,7 +949,7 @@
         }
 
         function initHoverEffects() {
-            document.querySelectorAll('.cyber-info-card, .contact-card').forEach(card => {
+            document.querySelectorAll('.cyber-info-card, .team-contact-card').forEach(card => {
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left;

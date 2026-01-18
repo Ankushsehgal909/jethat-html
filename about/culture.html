@@ -14,26 +14,222 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <!-- Breadcrumb Badge -->
     <script src="../scripts/breadcrumb-badge.js"></script>
 
+    <!-- Culture Page Specific Styles -->
+    <style>
+        /* Culture-specific styles only - removing duplicates from main.css */
+        
+        /* Culture hero section */
+        .culture-hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Scanning Line Animation - Culture specific */
+        .scanning-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #dc143c, #ffd700, transparent);
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.8);
+            animation: scan 3s linear infinite;
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        @keyframes scan {
+            0% { top: 0%; opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        
+        /* Enhanced Info Card Styles - Culture specific */
+        .culture-info-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .culture-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .culture-info-card:hover::before {
+            opacity: 1;
+        }
+        
+        .culture-info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .culture-info-card .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #dc143c, #ffd700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .culture-info-card .card-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid #dc143c;
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        
+        .culture-info-card:hover .card-icon {
+            transform: scale(1.1) rotate(360deg);
+        }
+        
+        .culture-info-card:hover .card-icon::after {
+            opacity: 0.3;
+            transform: scale(1.2);
+        }
+        
+        /* Tech Status Indicator - Culture specific */
+        .tech-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 12px;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #22c55e;
+        }
+        
+        .tech-status::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: statusPulse 2s infinite;
+        }
+        
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        
+        /* 3D Tilt Effect - Culture specific */
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .tilt-card:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+        
+        /* Cyber Grid Background - Culture specific */
+        .cyber-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(220, 20, 60, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(220, 20, 60, 0.03) 1px, transparent 1px);
+            background-size: 25px 25px;
+            z-index: 0;
+        }
+        
+        /* Culture contact card styles - Culture specific */
+        .culture-contact-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(220, 20, 60, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .culture-contact-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Stagger delays for animations */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+
+        /* Visible state for animations - using main.css reveal classes */
+        .reveal-up.visible,
+        .reveal-left.visible,
+        .reveal-right.visible,
+        .reveal-zoom.visible {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* Culture-specific feature items */
+        .feature-item {
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 8px;
+        }
+
+        .feature-item:hover {
+            background: rgba(220, 20, 60, 0.05);
+            transform: translateX(5px);
+        }
+
+        .check-icon {
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover .check-icon {
+            transform: scale(1.1);
+            background: #22c55e !important;
+            color: white !important;
+        }
+    </style>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/about-dark-mode.css">
     
-    <!-- About Pages Shared Styles -->
-    <link rel="stylesheet" href="../styles/about-shared.css">
-    
     <!-- Navigation Fix Script -->
-     <script src="../scripts/navbar-scroll.js"></script>
     <script src="../scripts/navigation-fix.js"></script>
+    <script src="../scripts/navbar-scroll.js"></script>
 </head>
 <body style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb); color: #333333;">
     <!-- Navigation -->
@@ -43,25 +239,24 @@
     <div id="right-panel-component"></div>
 
     <!-- Main Content -->
-    <main >
-        <!-- Hero Section - Exact Copy from Contact Page -->
-        <section class="contact-hero py-5 h position-relative overflow-hidden">
-        
-            
+    <main>
+        <!-- Hero Section -->
+        <section class="culture-hero py-5 position-relative overflow-hidden">
             <div class="container position-relative" style="z-index: 2; margin-top: 2.5rem;">
                 <div class="row align-items-center py-5">
-                
+                    <!-- Page Badge -->
                     <div class="mb-4" data-breadcrumb data-separator="arrow">
                         <!-- Breadcrumb will be dynamically generated here -->
                     </div>
                     
-                    <!-- left side  -->
+                    <!-- Left side -->
                     <div class="col-lg-6 animate-on-scroll">
                         <h1 class="display-3 fw-bold mb-4 reveal-up" 
                         style="color: #333333; line-height: 1.2;">
                             Our <span class="d-block text-gradient">Cyber Culture</span>
                         </h1>
-                        
+                     
+                       
                         
                         <div class="d-flex flex-wrap gap-3 mb-4 mt-4 reveal-up stagger-3">
                             <div class="d-flex align-items-center tech-status" style="color: #333333;">
@@ -79,7 +274,8 @@
                         </div>
                        
                     </div>
-                    <!-- right side  -->
+                    
+                    <!-- Right side -->
                     <div class="col-lg-6 order-1 order-lg-1 animate-on-scroll position-relative">
                         <div class="position-relative">
                             <!-- Main Large Card -->
@@ -118,347 +314,107 @@
                 </div>
             </div>
         </section>
-        </div>
-    </section>
 
-    <!-- Core Values Section -->
-    <section class="py-5 bg-light">
-        <div class="container ">
-            <div class="text-left mb-5 reveal-up">
-                <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Our Cyber Values</h2>
-                <p class="fs-5 text-light-secondary-theme font-quicksand">The principles that guide our cybersecurity-first culture</p>
-            </div>
-            
-            <div class="row g-4">
-                <!-- Innovation First -->
-                <div class="col-lg-4 col-md-6 reveal-up stagger-1">
-                    <div class="card-animated bg-white rounded-xl-theme overflow-hidden shadow-lg-theme h-100">
-                        <div class="bg-gradient-primary p-4">
-                            <div class="d-flex align-items-center text-white">
-                                <i class="bi bi-lightbulb fs-2 me-3"></i>
-                                <div>
-                                    <h4 class="fw-bold mb-1">Innovation First</h4>
-                                    <p class="mb-0 opacity-75">Pioneering cyber solutions</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-muted mb-4">We embrace cutting-edge cybersecurity technologies and encourage creative thinking to solve the most complex digital threats.</p>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>AI-powered security research</li>
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Quantum-resistant development</li>
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Zero-day threat hunting</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Security Mindset -->
-                <div class="col-lg-4 col-md-6 reveal-up stagger-2">
-                    <div class="card-animated bg-white rounded-xl-theme overflow-hidden shadow-lg-theme h-100">
-                        <div class="bg-gradient-secondary p-4">
-                            <div class="d-flex align-items-center text-white">
-                                <i class="bi bi-shield-lock fs-2 me-3"></i>
-                                <div>
-                                    <h4 class="fw-bold mb-1">Security Mindset</h4>
-                                    <p class="mb-0 opacity-75">Defense-first thinking</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-muted mb-4">Every team member thinks like a cybersecurity expert, considering threats and vulnerabilities in everything we build.</p>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Threat modeling culture</li>
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Secure coding practices</li>
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Privacy by design</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Continuous Learning -->
-                <div class="col-lg-4 col-md-6 reveal-up stagger-3">
-                    <div class="card-animated bg-white rounded-xl-theme overflow-hidden shadow-lg-theme h-100">
-                        <div class="bg-gradient-gold p-4">
-                            <div class="d-flex align-items-center text-white">
-                                <i class="bi bi-brain fs-2 me-3"></i>
-                                <div>
-                                    <h4 class="fw-bold mb-1">Continuous Learning</h4>
-                                    <p class="mb-0 opacity-75">Always evolving</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-muted mb-4">In the fast-paced cyber world, we invest heavily in learning new technologies, threats, and defense strategies.</p>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Weekly security briefings</li>
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Certification support</li>
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Conference attendance</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team Collaboration -->
-                <div class="col-lg-4 col-md-6 reveal-up stagger-4">
-                    <div class="card-animated bg-white rounded-xl-theme overflow-hidden shadow-lg-theme h-100">
-                        <div class="bg-gradient-primary p-4">
-                            <div class="d-flex align-items-center text-white">
-                                <i class="bi bi-people fs-2 me-3"></i>
-                                <div>
-                                    <h4 class="fw-bold mb-1">Team Collaboration</h4>
-                                    <p class="mb-0 opacity-75">United defense</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-muted mb-4">Like a cyber defense team, we work together seamlessly, sharing knowledge and supporting each other's growth.</p>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Cross-team knowledge sharing</li>
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Peer code reviews</li>
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Incident response drills</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Ethical Standards -->
-                <div class="col-lg-4 col-md-6 reveal-up stagger-5">
-                    <div class="card-animated bg-white rounded-xl-theme overflow-hidden shadow-lg-theme h-100">
-                        <div class="bg-gradient-secondary p-4">
-                            <div class="d-flex align-items-center text-white">
-                                <i class="bi bi-award fs-2 me-3"></i>
-                                <div>
-                                    <h4 class="fw-bold mb-1">Ethical Standards</h4>
-                                    <p class="mb-0 opacity-75">Responsible security</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-muted mb-4">We maintain the highest ethical standards in cybersecurity, using our skills to protect and never to harm.</p>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Responsible disclosure</li>
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Privacy protection</li>
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Transparent practices</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Client Focus -->
-                <div class="col-lg-4 col-md-6 reveal-up stagger-6">
-                    <div class="card-animated bg-white rounded-xl-theme overflow-hidden shadow-lg-theme h-100">
-                        <div class="bg-gradient-gold p-4">
-                            <div class="d-flex align-items-center text-white">
-                                <i class="bi bi-bullseye fs-2 me-3"></i>
-                                <div>
-                                    <h4 class="fw-bold mb-1">Client Focus</h4>
-                                    <p class="mb-0 opacity-75">Mission-critical protection</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-muted mb-4">Every client's security is our mission. We treat their digital assets as if they were our own critical infrastructure.</p>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>24/7 monitoring mindset</li>
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Proactive threat hunting</li>
-                                <li class="mb-2"><i class="bi bi-check-circle accent-success me-2"></i>Rapid incident response</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Environment Section -->
-    <section class="py-5 bg-gradient-light">
-        <div class="container ">
-            <div class="text-left mb-5 reveal-up">
-                <h2 class="display-5 fw-bold text-light-primary-theme mb-3 font-playfair">Cyber Work Environment</h2>
-                <p class="fs-5 text-light-secondary-theme font-quicksand">A secure, flexible, and innovative workplace designed for cyber professionals</p>
-            </div>
-
-            <div class="row g-5">
-                <!-- Security Operations Center -->
-                <div class="col-lg-6 reveal-left">
-                    <div class="card-animated bg-white rounded-xl-theme p-4 shadow-lg-theme">
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="bg-gradient-primary rounded-circle p-3 me-3">
-                                <i class="bi bi-display text-white fs-3"></i>
-                            </div>
-                            <div>
-                                <h4 class="fw-bold mb-1 font-montserrat">Security Operations Center</h4>
-                                <p class="text-muted mb-0">State-of-the-art monitoring facility</p>
-                            </div>
-                        </div>
-                        <p class="text-muted mb-4">Our SOC features multiple screens, real-time threat intelligence feeds, and collaborative workspaces for incident response teams.</p>
-                        <div class="row g-3">
-                            <div class="col-6">
-                                <div class="text-center">
-                                    <h6 class="fw-bold accent-primary">24/7</h6>
-                                    <small class="text-muted">Monitoring</small>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-center">
-                                    <h6 class="fw-bold accent-secondary">Real-time</h6>
-                                    <small class="text-muted">Threat Intel</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Secure Development Labs -->
-                <div class="col-lg-6 reveal-right">
-                    <div class="card-animated bg-white rounded-xl-theme p-4 shadow-lg-theme">
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="bg-gradient-secondary rounded-circle p-3 me-3">
-                                <i class="bi bi-code-slash text-white fs-3"></i>
-                            </div>
-                            <div>
-                                <h4 class="fw-bold mb-1 font-montserrat">Secure Development Labs</h4>
-                                <p class="text-muted mb-0">Isolated development environments</p>
-                            </div>
-                        </div>
-                        <p class="text-muted mb-4">Air-gapped development environments with advanced security tools for building and testing secure applications.</p>
-                        <div class="row g-3">
-                            <div class="col-6">
-                                <div class="text-center">
-                                    <h6 class="fw-bold accent-primary">Air-gapped</h6>
-                                    <small class="text-muted">Networks</small>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-center">
-                                    <h6 class="fw-bold accent-secondary">Advanced</h6>
-                                    <small class="text-muted">Security Tools</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Benefits Grid -->
-            <div class="row g-4 mt-4">
-                <div class="col-lg-3 col-md-6 reveal-up stagger-1">
-                    <div class="card-animated bg-white rounded-lg-theme p-4 text-center shadow-md-theme">
-                        <i class="bi bi-clock fs-1 accent-primary mb-3"></i>
-                        <h5 class="fw-bold mb-3 font-montserrat">Flexible Hours</h5>
-                        <p class="text-muted">Work when you're most productive, with core collaboration hours</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 reveal-up stagger-2">
-                    <div class="card-animated bg-white rounded-lg-theme p-4 text-center shadow-md-theme">
-                        <i class="bi bi-house fs-1 accent-secondary mb-3"></i>
-                        <h5 class="fw-bold mb-3 font-montserrat">Hybrid Work</h5>
-                        <p class="text-muted">Secure remote access with VPN and zero-trust architecture</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 reveal-up stagger-3">
-                    <div class="card-animated bg-white rounded-lg-theme p-4 text-center shadow-md-theme">
-                        <i class="bi bi-mortarboard fs-1 accent-gold mb-3"></i>
-                        <h5 class="fw-bold mb-3 font-montserrat">Cyber Training</h5>
-                        <p class="text-muted">Continuous cybersecurity education and certification support</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 reveal-up stagger-4">
-                    <div class="card-animated bg-white rounded-lg-theme p-4 text-center shadow-md-theme">
-                        <i class="bi bi-heart-pulse fs-1 accent-primary mb-3"></i>
-                        <h5 class="fw-bold mb-3 font-montserrat">Wellness Program</h5>
-                        <p class="text-muted">Mental health support and stress management for high-pressure work</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    
-  <!-- Culture Values Section -->
+        <!-- Core Values Section -->
         <section class="py-5 position-relative" style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb);">
             <div class="cyber-grid" style="opacity: 0.3;"></div>
             
             <div class="container position-relative" style="z-index: 2;">
-                <div class="text-left mb-5 reveal-up">
+                <div class="text-center mb-5 reveal-up">
                     <h2 class="display-5 fw-bold mb-3" style="color: #333;">
-                        <span class="text-gradient">Core</span> Values
+                        Our <span class="text-gradient">Core Values</span>
                     </h2>
-                    <p class="lead text-muted">The principles that guide our cyber-focused culture</p>
+                    <p class="lead text-muted">The principles that guide our cybersecurity-first culture</p>
                 </div>
                 
                 <div class="row g-4">
-                    <!-- Value 1 -->
+                    <!-- Security First -->
                     <div class="col-md-6 col-lg-3">
                         <div class="contact-feature-card reveal-up stagger-1">
-                            <div class="cyber-info-card tilt-card" style="width: 100%; height: 350px;">
+                            <div class="culture-info-card tilt-card" style="height: 380px;">
                                 <div class="card-icon mt-4">
                                     <i class="bi bi-shield-check text-white fs-4"></i>
                                 </div>
                                 <div style="padding: 20px; text-align: center;">
                                     <h5 class="fw-bold mb-2 text-dark">Security First</h5>
-                                    <p class="text-muted small mb-3">Every decision we make prioritizes security and protection. We think like defenders, act like guardians.</p>
+                                    <p class="text-muted small mb-3">Every decision we make prioritizes security and protection. We think like defenders, act like guardians, and build with security at the core.</p>
                                     <div class="tech-status justify-content-center mb-3">
                                         <span>Always Vigilant</span>
                                     </div>
+                                    <ul class="list-unstyled text-start small text-muted">
+                                        <li class="mb-1">• Threat modeling culture</li>
+                                        <li class="mb-1">• Secure coding practices</li>
+                                        <li class="mb-1">• Privacy by design</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Value 2 -->
+                    <!-- Innovation -->
                     <div class="col-md-6 col-lg-3">
                         <div class="contact-feature-card reveal-up stagger-2">
-                            <div class="cyber-info-card tilt-card" style="width: 100%; height: 350px;">
+                            <div class="culture-info-card tilt-card" style="height: 380px;">
                                 <div class="card-icon mt-4">
                                     <i class="bi bi-lightbulb text-white fs-4"></i>
                                 </div>
                                 <div style="padding: 20px; text-align: center;">
                                     <h5 class="fw-bold mb-2 text-dark">Innovation</h5>
-                                    <p class="text-muted small mb-3">We constantly evolve our methods and technologies to stay ahead of emerging threats and opportunities.</p>
+                                    <p class="text-muted small mb-3">We constantly evolve our methods and technologies to stay ahead of emerging threats and create cutting-edge solutions.</p>
                                     <div class="tech-status justify-content-center mb-3">
                                         <span>Future Ready</span>
                                     </div>
+                                    <ul class="list-unstyled text-start small text-muted">
+                                        <li class="mb-1">• AI-powered security research</li>
+                                        <li class="mb-1">• Quantum-resistant development</li>
+                                        <li class="mb-1">• Zero-day threat hunting</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Value 3 -->
+                    <!-- Collaboration -->
                     <div class="col-md-6 col-lg-3">
                         <div class="contact-feature-card reveal-up stagger-3">
-                            <div class="cyber-info-card tilt-card" style="width: 100%; height: 350px;">
+                            <div class="culture-info-card tilt-card" style="height: 380px;">
                                 <div class="card-icon mt-4">
                                     <i class="bi bi-people text-white fs-4"></i>
                                 </div>
                                 <div style="padding: 20px; text-align: center;">
                                     <h5 class="fw-bold mb-2 text-dark">Collaboration</h5>
-                                    <p class="text-muted small mb-3">Like a cyber defense team, we work together seamlessly, sharing knowledge and supporting each other.</p>
+                                    <p class="text-muted small mb-3">Like a cyber defense team, we work together seamlessly, sharing knowledge and supporting each other's growth.</p>
                                     <div class="tech-status justify-content-center mb-3">
                                         <span>Team Unity</span>
                                     </div>
+                                    <ul class="list-unstyled text-start small text-muted">
+                                        <li class="mb-1">• Cross-team knowledge sharing</li>
+                                        <li class="mb-1">• Peer code reviews</li>
+                                        <li class="mb-1">• Incident response drills</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Value 4 -->
+                    <!-- Excellence -->
                     <div class="col-md-6 col-lg-3">
                         <div class="contact-feature-card reveal-up stagger-4">
-                            <div class="cyber-info-card tilt-card" style="width: 100%; height: 350px;">
+                            <div class="culture-info-card tilt-card" style="height: 380px;">
                                 <div class="card-icon mt-4">
                                     <i class="bi bi-award text-white fs-4"></i>
                                 </div>
                                 <div style="padding: 20px; text-align: center;">
                                     <h5 class="fw-bold mb-2 text-dark">Excellence</h5>
-                                    <p class="text-muted small mb-3">We strive for perfection in every project, every solution, and every client interaction.</p>
+                                    <p class="text-muted small mb-3">We strive for perfection in every project, every solution, and every client interaction with unwavering commitment.</p>
                                     <div class="tech-status justify-content-center mb-3">
                                         <span>Quality Driven</span>
                                     </div>
+                                    <ul class="list-unstyled text-start small text-muted">
+                                        <li class="mb-1">• 24/7 monitoring mindset</li>
+                                        <li class="mb-1">• Proactive threat hunting</li>
+                                        <li class="mb-1">• Rapid incident response</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -468,60 +424,67 @@
         </section>
 
         <!-- Work Environment Section -->
-        <section class="py-5 position-relative" style="background: linear-gradient(135deg,#fff7ed,#ffffff,#fffbeb);">
-            <div class="cyber-grid" style="opacity: 0.3;"></div>
-            
-            <div class="container position-relative" style="z-index: 2;">
-                <div class="row align-items-center g-5">
+        <section class="py-5" style="background: white;">
+            <div class="container">
+                <div class="text-center mb-5 reveal-up">
+                    <h2 class="display-5 fw-bold mb-3" style="color: #333;">
+                        Our <span class="text-gradient">Work Environment</span>
+                    </h2>
+                    <p class="lead text-muted">A secure, flexible, and innovative workplace designed for cyber professionals</p>
+                </div>
+
+                <div class="row g-5 align-items-center">
                     <!-- Left Content -->
-                    <div class="col-lg-6 order-2 order-lg-1">
-                        <h2 class="fw-bold mb-4 text-dark reveal-left">
-                            Our Cyber
-                            <span class="d-block fw-bold display-3 text-gradient">
-                                Work Environment
-                            </span>
-                        </h2>
+                    <div class="col-lg-6 reveal-left">
+                        <h3 class="fw-bold mb-4 text-dark">
+                            Cyber-Focused Workspace
+                        </h3>
+                        <p class="text-muted mb-4">
+                            Our work environment is designed specifically for cybersecurity professionals, 
+                            featuring state-of-the-art security operations centers, isolated development labs, 
+                            and collaborative spaces that foster innovation while maintaining the highest security standards.
+                        </p>
                         
                         <!-- Features List --> 
                         <div class="mb-4"> 
                             <div class="d-flex gap-3 mb-3 feature-item reveal-right stagger-1"> 
                                 <div class="rounded-circle d-flex align-items-center justify-content-center check-icon" style="width:24px;height:24px;background:#dcfce7;color:#16a34a;"> ✓ </div> 
                                 <div> 
-                                    <span class="fw-semibold">Flexible Work Arrangements</span> 
-                                    <p class="text-muted small mb-0">Remote, hybrid, and on-site options to suit your lifestyle</p> 
+                                    <span class="fw-semibold">Security Operations Center</span> 
+                                    <p class="text-muted small mb-0">24/7 monitoring facility with real-time threat intelligence</p> 
                                 </div> 
                             </div> 
                             <div class="d-flex gap-3 mb-3 feature-item reveal-right stagger-2"> 
                                 <div class="rounded-circle d-flex align-items-center justify-content-center check-icon" style="width:24px;height:24px;background:#dcfce7;color:#16a34a;"> ✓ </div> 
                                 <div> 
-                                    <span class="fw-semibold">Continuous Learning</span> 
-                                    <p class="text-muted small mb-0">Regular training, certifications, and skill development programs</p> 
+                                    <span class="fw-semibold">Secure Development Labs</span> 
+                                    <p class="text-muted small mb-0">Air-gapped environments with advanced security tools</p> 
                                 </div> 
                             </div> 
                             <div class="d-flex gap-3 mb-3 feature-item reveal-right stagger-3"> 
                                 <div class="rounded-circle d-flex align-items-center justify-content-center check-icon" style="width:24px;height:24px;background:#dcfce7;color:#16a34a;"> ✓ </div> 
                                 <div> 
-                                    <span class="fw-semibold">Innovation Time</span> 
-                                    <p class="text-muted small mb-0">20% time for personal projects and research</p> 
+                                    <span class="fw-semibold">Flexible Work Arrangements</span> 
+                                    <p class="text-muted small mb-0">Remote, hybrid, and on-site options with secure VPN access</p> 
                                 </div> 
                             </div> 
                             <div class="d-flex gap-3 feature-item reveal-right stagger-4"> 
                                 <div class="rounded-circle d-flex align-items-center justify-content-center check-icon" style="width:24px;height:24px;background:#dcfce7;color:#16a34a;"> ✓ </div> 
                                 <div> 
-                                    <span class="fw-semibold">Health & Wellness</span> 
-                                    <p class="text-muted small mb-0">Comprehensive benefits and wellness programs</p> 
+                                    <span class="fw-semibold">Continuous Learning Hub</span> 
+                                    <p class="text-muted small mb-0">Training rooms, certification support, and research facilities</p> 
                                 </div> 
                             </div> 
                         </div>
                     </div>
 
                     <!-- Right Content -->
-                    <div class="col-lg-6 order-1 order-lg-2">
-                        <div class="contact-card p-4 reveal-up stagger-4" 
+                    <div class="col-lg-6 reveal-right">
+                        <div class="culture-contact-card p-4" 
                         style="background: rgba(255, 255, 255, 0.95); border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); backdrop-filter: blur(10px);">
                             
                             <div class="text-center mb-4">
-                                <div class="contact-icon mb-3" style="width: 80px; height: 80px;">
+                                <div class="card-icon mb-3" style="width: 80px; height: 80px;">
                                     <i class="bi bi-building text-white fs-2"></i>
                                 </div>
                                 <h4 class="fw-bold text-gradient mb-3">Join Our Culture</h4>
@@ -529,199 +492,94 @@
                             </div>
                             
                             <div class="d-flex flex-column gap-3">
-                                <button class="btn btn-gradient w-100 py-3">
+                                <a href="../careers.html" class="btn btn-gradient w-100 py-3">
                                     <i class="bi bi-person-plus me-2"></i>
                                     View Open Positions
-                                </button>
-                                <button class="btn btn-outline-danger w-100 py-3">
-                                    <i class="bi bi-download me-2"></i>
-                                    Download Culture Guide
-                                </button>
+                                </a>
+                                <a href="../about/team.html" class="btn btn-outline-danger w-100 py-3">
+                                    <i class="bi bi-people me-2"></i>
+                                    Meet Our Team
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-  
-</main>
+
+        <!-- Benefits Section -->
+        <section class="py-5" style="background: #f8f9fa;">
+            <div class="container">
+                <div class="text-center mb-5 reveal-up">
+                    <h2 class="display-5 fw-bold mb-3" style="color: #333;">
+                        Why <span class="text-gradient">Work With Us</span>
+                    </h2>
+                    <p class="lead text-muted">Benefits designed for cybersecurity professionals</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 reveal-up stagger-1">
+                        <div class="culture-info-card text-center h-100">
+                            <div class="p-4">
+                                <i class="bi bi-clock fs-1 text-gradient mb-3"></i>
+                                <h5 class="fw-bold mb-3">Flexible Hours</h5>
+                                <p class="text-muted small">Work when you're most productive, with core collaboration hours for team sync.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 reveal-up stagger-2">
+                        <div class="culture-info-card text-center h-100">
+                            <div class="p-4">
+                                <i class="bi bi-house fs-1 text-gradient mb-3"></i>
+                                <h5 class="fw-bold mb-3">Hybrid Work</h5>
+                                <p class="text-muted small">Secure remote access with VPN and zero-trust architecture for maximum flexibility.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 reveal-up stagger-3">
+                        <div class="culture-info-card text-center h-100">
+                            <div class="p-4">
+                                <i class="bi bi-mortarboard fs-1 text-gradient mb-3"></i>
+                                <h5 class="fw-bold mb-3">Cyber Training</h5>
+                                <p class="text-muted small">Continuous cybersecurity education, certifications, and conference attendance support.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 reveal-up stagger-4">
+                        <div class="culture-info-card text-center h-100">
+                            <div class="p-4">
+                                <i class="bi bi-heart-pulse fs-1 text-gradient mb-3"></i>
+                                <h5 class="fw-bold mb-3">Wellness Program</h5>
+                                <p class="text-muted small">Mental health support and stress management for high-pressure cybersecurity work.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <div id="footer-placeholder"></div>
-      <!-- Theme Toggle -->
+    <div id="footer-component"></div>
+    
+    <!-- Theme Toggle -->
     <button id="theme-toggle" class="btn btn-dark position-fixed bottom-0 start-0 m-4 rounded-circle p-3 shadow-lg" style="z-index: 1050;">
         <i id="sun-icon" class="bi bi-sun-fill d-none"></i>
         <i id="moon-icon" class="bi bi-moon-fill"></i>
     </button>
     <script src="../scripts/theme-toggle.js"></script>
 
-
-    <!-- Right Panel -->
-    <div id="right-panel-placeholder"></div>
-
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Load Components -->
-    <script>
-        // Load navigation
-        fetch('../components/navigation/navigation.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navigation-placeholder').innerHTML = data;
-            });
-
-        // Load footer
-        fetch('../components/footer/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-            });
-
-        // Load right panel
-        fetch('../components/right-panel/right-panel.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('right-panel-placeholder').innerHTML = data;
-            });
-    </script>
-
-    <!-- Animation Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize GSAP ScrollTrigger
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Reveal animations
-            gsap.utils.toArray('.reveal-up').forEach(element => {
-                gsap.fromTo(element, 
-                    { opacity: 0, y: 50 },
-                    { 
-                        opacity: 1, 
-                        y: 0, 
-                        duration: 0.8, 
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 80%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            gsap.utils.toArray('.reveal-left').forEach(element => {
-                gsap.fromTo(element, 
-                    { opacity: 0, x: -50 },
-                    { 
-                        opacity: 1, 
-                        x: 0, 
-                        duration: 0.8, 
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 80%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            gsap.utils.toArray('.reveal-right').forEach(element => {
-                gsap.fromTo(element, 
-                    { opacity: 0, x: 50 },
-                    { 
-                        opacity: 1, 
-                        x: 0, 
-                        duration: 0.8, 
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 80%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            // Stagger animations
-            gsap.utils.toArray('.stagger-1, .stagger-2, .stagger-3, .stagger-4, .stagger-5, .stagger-6').forEach((element, index) => {
-                gsap.fromTo(element, 
-                    { opacity: 0, y: 30 },
-                    { 
-                        opacity: 1, 
-                        y: 0, 
-                        duration: 0.6, 
-                        delay: index * 0.1,
-                        ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 85%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-            });
-
-            // Counter animations
-            function animateCounter(element, target) {
-                let current = 0;
-                const increment = target / 60;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    const suffix = element.textContent.includes('%') ? '%' : 
-                                  element.textContent.includes('+') ? '+' : 
-                                  element.textContent.includes('/7') ? '/7' : 
-                                  element.textContent.includes('.9%') ? '.9%' : '';
-                    element.textContent = Math.floor(current) + suffix;
-                }, 16);
-            }
-
-            // Initialize counters when they come into view
-            const counters = document.querySelectorAll('[data-count]');
-            counters.forEach(counter => {
-                ScrollTrigger.create({
-                    trigger: counter,
-                    start: "top 80%",
-                    onEnter: () => {
-                        const target = parseInt(counter.getAttribute('data-count'));
-                        animateCounter(counter, target);
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
-      
-
-        <!-- CTA Section -->
-        <div id="cta-component"></div>
-    </main>
-
-    <!-- Footer -->
-    <div id="footer-component"></div>
-
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Theme Toggle Script -->
-    <script src="../scripts/theme-toggle.js"></script>
-
-    <!-- Contact Animations Script -->
-    <script src="../scripts/contact-animations.js"></script>
-
-    <!-- Advanced Animation Script -->
+    <!-- Culture Page Animation Script -->
     <script>
-        // Initialize all animations from contact page
+        // Optimized animation initialization
         function initAdvancedAnimations() {
             const animationElements = document.querySelectorAll([
-                '.slide-in-left', '.slide-in-right', '.slide-in-up', '.slide-in-down',
-                '.zoom-in', '.zoom-out', '.rotate-in', '.fade-in', '.bounce-in', '.form-group',
                 '.reveal-up', '.reveal-left', '.reveal-right', '.reveal-zoom'
             ].join(', '));
             
@@ -743,19 +601,16 @@
             });
         }
 
-        // 3D Tilt Effect for cards
-        function initTiltEffects() {
-            const tiltCards = document.querySelectorAll('.tilt-card');
-            
-            tiltCards.forEach(card => {
+        function initHoverEffects() {
+            document.querySelectorAll('.culture-info-card, .culture-contact-card').forEach(card => {
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
-                    const rotateX = (y - centerY) / 20;
-                    const rotateY = (centerX - x) / 20;
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
 
                     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
                 });
@@ -766,12 +621,10 @@
             });
         }
 
-        // Initialize all animations
         document.addEventListener('DOMContentLoaded', function() {
             initAdvancedAnimations();
-            initTiltEffects();
-            
-            console.log('✅ Culture page animations initialized successfully');
+            initHoverEffects();
+            console.log('✅ Culture page animations initialized');
         });
     </script>
 
@@ -794,14 +647,21 @@
         document.addEventListener('DOMContentLoaded', async () => {
             const components = [
                 ['navigation-component', '../components/navigation/navigation.html'],
-                ['footer-component', '../components/footer/footer.html'],
-                ['right-panel-component', '../components/right-panel/right-panel-subdirectory.html'],
-                ['cta-component', '../components/call-to-action/call-to-action.html']
+                ['footer-component', '../components/footer/footer-subdirectory.html'],
+                ['right-panel-component', '../components/right-panel/right-panel-subdirectory.html']
             ];
 
             await Promise.all(components.map(([id, path]) => loadComponent(id, path)));
+            
+            if (window.fixNavigationPaths) {
+                setTimeout(() => {
+                    window.fixNavigationPaths();
+                }, 100);
+            }
+            
+            document.dispatchEvent(new CustomEvent('navigationLoaded'));
+            console.log('✅ Culture page initialized successfully');
         });
     </script>
-    
-    <!-- About Pages Shared Animations -->
-    <script src="../scripts/about-shared.js"></script>
+</body>
+</html>
