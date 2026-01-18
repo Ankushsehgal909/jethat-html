@@ -1,327 +1,170 @@
 /**
- * About Pages - Shared Animations & Interactions
- * Used by: culture.html, team.html, projects-showcase.html, success-stories.html
- * 
- * This file contains all common JavaScript functions for about section pages
- * to avoid code duplication and improve maintainability.
+ * About Pages Shared Loader
+ * Common loading functionality for all about pages
  */
 
 (function() {
     'use strict';
 
-    // ========================================
-    // GSAP SCROLL ANIMATIONS
-    // ========================================
+    // About page configuration
+    const ABOUT_PAGES = {
+        'index': 'Our Story',
+        'culture': 'Company Culture', 
+        'team': 'Our Team',
+        'projects-showcase': 'Projects Showcase',
+        'development-pipeline': 'Development Pipeline',
+        'success-stories': 'Success Stories'
+    };
 
-    function initGSAPAnimations() {
-        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-            return;
+    // Get current page info
+    function getCurrentPageInfo() {
+        const path = window.location.pathname;
+        const filename = path.split('/').pop().replace('.html', '');
+        return {
+            filename: filename,
+            title: ABOUT_PAGES[filename] || 'About',
+            isAboutPage: path.includes('/about/')
+        };
+    }
+
+    // Standard about page components
+    function getStandardComponents() {
+        return [
+            ['navigation-component', '../components/navigation/navigation.html'],
+            ['footer-component', '../components/footer/footer.html'],
+            ['right-panel-component', '../components/right-panel/right-panel-subdirectory.html']
+        ];
+    }
+
+    // Load about page components with progress tracking
+    async function loadAboutPageComponents(additionalComponents = []) {
+        const pageInfo = getCurrentPageInfo();
+        
+        if (!pageInfo.isAboutPage) {
+            console.warn('About page loader called on non-about page');
+            return false;
         }
 
-        // Register ScrollTrigger plugin
-        gsap.registerPlugin(ScrollTrigger);
+        console.log(`🚀 Loading ${pageInfo.title} page...`);
 
-        // Reveal Up animations
-        gsap.utils.toArray('.reveal-up').forEach(element => {
-            gsap.fromTo(element, 
-                { opacity: 0, y: 50 },
-                { 
-                    opacity: 1, 
-                    y: 0, 
-                    duration: 0.8, 
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "top 80%",
-                        toggleActions: "play none none reverse"
+        // Update loader progress
+        if (window.pageLoader) {
+            window.pageLoader.updateProgress(30, `Loading ${pageInfo.title}...`);
+        }
+
+        // Combine standard and additional components
+        const allComponents = [...getStandardComponents(), ...additionalComponents];
+
+        try {
+            // Load all components in parallel
+            await Promise.all(allComponents.map(async ([id, path]) => {
+                try {
+                    const response = await fetch(path);
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                     }
-                }
-            );
-        });
-
-        // Reveal Left animations
-        gsap.utils.toArray('.reveal-left').forEach(element => {
-            gsap.fromTo(element, 
-                { opacity: 0, x: -50 },
-                { 
-                    opacity: 1, 
-                    x: 0, 
-                    duration: 0.8, 
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "top 80%",
-                        toggleActions: "play none none reverse"
+                    
+                    const html = await response.text();
+                    const element = document.getElementById(id);
+                    
+                    if (element) {
+                        element.innerHTML = html;
+                        console.log(`✅ Loaded component: ${id}`);
+                    } else {
+                        console.warn(`⚠️ Container not found: #${id}`);
                     }
+                } catch (error) {
+                    console.error(`❌ Failed to load ${id} from ${path}:`, error);
+                    throw error;
                 }
-            );
-        });
+            }));
 
-        // Reveal Right animations
-        gsap.utils.toArray('.reveal-right').forEach(element => {
-            gsap.fromTo(element, 
-                { opacity: 0, x: 50 },
-                { 
-                    opacity: 1, 
-                    x: 0, 
-                    duration: 0.8, 
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "top 80%",
-                        toggleActions: "play none none reverse"
-                    }
-                }
-            );
-        });
-
-        // Stagger animations
-        gsap.utils.toArray('.stagger-1, .stagger-2, .stagger-3, .stagger-4, .stagger-5, .stagger-6').forEach((element, index) => {
-            gsap.fromTo(element, 
-                { opacity: 0, y: 30 },
-                { 
-                    opacity: 1, 
-                    y: 0, 
-                    duration: 0.6, 
-                    delay: index * 0.1,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "top 85%",
-                        toggleActions: "play none none reverse"
-                    }
-                }
-            );
-        });
-    }
-
-    // ========================================
-    // INTERSECTION OBSERVER ANIMATIONS
-    // ========================================
-
-    function initRevealAnimations() {
-        const animationElements = document.querySelectorAll([
-            '.slide-in-left', '.slide-in-right', '.slide-in-up', '.slide-in-down',
-            '.zoom-in', '.zoom-out', '.rotate-in', '.fade-in', '.bounce-in',
-            '.reveal-up', '.reveal-left', '.reveal-right', '.reveal-zoom'
-        ].join(', '));
-        
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        animationElements.forEach(element => {
-            observer.observe(element);
-        });
-    }
-
-    // ========================================
-    // COUNTER ANIMATIONS
-    // ========================================
-
-    function animateCounter(element, target) {
-        let current = 0;
-        const increment = target / 60;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
+            // Update progress
+            if (window.pageLoader) {
+                window.pageLoader.updateProgress(70, 'Components loaded successfully...');
             }
-            const suffix = element.textContent.includes('%') ? '%' : 
-                          element.textContent.includes('+') ? '+' : 
-                          element.textContent.includes('/7') ? '/7' : 
-                          element.textContent.includes('.9%') ? '.9%' : '';
-            element.textContent = Math.floor(current) + suffix;
-        }, 16);
-    }
 
-    function initCounterAnimations() {
-        const counters = document.querySelectorAll('[data-count]');
-        
-        if (typeof ScrollTrigger !== 'undefined') {
-            // Use GSAP ScrollTrigger if available
-            counters.forEach(counter => {
-                ScrollTrigger.create({
-                    trigger: counter,
-                    start: "top 80%",
-                    onEnter: () => {
-                        const target = parseInt(counter.getAttribute('data-count'));
-                        animateCounter(counter, target);
-                    }
-                });
-            });
-        } else {
-            // Fallback to Intersection Observer
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-                        entry.target.classList.add('counted');
-                        const target = parseInt(entry.target.getAttribute('data-count'));
-                        animateCounter(entry.target, target);
-                    }
-                });
-            }, { threshold: 0.5 });
+            // Hide fallback content
+            const fallbackContent = document.getElementById('fallback-content');
+            if (fallbackContent) {
+                fallbackContent.style.display = 'none';
+            }
 
-            counters.forEach(counter => observer.observe(counter));
-        }
-    }
-
-    // ========================================
-    // 3D TILT EFFECT
-    // ========================================
-
-    function initTiltEffects() {
-        const tiltCards = document.querySelectorAll('.tilt-card');
-        
-        tiltCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-            });
-        });
-    }
-
-    // ========================================
-    // PARALLAX EFFECTS
-    // ========================================
-
-    function initParallaxEffects() {
-        const handleScroll = () => {
-            const scrolled = window.pageYOffset;
-            
-            // Parallax for slow elements
-            document.querySelectorAll('.parallax-slow').forEach(element => {
-                const speed = 0.5;
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-
-            // Parallax for fast elements
-            document.querySelectorAll('.parallax-fast').forEach(element => {
-                const speed = 0.8;
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-
-            // Parallax for security icons
-            document.querySelectorAll('.security-icon').forEach((icon, index) => {
-                const speed = 0.3 + (index * 0.1);
-                icon.style.transform = `translateY(${-scrolled * speed}px)`;
-            });
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-    }
-
-    // ========================================
-    // BUTTON EFFECTS
-    // ========================================
-
-    function initButtonEffects() {
-        document.querySelectorAll('.btn-gradient').forEach(button => {
-            const handleMove = (e) => {
-                const rect = button.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-
-                button.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.05)`;
-            };
-
-            const handleLeave = () => {
-                button.style.transform = 'translate(0px, 0px) scale(1)';
-            };
-
-            button.addEventListener('mousemove', handleMove);
-            button.addEventListener('mouseleave', handleLeave);
-        });
-    }
-
-    // ========================================
-    // SCANNING LINE EFFECTS
-    // ========================================
-
-    function initScanningLines() {
-        const scanningLines = document.querySelectorAll('.scanning-line');
-        
-        scanningLines.forEach(line => {
-            line.style.animationPlayState = 'paused';
-            
-            const container = line.closest('.contact-image-container, .cyber-info-card, .contact-card');
-            if (container) {
-                container.addEventListener('mouseenter', () => {
-                    line.style.animationPlayState = 'running';
-                });
+            // Trigger navigation fix
+            setTimeout(() => {
+                if (window.fixNavigationPaths) {
+                    window.fixNavigationPaths();
+                    console.log('✅ Navigation paths fixed');
+                }
                 
-                container.addEventListener('mouseleave', () => {
-                    line.style.animationPlayState = 'paused';
-                    line.style.top = '0';
-                });
+                // Dispatch navigation loaded event
+                document.dispatchEvent(new CustomEvent('navigationLoaded'));
+            }, 100);
+
+            // Initialize page-specific animations
+            setTimeout(() => {
+                initializePageAnimations(pageInfo.filename);
+            }, 200);
+
+            console.log(`✅ ${pageInfo.title} page loaded successfully`);
+            
+            if (window.pageLoader) {
+                window.pageLoader.updateProgress(100, `Welcome to ${pageInfo.title}!`);
             }
-        });
+
+            return true;
+
+        } catch (error) {
+            console.error(`❌ Error loading ${pageInfo.title} page:`, error);
+            
+            // Show error in fallback content
+            const fallbackContent = document.getElementById('fallback-content');
+            if (fallbackContent) {
+                fallbackContent.innerHTML = `
+                    <h1 class="display-4 fw-bold text-gradient mb-4">${pageInfo.title}</h1>
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-triangle me-2"></i>
+                        Some components are still loading. Please refresh the page if content doesn't appear.
+                    </div>
+                `;
+            }
+            
+            return false;
+        }
     }
 
-    // ========================================
-    // SMOOTH SCROLL
-    // ========================================
-
-    function initSmoothScroll() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    // Initialize page-specific functionality (animations removed to prevent conflicts)
+    function initializePageAnimations(pageName) {
+        // Page-specific initialization without animations
+        console.log(`✅ ${pageName} page initialized without conflicting animations`);
+        
+        // Only initialize basic functionality, no scroll animations
+        // This prevents conflicts between similar hero sections
     }
 
-    // ========================================
-    // MAIN INITIALIZATION
-    // ========================================
-
-    function init() {
-        // Initialize all animation functions
-        initGSAPAnimations();
-        initRevealAnimations();
-        initCounterAnimations();
-        initTiltEffects();
-        initParallaxEffects();
-        initButtonEffects();
-        initScanningLines();
-        initSmoothScroll();
+    // Generic functionality for all about pages (animations removed)
+    function initializeGenericAnimations() {
+        // Animation initialization removed to prevent conflicts
+        // between similar hero sections in team.html and projects-showcase.html
+        console.log('✅ Generic functionality initialized without animations');
     }
 
-    // Run when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
+    // Auto-initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        const pageInfo = getCurrentPageInfo();
+        
+        if (pageInfo.isAboutPage) {
+            // Load standard components for all about pages
+            loadAboutPageComponents();
+        }
+    });
 
-    // Expose init function globally for manual triggering if needed
-    window.initAboutAnimations = init;
+    // Export for manual use
+    window.aboutPageLoader = {
+        loadComponents: loadAboutPageComponents,
+        getCurrentPageInfo: getCurrentPageInfo,
+        getStandardComponents: getStandardComponents,
+        ABOUT_PAGES: ABOUT_PAGES
+    };
 
 })();

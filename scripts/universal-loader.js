@@ -35,6 +35,11 @@
         const path = window.location.pathname;
         const depth = (path.match(/\//g) || []).length - 1;
         
+        // Handle about folder pages specifically
+        if (path.includes('/about/')) {
+            return '../assets/images/logo.png';
+        }
+        
         if (depth === 0 || path.endsWith('index.html') || path.endsWith('/')) {
             return 'assets/images/logo.png';
         } else if (depth === 1) {
@@ -76,18 +81,34 @@
     // Track loading stages
     updateProgress(10, 'Initializing...');
 
+    // Check if we're on an about page and add specific loading messages
+    const isAboutPage = window.location.pathname.includes('/about/');
+    const aboutPageName = isAboutPage ? window.location.pathname.split('/').pop().replace('.html', '') : '';
+
     // DOM Content Loaded
     document.addEventListener('DOMContentLoaded', function() {
-        updateProgress(40, 'Loading Components...');
+        if (isAboutPage) {
+            updateProgress(40, `Loading ${aboutPageName} content...`);
+        } else {
+            updateProgress(40, 'Loading Components...');
+        }
     });
 
     // All resources loaded
     window.addEventListener('load', function() {
-        updateProgress(80, 'Almost Ready...');
+        if (isAboutPage) {
+            updateProgress(80, `${aboutPageName} almost ready...`);
+        } else {
+            updateProgress(80, 'Almost Ready...');
+        }
         
         // Give a moment for any lazy-loaded content
         setTimeout(() => {
-            updateProgress(100, 'Welcome!');
+            if (isAboutPage) {
+                updateProgress(100, `Welcome to ${aboutPageName}!`);
+            } else {
+                updateProgress(100, 'Welcome!');
+            }
             setTimeout(hideLoader, 300);
         }, 200);
     });
@@ -108,6 +129,39 @@
             const loader = document.getElementById('page-loader');
             if (loader) {
                 loader.classList.remove('hidden');
+            }
+        },
+        // About page specific utilities
+        aboutPages: {
+            isAboutPage: function() {
+                return window.location.pathname.includes('/about/');
+            },
+            getPageName: function() {
+                if (this.isAboutPage()) {
+                    return window.location.pathname.split('/').pop().replace('.html', '');
+                }
+                return '';
+            },
+            loadComponents: async function(components) {
+                if (!this.isAboutPage()) return;
+                
+                updateProgress(50, 'Loading page components...');
+                
+                try {
+                    await Promise.all(components.map(async ([id, path]) => {
+                        const response = await fetch(path);
+                        if (!response.ok) throw new Error(`Failed to load ${path}`);
+                        const html = await response.text();
+                        const element = document.getElementById(id);
+                        if (element) element.innerHTML = html;
+                    }));
+                    
+                    updateProgress(90, 'Components loaded successfully...');
+                    return true;
+                } catch (error) {
+                    console.error('Error loading about page components:', error);
+                    return false;
+                }
             }
         }
     };

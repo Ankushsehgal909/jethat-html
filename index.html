@@ -26,6 +26,176 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/loader.css">
     
+<style>
+/* Products Section Styling */
+#products-section {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Card Container */
+#productsSectionCards {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Base Styling */
+#productsSectionCards .card {
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    will-change: transform, opacity;
+    transform-origin: center center;
+}
+
+/* Light theme card styling */
+.light-theme #productsSectionCards .card,
+[data-bs-theme="light"] #productsSectionCards .card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(220, 20, 60, 0.1) !important;
+    color: #333 !important;
+}
+
+/* Dark theme card styling */
+.dark-theme #productsSectionCards .card,
+[data-bs-theme="dark"] #productsSectionCards .card {
+    background: rgba(30, 30, 30, 0.95) !important;
+    border: 1px solid rgba(220, 20, 60, 0.2) !important;
+    color: #e0e0e0 !important;
+}
+
+/* Auto theme detection */
+@media (prefers-color-scheme: dark) {
+    #productsSectionCards .card {
+        background: rgba(30, 30, 30, 0.95) !important;
+        border: 1px solid rgba(220, 20, 60, 0.2) !important;
+        color: #e0e0e0 !important;
+    }
+}
+
+/* Card Hover Effects */
+#productsSectionCards .card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 30px 60px rgba(220, 20, 60, 0.15) !important;
+    border-color: rgba(220, 20, 60, 0.3) !important;
+}
+
+/* Image Styling */
+#productsSectionCards .card img {
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 1rem;
+}
+
+#productsSectionCards .card:hover img {
+    transform: scale(1.05) rotate(1deg);
+}
+
+/* Text Styling for Dark Theme */
+.dark-theme #productsSectionCards .card .card-title,
+.dark-theme #productsSectionCards .card h3 {
+    color: #ffffff !important;
+}
+
+.dark-theme #productsSectionCards .card .text-muted,
+.dark-theme #productsSectionCards .card .list-unstyled li span {
+    color: #b0b0b0 !important;
+}
+
+/* Button Styling */
+#productsSectionCards .card .btn {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+}
+
+#productsSectionCards .card .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.4);
+}
+
+/* Gradient Elements */
+.gradient-icon {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-gold)) !important;
+    transition: all 0.4s ease;
+}
+
+#productsSectionCards .card:hover .gradient-icon {
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-primary)) !important;
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* Bullet Points */
+.bullet-point {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-gold)) !important;
+    transition: all 0.3s ease;
+}
+
+#productsSectionCards .card:hover .bullet-point {
+    transform: scale(1.2);
+    box-shadow: 0 2px 8px rgba(220, 20, 60, 0.3);
+}
+
+/* Loading Animation */
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#productsSectionCards .card.animate-in {
+    animation: cardSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+    #products-section .position-sticky {
+        position: relative !important;
+        top: auto !important;
+    }
+    
+    #productsSectionCards {
+        height: 400px !important;
+    }
+    
+    #productsSectionCards .card {
+        border-radius: 1rem;
+        margin: 0 1rem;
+    }
+    
+    #products-section .container {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #productsSectionCards .card {
+        margin: 0 0.5rem;
+        border-radius: 0.75rem;
+    }
+    
+    #productsSectionCards .card .card-body {
+        padding: 1.5rem !important;
+    }
+    
+    #productsSectionCards .card .row {
+        flex-direction: column;
+    }
+    
+    #productsSectionCards .card .col-md-6:first-child {
+        margin-bottom: 1rem;
+    }
+}
+</style>
+    
     <!-- Universal Loader (Load Immediately) -->
     <script src="scripts/universal-loader.js"></script>
 </head>
@@ -55,7 +225,9 @@
         <div id="services"></div>
 
         <!-- Products Section -->
-        <div id="products-component"></div>
+        <!-- <div id="products-component"></div> -->
+
+
 
       
 
@@ -221,5 +393,8 @@
             }, 100);
         });
     </script>
+
+
+
 </body>
 </html>

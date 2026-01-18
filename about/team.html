@@ -19,6 +19,10 @@
     
     <!-- Breadcrumb Badge -->
     <script src="../scripts/breadcrumb-badge.js"></script>
+    
+    <!-- Universal Loader -->
+    <script src="../scripts/universal-loader.js"></script>
+    <script src="../scripts/about-shared.js"></script>
 
     <style>
         /* Team-specific styles only - removing duplicates from main.css */
@@ -108,7 +112,7 @@
             align-items: center;
         }
         
-        /* Scanning Line Animation - Team specific */
+        /* Scanning Line - simplified, no animation */
         .scanning-line {
             position: absolute;
             top: 0;
@@ -117,17 +121,11 @@
             height: 3px;
             background: linear-gradient(90deg, transparent, #dc143c, #ffd700, transparent);
             box-shadow: 0 0 20px rgba(220, 20, 60, 0.8);
-            animation: scan 3s linear infinite;
             z-index: 10;
             pointer-events: none;
         }
         
-        @keyframes scan {
-            0% { top: 0%; opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-        }
-        
-        /* Terminal styles - Team specific */
+        /* Terminal styles - simplified */
         .terminal-container {
             background: #1a1a2e;
             border-radius: 10px;
@@ -164,12 +162,6 @@
             width: 10px;
             height: 18px;
             background: #00ff00;
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
         }
         
         /* Enhanced Info Card Styles - Team specific */
@@ -324,6 +316,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/about-dark-mode.css">
+    <link rel="stylesheet" href="../styles/loader.css">
     
     <!-- Navigation Fix Script -->
     <script src="../scripts/navigation-fix.js"></script>
@@ -338,26 +331,22 @@
 
     <!-- Main Content -->
     <main class="">
-        <!-- Hero Section - Exact Copy from Contact Page -->
-        <section class="team-hero py-5 h position-relative overflow-hidden">
-            
-            <div class="container  position-relative" style="z-index: 2; margin-top: 2.5rem;">
+        <!-- Hero Section - Simplified to match projects-showcase -->
+        <section class="team-hero py-5 position-relative overflow-hidden">
+            <div class="container position-relative" style="z-index: 2; margin-top: 2.5rem;">
                 <div class="row align-items-center py-5">
-                <!-- Page Badge -->
-                <div class="mb-4" data-breadcrumb data-separator="arrow">
-                    <!-- Breadcrumb will be dynamically generated here -->
-                </div>
+                    <!-- Page Badge -->
+                    <div class="mb-4" data-breadcrumb data-separator="arrow">
+                        <!-- Breadcrumb will be dynamically generated here -->
+                    </div>
                     
                     <!-- left side  -->
-                    <div class="col-lg-6 animate-on-scroll">
-                        <h1 class="display-3 fw-bold mb-4 reveal-up" 
-                        style="color: #333333; line-height: 1.2;">
+                    <div class="col-lg-6">
+                        <h1 class="display-3 fw-bold mb-4" style="color: #333333; line-height: 1.2;">
                             Meet Our <span class="d-block text-gradient">Expert Team</span>
                         </h1>
-                       
-                      
                         
-                        <div class="d-flex flex-wrap gap-3 mb-4 mt-4 reveal-up stagger-3">
+                        <div class="d-flex flex-wrap gap-3 mb-4 mt-4">
                             <div class="d-flex align-items-center tech-status" style="color: #333333;">
                                 <i class="bi bi-check-circle-fill me-2"></i>
                                 <span>50+ Expert Professionals</span>
@@ -371,16 +360,14 @@
                                 <span>Global Expertise</span>
                             </div>
                         </div>
-                     
-                      
                     </div>
+                    
                     <!-- right side  -->
-                    <div class="col-lg-6 order-1 order-lg-1 animate-on-scroll position-relative">
+                    <div class="col-lg-6 order-1 order-lg-1 position-relative">
                         <div class="position-relative">
                             <!-- Main Large Card -->
-                            <div class="contact-card-main position-relative mb-4 reveal-zoom">
+                            <div class="contact-card-main position-relative mb-4">
                                 <div class="contact-image-container glow-border" style="width: 350px; height: 250px; background: white; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; position: relative;">
-                                    <div class="scanning-line"></div>
                                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" alt="Our Team" class="contact-main-image" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.6s ease;">
                                     <div class="contact-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(236,72,153,0.2)); opacity: 0; transition: all 0.4s ease;"></div>
                                     <div class="contact-content" style="position: absolute; bottom: 20px; left: 20px; color: white; z-index: 2; transform: translateY(20px); opacity: 0; transition: all 0.4s ease;">
@@ -391,7 +378,7 @@
                             </div>
 
                             <!-- Secondary Card -->
-                            <div class="contact-card-secondary position-absolute reveal-right" style="top: 50px; right: 30px; z-index: 2;">
+                            <div class="contact-card-secondary position-absolute" style="top: 50px; right: 30px; z-index: 2;">
                                 <div class="contact-image-container" style="width: 200px; height: 150px; background: white; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); overflow: hidden; position: relative;">
                                     <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998" alt="Team Collaboration" class="contact-secondary-image" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.6s ease;">
                                     <div class="contact-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(249,115,22,0.2)); opacity: 0; transition: all 0.4s ease;"></div>
@@ -402,10 +389,10 @@
                             </div>
 
                             <!-- Floating Mini Card -->
-                            <div class="contact-card-mini position-absolute reveal-zoom" style="bottom: 30px; left: -30px; z-index: 3;">
+                            <div class="contact-card-mini position-absolute" style="bottom: 30px; left: -30px; z-index: 3;">
                                 <div class="contact-image-container" style="width: 120px; height: 120px; background: white; border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.2); overflow: hidden; position: relative;">
                                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" alt="Team Leader" class="contact-mini-image" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.6s ease;">
-                                    <div class="contact-pulse" style="position: absolute; top: -2px; left: -2px; width: calc(100% + 4px); height: calc(100% + 4px); border: 2px solid #7c3aed; border-radius: 50%; animation: pulse 2s infinite;"></div>
+                                    <div class="contact-pulse" style="position: absolute; top: -2px; left: -2px; width: calc(100% + 4px); height: calc(100% + 4px); border: 2px solid #7c3aed; border-radius: 50%;"></div>
                                 </div>
                             </div>
                         </div>
